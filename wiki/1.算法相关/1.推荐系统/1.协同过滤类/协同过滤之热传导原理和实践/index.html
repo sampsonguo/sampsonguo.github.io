@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset="utf-8">
+    
+    <title>协同过滤之热传导原理和实践 | Wiki</title>
+    
+    
+        <meta name="keywords" content="协同过滤之热传导原理和实践" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="一句话简介传导算法就是把倾向于热item且注重准确率的ProbS算法和倾向于冷item且注重多样性的HeatS算法的有机结合。 算法效果某业务线上跑赢了item-cf，这是我们调研此算法的初衷。 图说思想下面是HeatS(A-&gt;B-&gt;C)算法和ProbS（D-&gt;E-&gt;F)，其中“o”表示一个用户，“口”表示一个item，连线表示user喜欢item，下面需要对“●user“">
+<meta property="og:type" content="article">
+<meta property="og:title" content="协同过滤之热传导原理和实践">
+<meta property="og:url" content="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E7%83%AD%E4%BC%A0%E5%AF%BC%E5%8E%9F%E7%90%86%E5%92%8C%E5%AE%9E%E8%B7%B5/index.html">
+<meta property="og:site_name" content="Wiki">
+<meta property="og:description" content="一句话简介传导算法就是把倾向于热item且注重准确率的ProbS算法和倾向于冷item且注重多样性的HeatS算法的有机结合。 算法效果某业务线上跑赢了item-cf，这是我们调研此算法的初衷。 图说思想下面是HeatS(A-&gt;B-&gt;C)算法和ProbS（D-&gt;E-&gt;F)，其中“o”表示一个用户，“口”表示一个item，连线表示user喜欢item，下面需要对“●user“">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E7%83%AD%E4%BC%A0%E5%AF%BC%E5%8E%9F%E7%90%86%E5%92%8C%E5%AE%9E%E8%B7%B5/1.png">
+<meta property="og:image" content="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E7%83%AD%E4%BC%A0%E5%AF%BC%E5%8E%9F%E7%90%86%E5%92%8C%E5%AE%9E%E8%B7%B5/2.png">
+<meta property="og:image" content="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E7%83%AD%E4%BC%A0%E5%AF%BC%E5%8E%9F%E7%90%86%E5%92%8C%E5%AE%9E%E8%B7%B5/3.png">
+<meta property="og:image" content="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E7%83%AD%E4%BC%A0%E5%AF%BC%E5%8E%9F%E7%90%86%E5%92%8C%E5%AE%9E%E8%B7%B5/4.png">
+<meta property="og:image" content="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E7%83%AD%E4%BC%A0%E5%AF%BC%E5%8E%9F%E7%90%86%E5%92%8C%E5%AE%9E%E8%B7%B5/5.png">
+<meta property="og:image" content="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E7%83%AD%E4%BC%A0%E5%AF%BC%E5%8E%9F%E7%90%86%E5%92%8C%E5%AE%9E%E8%B7%B5/6.png">
+<meta property="article:published_time" content="2024-01-03T09:29:33.550Z">
+<meta property="article:modified_time" content="2024-01-03T09:44:53.609Z">
+<meta property="article:author" content="sigmoidguo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E7%83%AD%E4%BC%A0%E5%AF%BC%E5%8E%9F%E7%90%86%E5%92%8C%E5%AE%9E%E8%B7%B5/1.png">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="Wiki" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/open-sans/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    
+<script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Wiki</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id='categories'>
+        <h3 class="widget-title">
+            <span>categories</span>
+            &nbsp;
+            <a id='allExpand' href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree" > 
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            1.算法相关
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            1.推荐系统
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            1.协同过滤类
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/">协同过滤之推荐系统中的相似性探讨</a></li>  <li class="file active"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E7%83%AD%E4%BC%A0%E5%AF%BC%E5%8E%9F%E7%90%86%E5%92%8C%E5%AE%9E%E8%B7%B5/">协同过滤之热传导原理和实践</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            2.评估指标
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/2.%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87%E4%B9%8Bauc%E5%92%8Clogloss/">评估指标之auc和logloss</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            2.广告系统
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E5%B9%BF%E5%91%8A%E7%B3%BB%E7%BB%9F/%E5%87%BA%E4%BB%B7%E7%82%B9%E3%80%81%E7%AB%9E%E4%BB%B7%E7%82%B9/">place holder</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            3.用户增长
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/3.%E7%94%A8%E6%88%B7%E5%A2%9E%E9%95%BF/%E6%96%B0%E5%A2%9E%E7%95%99%E5%AD%98%E4%BB%98%E8%B4%B9%E5%9B%9E%E6%B5%81/">place holder</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            4.数据挖掘
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/4.%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/%E8%81%9A%E7%B1%BB%E8%AE%A8%E8%AE%BA%EF%BC%88dbscan%E7%AD%89%EF%BC%89/">place holder</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            5.深度学习
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/5.%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%89%8B%E5%86%99attention/">place holder</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            7.大模型
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/7.%E5%A4%A7%E6%A8%A1%E5%9E%8B/place_holder/">place holder</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            2.数据相关
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            1.传统数仓
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            1.flink
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/1.%E4%BC%A0%E7%BB%9F%E6%95%B0%E4%BB%93/1.flink/place_holder/">place holder</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            3.服务相关
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            1.平台工具
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/1.%E5%B9%B3%E5%8F%B0%E5%B7%A5%E5%85%B7/place_holder/">place holder</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            2.后台开发
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/2.%E5%90%8E%E5%8F%B0%E5%BC%80%E5%8F%91/place_holder/">place holder</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            3.算法平台
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/3.%E7%AE%97%E6%B3%95%E5%B9%B3%E5%8F%B0/place_holder/">place holder</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            4.算法服务
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/4.%E7%AE%97%E6%B3%95%E6%9C%8D%E5%8A%A1/place_holder/">place holder</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            4.日常相关
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            1.数学知识
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/4.%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/1.%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/place_holder/">place holder</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            2.算法竞赛
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/4.%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/2.%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/place_holder/">place holder</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            3.教员千古
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/4.%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/3.%E6%95%99%E5%91%98%E5%8D%83%E5%8F%A4/place_holder/">place holder</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/4.%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/place_holder/">place holder</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-1.算法相关/1.推荐系统/1.协同过滤类/协同过滤之热传导原理和实践" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/">1.算法相关</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1-%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/">1.推荐系统</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1-%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1-%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/">1.协同过滤类</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E7%83%AD%E4%BC%A0%E5%AF%BC%E5%8E%9F%E7%90%86%E5%92%8C%E5%AE%9E%E8%B7%B5/">
+            <time datetime="2024-01-03T09:29:33.550Z" itemprop="datePublished">2024-01-03</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            协同过滤之热传导原理和实践
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+        
+        
+            <h5 id="一句话简介"><a href="#一句话简介" class="headerlink" title="一句话简介"></a>一句话简介</h5><p>传导算法就是把倾向于热item且注重准确率的ProbS算法和倾向于冷item且注重多样性的HeatS算法的有机结合。</p>
+<h5 id="算法效果"><a href="#算法效果" class="headerlink" title="算法效果"></a>算法效果</h5><p>某业务线上跑赢了item-cf，这是我们调研此算法的初衷。</p>
+<h5 id="图说思想"><a href="#图说思想" class="headerlink" title="图说思想"></a>图说思想</h5><p>下面是HeatS(A-&gt;B-&gt;C)算法和ProbS（D-&gt;E-&gt;F)，其中“o”表示一个用户，“口”表示一个item，连线表示user喜欢item，下面需要对“●user“给出更多的推荐item。</p>
+<img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E7%83%AD%E4%BC%A0%E5%AF%BC%E5%8E%9F%E7%90%86%E5%92%8C%E5%AE%9E%E8%B7%B5/1.png" class="" title="[1.png]">
+
+<h5 id="HeatS"><a href="#HeatS" class="headerlink" title="HeatS"></a>HeatS</h5><p>首先是HeatS算法，有些像”吸星大法“，按照均匀比例从源头吸取值。（看带箭头的两条线，源头值是1，但是输出值只有1&#x2F;2+1&#x2F;4≠1，所以是非能量守恒算法）</p>
+<img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E7%83%AD%E4%BC%A0%E5%AF%BC%E5%8E%9F%E7%90%86%E5%92%8C%E5%AE%9E%E8%B7%B5/2.png" class="" title="[2.png]">
+
+<h5 id="ProbS"><a href="#ProbS" class="headerlink" title="ProbS"></a>ProbS</h5><p>然后是ProbS算法，源头按同一比例发散给下游，颇有PageRank的味道，属于能量守恒算法。</p>
+<img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E7%83%AD%E4%BC%A0%E5%AF%BC%E5%8E%9F%E7%90%86%E5%92%8C%E5%AE%9E%E8%B7%B5/3.png" class="" title="[3.png]">
+
+<h5 id="matlab"><a href="#matlab" class="headerlink" title="matlab"></a>matlab</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">% 1.user_item_matrix:</span><br><span class="line">u_i = [</span><br><span class="line">1 0 0 1 0</span><br><span class="line">1 1 1 1 0</span><br><span class="line">1 0 1 0 0</span><br><span class="line">0 0 1 0 1</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">% 2.item_user_matrix:</span><br><span class="line">i_u=u_i&#x27;</span><br><span class="line"></span><br><span class="line">% 3.user_x&#x27;s item score:</span><br><span class="line">i1=[</span><br><span class="line">1</span><br><span class="line">0</span><br><span class="line">0</span><br><span class="line">1</span><br><span class="line">0</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">% 4.按照user进行归一化</span><br><span class="line">u_i_norm=u_i./repmat(sum(u_i,2), 1, size(u_i, 2))</span><br><span class="line"></span><br><span class="line">% 5.按照item进行归一化</span><br><span class="line">i_u_norm = i_u./repmat(sum(i_u, 2), 1, size(i_u, 2))</span><br><span class="line"></span><br><span class="line">% 6.HeatS</span><br><span class="line">i_u_norm*u_i_norm*i1</span><br><span class="line"></span><br><span class="line">% 7.ProbS</span><br><span class="line">(i_u_norm*u_i_norm)&#x27;*i1</span><br></pre></td></tr></table></figure>
+
+<h5 id="迭代公式"><a href="#迭代公式" class="headerlink" title="迭代公式"></a>迭代公式</h5><img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E7%83%AD%E4%BC%A0%E5%AF%BC%E5%8E%9F%E7%90%86%E5%92%8C%E5%AE%9E%E8%B7%B5/4.png" class="" title="[4.png]">
+
+<img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E7%83%AD%E4%BC%A0%E5%AF%BC%E5%8E%9F%E7%90%86%E5%92%8C%E5%AE%9E%E8%B7%B5/5.png" class="" title="[5.png]">
+
+<h5 id="组合公式"><a href="#组合公式" class="headerlink" title="组合公式"></a>组合公式</h5><img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E7%83%AD%E4%BC%A0%E5%AF%BC%E5%8E%9F%E7%90%86%E5%92%8C%E5%AE%9E%E8%B7%B5/6.png" class="" title="[6.png]">
+
+<h5 id="matlab-1"><a href="#matlab-1" class="headerlink" title="matlab"></a>matlab</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">====== HeatS ======</span><br><span class="line">lambda=0</span><br><span class="line">k=[</span><br><span class="line">3</span><br><span class="line">1</span><br><span class="line">3</span><br><span class="line">2</span><br><span class="line">1</span><br><span class="line">]</span><br><span class="line">k_alpha=k.^(1-lambda)</span><br><span class="line">k_beta=k.^lambda</span><br><span class="line">(1./(k_alpha*k_beta&#x27;)).*(i_u*u_i_norm)</span><br><span class="line"></span><br><span class="line">======== ProbS =======</span><br><span class="line">lambda=1</span><br><span class="line">k=[</span><br><span class="line">3</span><br><span class="line">1</span><br><span class="line">3</span><br><span class="line">2</span><br><span class="line">1</span><br><span class="line">]</span><br><span class="line">k_alpha=k.^(1-lambda)</span><br><span class="line">k_beta=k.^lambda</span><br><span class="line">(1./(k_alpha*k_beta&#x27;)).*(i_u*u_i_norm)</span><br></pre></td></tr></table></figure>
+
+<p>A-&gt;B-&gt;C，然后呢？<br>因为是要不断迭代，所以要求的是A-&gt;B-&gt;C-&gt;D-&gt;…一直到稳定。下面有三种策略：</p>
+<ol>
+<li>一直迭代。</li>
+<li>幂元加速。（x&#x3D;2, x^2&#x3D;4,(x^2)^2&#x3D;16….)</li>
+<li>公式求解。（Ax&#x3D;x，求x）</li>
+</ol>
+<h5 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br></pre></td><td class="code"><pre><span class="line">// probS的代码，模仿pagerank写成，还有很大优化空间</span><br><span class="line">// scalastyle:off println</span><br><span class="line"></span><br><span class="line">import org.apache.spark.SparkContext._</span><br><span class="line">import org.apache.spark.&#123;SparkConf, SparkContext&#125;</span><br><span class="line"></span><br><span class="line">object probS &#123;</span><br><span class="line"></span><br><span class="line">  def main(args: Array[String]) &#123;</span><br><span class="line">    /*</span><br><span class="line">    if (args.length &lt; 1) &#123;</span><br><span class="line">      System.err.println(&quot;Usage: SparkPageRank &lt;file&gt; &lt;iter&gt;&quot;)</span><br><span class="line">      System.exit(1)</span><br><span class="line">    &#125;</span><br><span class="line">    */</span><br><span class="line"></span><br><span class="line">    val args = new Array[String](3)</span><br><span class="line">    args(0)=&quot;D:\\Users\\spark\\SparkTest\\input\\link.txt&quot;</span><br><span class="line">    args(1)=&quot;2&quot;</span><br><span class="line">    args(2)=&quot;D:\\Users\\spark\\SparkTest\\input\\node.txt&quot;</span><br><span class="line"></span><br><span class="line">    val sparkConf = new SparkConf().setAppName(&quot;PageRank&quot;).setMaster(&quot;local&quot;)</span><br><span class="line">    val iters = if (args.length &gt; 1) args(1).toInt else 10</span><br><span class="line">    val ctx = new SparkContext(sparkConf)</span><br><span class="line">    val lines = ctx.textFile(args(0), 1)</span><br><span class="line">    val links = lines.map&#123; s =&gt;</span><br><span class="line">      val parts = s.split(&quot;\\s+&quot;)</span><br><span class="line">      (parts(0), parts(1))</span><br><span class="line">    &#125;.distinct().groupByKey().cache()</span><br><span class="line">    //var ranks = links.mapValues(v =&gt; 1.0)</span><br><span class="line">    // the init node score</span><br><span class="line">    val nodes = ctx.textFile(args(2), 1)</span><br><span class="line">    var ranks = nodes.map&#123; s =&gt;</span><br><span class="line">    val parts = s.split(&quot;\\s+&quot;)</span><br><span class="line">          (parts(0), parts(1).toDouble)</span><br><span class="line">     &#125;</span><br><span class="line">     for (i &lt;- 1 to iters) &#123;</span><br><span class="line">       val contribs = links.join(ranks).values.flatMap&#123; case (urls, rank) =&gt;</span><br><span class="line">          val size = urls.size</span><br><span class="line">            urls.map(url =&gt; (url, rank / (size)))</span><br><span class="line">       &#125;</span><br><span class="line">          //ranks = contribs.reduceByKey(_ + _).mapValues(0.15 + 0.85 * _)</span><br><span class="line">          ranks = contribs.reduceByKey(_ + _).mapValues(0.0 + 1.0 * _)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    val output = ranks.collect()</span><br><span class="line">        output.foreach(tup =&gt; println(tup._1 + &quot; has rank: &quot; + tup._2 + &quot;.&quot;))</span><br><span class="line"></span><br><span class="line">        ctx.stop()</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">输入文件：</span><br><span class="line">---- node.txt ----</span><br><span class="line">1 0</span><br><span class="line">2 0</span><br><span class="line">3 0</span><br><span class="line">4 0</span><br><span class="line">5 1</span><br><span class="line">6 0</span><br><span class="line">7 0</span><br><span class="line">8 1</span><br><span class="line">9 0</span><br><span class="line"></span><br><span class="line">--- link.txt ---</span><br><span class="line">1 5</span><br><span class="line">5 1</span><br><span class="line">1 8</span><br><span class="line">8 1</span><br><span class="line">2 5</span><br><span class="line">5 2</span><br><span class="line">2 6</span><br><span class="line">6 2</span><br><span class="line">2 7</span><br><span class="line">7 2</span><br><span class="line">2 8</span><br><span class="line">8 2</span><br><span class="line">3 5</span><br><span class="line">5 3</span><br><span class="line">3 7</span><br><span class="line">7 3</span><br><span class="line">4 7</span><br><span class="line">7 4</span><br><span class="line">4 9</span><br><span class="line">9 4</span><br><span class="line"></span><br><span class="line">// heatS的代码</span><br><span class="line"></span><br><span class="line">import org.apache.spark.SparkContext._</span><br><span class="line">import org.apache.spark.&#123;SparkConf, SparkContext&#125;</span><br><span class="line"></span><br><span class="line">object heatS &#123;</span><br><span class="line"></span><br><span class="line"> def main(args: Array[String]) &#123;</span><br><span class="line"> /*</span><br><span class="line"> if (args.length &lt; 1) &#123;</span><br><span class="line"> System.err.println(&quot;Usage: SparkPageRank &lt;file&gt; &lt;iter&gt;&quot;)</span><br><span class="line"> System.exit(1)</span><br><span class="line"> &#125;</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line"> val args = new Array[String](3)</span><br><span class="line"> args(0)=&quot;D:\\Users\\spark\\SparkTest\\input\\link.txt&quot;</span><br><span class="line"> args(1)=&quot;2&quot;</span><br><span class="line"> args(2)=&quot;D:\\Users\\spark\\SparkTest\\input\\node.txt&quot;</span><br><span class="line"></span><br><span class="line"> val sparkConf = new SparkConf().setAppName(&quot;PageRank&quot;).setMaster(&quot;local&quot;)</span><br><span class="line"> val iters = if (args.length &gt; 1) args(1).toInt else 10</span><br><span class="line"> val ctx = new SparkContext(sparkConf)</span><br><span class="line"> val lines = ctx.textFile(args(0), 1)</span><br><span class="line"> val links = lines.map&#123; s =&gt;</span><br><span class="line"> val parts = s.split(&quot;\\s+&quot;)</span><br><span class="line"> (parts(0), parts(1))</span><br><span class="line"> &#125;</span><br><span class="line"> val cnt = links.groupByKey.map&#123; t =&gt;</span><br><span class="line"> (t._1, t._2.size)</span><br><span class="line"> &#125;</span><br><span class="line"> //var ranks = links.mapValues(v =&gt; 1.0)</span><br><span class="line"> // the init node score</span><br><span class="line"> val nodes = ctx.textFile(args(2), 1)</span><br><span class="line"> var ranks = nodes.map&#123; s =&gt;</span><br><span class="line"> val parts = s.split(&quot;\\s+&quot;)</span><br><span class="line"> (parts(0), parts(1).toDouble)</span><br><span class="line"> &#125;</span><br><span class="line"> for (i &lt;- 1 to iters) &#123;</span><br><span class="line"> ranks = links.join(cnt).map&#123; t =&gt;</span><br><span class="line"> (t._2._1, (t._1, t._2._2))</span><br><span class="line"> &#125;.join(ranks).map&#123; t =&gt;</span><br><span class="line"> (t._2._1._1, t._2._2/t._2._1._2)</span><br><span class="line"> &#125;.reduceByKey(_ + _)</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> val output = ranks.collect()</span><br><span class="line"> output.foreach(tup =&gt; println(tup._1 + &quot; has rank: &quot; + tup._2 + &quot;.&quot;))</span><br><span class="line"></span><br><span class="line"> ctx.stop()</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">% heatS</span><br><span class="line">(i_u_norm*u_i_norm)^200*i1</span><br><span class="line"></span><br><span class="line">ans =</span><br><span class="line"></span><br><span class="line"> 0.5000</span><br><span class="line"> 0.5000</span><br><span class="line"> 0.5000</span><br><span class="line"> 0.5000</span><br><span class="line"> 0.5000</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">%probS</span><br><span class="line">((i_u_norm*u_i_norm)&#x27;)^200*i1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ans =</span><br><span class="line"></span><br><span class="line">    0.6000</span><br><span class="line">    0.2000</span><br><span class="line">    0.6000</span><br><span class="line">    0.4000</span><br><span class="line">    0.2000</span><br></pre></td></tr></table></figure>
+<p>heatS会趋于一致，probS会趋于和连接线的个数正相关（即和初始条件无关）</p>
+<p>Ref:<br><br>《Solving the apparent diversity-accuracy dilemma of recommender systems》<br><a href="http://www.pnas.org/content/107/10/4511.full.pdf">http://www.pnas.org/content/107/10/4511.full.pdf</a></p>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+    
+        <a href="/wiki/4.%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/place_holder/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">place holder</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            sigmoidguo &copy; 2024 
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+    </div>
+</body>
+</html>

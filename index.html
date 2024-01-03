@@ -187,7 +187,25 @@
                             &nbsp;
                             1.推荐系统
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87%E4%B9%8Bauc%E5%92%8Clogloss/">评估指标之auc和logloss</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/">协同过滤之推荐系统中的相似性探讨</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            1.协同过滤类
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/">协同过滤之推荐系统中的相似性探讨</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E7%83%AD%E4%BC%A0%E5%AF%BC%E5%8E%9F%E7%90%86%E5%92%8C%E5%AE%9E%E8%B7%B5/">协同过滤之热传导原理和实践</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            2.评估指标
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/2.%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87%E4%B9%8Bauc%E5%92%8Clogloss/">评估指标之auc和logloss</a></li>  </ul> 
+                    </li> 
+                     </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -416,6 +434,95 @@
 </aside>
             
             <section id="main">
+        <article id="post-1.算法相关/1.推荐系统/1.协同过滤类/协同过滤之热传导原理和实践" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/">1.算法相关</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1-%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/">1.推荐系统</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1-%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1-%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/">1.协同过滤类</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E7%83%AD%E4%BC%A0%E5%AF%BC%E5%8E%9F%E7%90%86%E5%92%8C%E5%AE%9E%E8%B7%B5/">
+            <time datetime="2024-01-03T09:29:33.550Z" itemprop="datePublished">2024-01-03</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E7%83%AD%E4%BC%A0%E5%AF%BC%E5%8E%9F%E7%90%86%E5%92%8C%E5%AE%9E%E8%B7%B5/">协同过滤之热传导原理和实践</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h5 id="一句话简介"><a href="#一句话简介" class="headerlink" title="一句话简介"></a>一句话简介</h5><p>传导算法就是把倾向于热item且注重准确率的ProbS算法和倾向于冷item且注重多样性的HeatS算法的有机结合。</p>
+<h5 id="算法效果"><a href="#算法效果" class="headerlink" title="算法效果"></a>算法效果</h5><p>某业务线上跑赢了item-cf，这是我们调研此算法的初衷。</p>
+<h5 id="图说思想"><a href="#图说思想" class="headerlink" title="图说思想"></a>图说思想</h5><p>下面是HeatS(A-&gt;B-&gt;C)算法和ProbS（D-&gt;E-&gt;F)，其中“o”表示一个用户，“口”表示一个item，连线表示user喜欢item，下面需要对“●user“给出更多的推荐item。</p>
+<img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E7%83%AD%E4%BC%A0%E5%AF%BC%E5%8E%9F%E7%90%86%E5%92%8C%E5%AE%9E%E8%B7%B5/1.png" class="" title="[1.png]">
+
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E7%83%AD%E4%BC%A0%E5%AF%BC%E5%8E%9F%E7%90%86%E5%92%8C%E5%AE%9E%E8%B7%B5/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-4.日常相关/place_holder" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -492,6 +599,95 @@
             </div>   
             <div class="article-more-link">
                 <a href="/wiki/4.%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/place_holder/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-1.算法相关/3.用户增长/新增留存付费回流" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/">1.算法相关</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/3-%E7%94%A8%E6%88%B7%E5%A2%9E%E9%95%BF/">3.用户增长</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/3.%E7%94%A8%E6%88%B7%E5%A2%9E%E9%95%BF/%E6%96%B0%E5%A2%9E%E7%95%99%E5%AD%98%E4%BB%98%E8%B4%B9%E5%9B%9E%E6%B5%81/">
+            <time datetime="2024-01-02T08:06:36.476Z" itemprop="datePublished">2024-01-02</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/3.%E7%94%A8%E6%88%B7%E5%A2%9E%E9%95%BF/%E6%96%B0%E5%A2%9E%E7%95%99%E5%AD%98%E4%BB%98%E8%B4%B9%E5%9B%9E%E6%B5%81/">place holder</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/3.%E7%94%A8%E6%88%B7%E5%A2%9E%E9%95%BF/%E6%96%B0%E5%A2%9E%E7%95%99%E5%AD%98%E4%BB%98%E8%B4%B9%E5%9B%9E%E6%B5%81/#more">Read More</a>
             </div>
         
         <footer class="article-footer">
@@ -861,7 +1057,7 @@
 
 
     
-        <article id="post-1.算法相关/3.用户增长/新增留存付费回流" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-4.日常相关/1.数学知识/place_holder" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -871,14 +1067,14 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/">1.算法相关</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/3-%E7%94%A8%E6%88%B7%E5%A2%9E%E9%95%BF/">3.用户增长</a>
+        <a class="article-category-link" href="/categories/4-%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/">4.日常相关</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/4-%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/1-%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/">1.数学知识</a>
     </div>
 
                         
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/3.%E7%94%A8%E6%88%B7%E5%A2%9E%E9%95%BF/%E6%96%B0%E5%A2%9E%E7%95%99%E5%AD%98%E4%BB%98%E8%B4%B9%E5%9B%9E%E6%B5%81/">
+        <a href="/wiki/4.%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/1.%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/place_holder/">
             <time datetime="2024-01-02T08:06:36.476Z" itemprop="datePublished">2024-01-02</time>
         </a>
     </div>
@@ -894,7 +1090,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/3.%E7%94%A8%E6%88%B7%E5%A2%9E%E9%95%BF/%E6%96%B0%E5%A2%9E%E7%95%99%E5%AD%98%E4%BB%98%E8%B4%B9%E5%9B%9E%E6%B5%81/">place holder</a>
+            <a class="article-title" href="/wiki/4.%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/1.%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/place_holder/">place holder</a>
         </h1>
     
 
@@ -936,7 +1132,7 @@
         
             </div>   
             <div class="article-more-link">
-                <a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/3.%E7%94%A8%E6%88%B7%E5%A2%9E%E9%95%BF/%E6%96%B0%E5%A2%9E%E7%95%99%E5%AD%98%E4%BB%98%E8%B4%B9%E5%9B%9E%E6%B5%81/#more">Read More</a>
+                <a href="/wiki/4.%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/1.%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/place_holder/#more">Read More</a>
             </div>
         
         <footer class="article-footer">
@@ -1039,95 +1235,6 @@
 
 
     
-        <article id="post-3.服务相关/3.算法平台/place_holder" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/3-%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/">3.服务相关</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/3-%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/3-%E7%AE%97%E6%B3%95%E5%B9%B3%E5%8F%B0/">3.算法平台</a>
-    </div>
-
-                        
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/3.%E7%AE%97%E6%B3%95%E5%B9%B3%E5%8F%B0/place_holder/">
-            <time datetime="2024-01-02T08:06:36.476Z" itemprop="datePublished">2024-01-02</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/3.%E7%AE%97%E6%B3%95%E5%B9%B3%E5%8F%B0/place_holder/">place holder</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/3.%E7%AE%97%E6%B3%95%E5%B9%B3%E5%8F%B0/place_holder/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <article id="post-3.服务相关/4.算法服务/place_holder" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1204,95 +1311,6 @@
             </div>   
             <div class="article-more-link">
                 <a href="/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/4.%E7%AE%97%E6%B3%95%E6%9C%8D%E5%8A%A1/place_holder/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-4.日常相关/1.数学知识/place_holder" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/4-%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/">4.日常相关</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/4-%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/1-%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/">1.数学知识</a>
-    </div>
-
-                        
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/wiki/4.%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/1.%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/place_holder/">
-            <time datetime="2024-01-02T08:06:36.476Z" itemprop="datePublished">2024-01-02</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/wiki/4.%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/1.%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/place_holder/">place holder</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/wiki/4.%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/1.%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/place_holder/#more">Read More</a>
             </div>
         
         <footer class="article-footer">

@@ -3,35 +3,31 @@
 <head>
     <meta charset="utf-8">
     
-    <title>协同过滤之推荐系统中的相似性探讨 | Wiki</title>
+    <title>评估指标之auc和logloss | Wiki</title>
     
     
-        <meta name="keywords" content="协同过滤之推荐系统中的相似性探讨" />
+        <meta name="keywords" content="评估指标之auc和logloss" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="1. 从购物篮到文式图在常见的购物篮分析中，常常出现这样的数据：    购物篮    A B   B C   A B C   A B   C D   D E   C E   在讨论A和B的相似性的时候，用文式图可以方便的表示：   那么A和B越相似的表现是：  【频繁一项集】A和B的出现次数很多，数据充足有说服力，即频繁一项集大 1.1 count(A) &#x3D; 3, count(B) &amp;#">
+    <meta name="description" content="评估指标评估指标大致分为两种，值评估和序评估。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="协同过滤之推荐系统中的相似性探讨">
-<meta property="og:url" content="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/index.html">
+<meta property="og:title" content="评估指标之auc和logloss">
+<meta property="og:url" content="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/2.%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87%E4%B9%8Bauc%E5%92%8Clogloss/index.html">
 <meta property="og:site_name" content="Wiki">
-<meta property="og:description" content="1. 从购物篮到文式图在常见的购物篮分析中，常常出现这样的数据：    购物篮    A B   B C   A B C   A B   C D   D E   C E   在讨论A和B的相似性的时候，用文式图可以方便的表示：   那么A和B越相似的表现是：  【频繁一项集】A和B的出现次数很多，数据充足有说服力，即频繁一项集大 1.1 count(A) &#x3D; 3, count(B) &amp;#">
+<meta property="og:description" content="评估指标评估指标大致分为两种，值评估和序评估。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E6%96%87%E5%BC%8F%E5%9B%BE.png">
-<meta property="og:image" content="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E6%96%87%E5%BC%8F%E5%9B%BE2.png">
-<meta property="og:image" content="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E6%96%874.png">
-<meta property="og:image" content="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E6%96%876.png">
-<meta property="og:image" content="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E7%9F%A9%E9%98%B5.png">
-<meta property="og:image" content="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/LLR.png">
-<meta property="og:image" content="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E7%86%B5.png">
-<meta property="og:image" content="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E5%9B%BE111.png">
-<meta property="og:image" content="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/222.png">
-<meta property="og:image" content="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/1495174122_13_w1380_h340.png">
-<meta property="og:image" content="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/1495174132_11_w994_h1176.png">
-<meta property="article:published_time" content="2024-01-02T08:04:32.761Z">
-<meta property="article:modified_time" content="2024-01-03T09:22:58.002Z">
+<meta property="og:image" content="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/2.%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87%E4%B9%8Bauc%E5%92%8Clogloss/1.gif">
+<meta property="og:image" content="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/2.%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87%E4%B9%8Bauc%E5%92%8Clogloss/2.png">
+<meta property="og:image" content="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/2.%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87%E4%B9%8Bauc%E5%92%8Clogloss/3.png">
+<meta property="og:image" content="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/2.%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87%E4%B9%8Bauc%E5%92%8Clogloss/4.png">
+<meta property="og:image" content="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/2.%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87%E4%B9%8Bauc%E5%92%8Clogloss/6.png">
+<meta property="og:image" content="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/2.%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87%E4%B9%8Bauc%E5%92%8Clogloss/7.png">
+<meta property="og:image" content="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/2.%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87%E4%B9%8Bauc%E5%92%8Clogloss/9.png">
+<meta property="article:published_time" content="2024-01-01T08:31:16.417Z">
+<meta property="article:modified_time" content="2024-01-03T07:39:33.582Z">
 <meta property="article:author" content="sigmoidguo">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E6%96%87%E5%BC%8F%E5%9B%BE.png">
+<meta name="twitter:image" content="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/2.%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87%E4%B9%8Bauc%E5%92%8Clogloss/1.gif">
     
 
     
@@ -203,7 +199,25 @@
                             &nbsp;
                             1.推荐系统
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87%E4%B9%8Bauc%E5%92%8Clogloss/">评估指标之auc和logloss</a></li>  <li class="file active"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/">协同过滤之推荐系统中的相似性探讨</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            1.协同过滤类
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/">协同过滤之推荐系统中的相似性探讨</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E7%83%AD%E4%BC%A0%E5%AF%BC%E5%8E%9F%E7%90%86%E5%92%8C%E5%AE%9E%E8%B7%B5/">协同过滤之热传导原理和实践</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            2.评估指标
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file active"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/2.%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87%E4%B9%8Bauc%E5%92%8Clogloss/">评估指标之auc和logloss</a></li>  </ul> 
+                    </li> 
+                     </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -431,7 +445,7 @@
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main"><article id="post-1.算法相关/1.推荐系统/协同过滤之推荐系统中的相似性探讨" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-1.算法相关/1.推荐系统/2.评估指标/评估指标之auc和logloss" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -441,15 +455,15 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/">1.算法相关</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1-%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/">1.推荐系统</a>
+        <a class="article-category-link" href="/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/">1.算法相关</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1-%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/">1.推荐系统</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1-%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/2-%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/">2.评估指标</a>
     </div>
 
                         
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/">
-            <time datetime="2024-01-02T08:04:32.761Z" itemprop="datePublished">2024-01-02</time>
+        <a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/2.%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87%E4%B9%8Bauc%E5%92%8Clogloss/">
+            <time datetime="2024-01-01T08:31:16.417Z" itemprop="datePublished">2024-01-01</time>
         </a>
     </div>
 
@@ -464,7 +478,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            协同过滤之推荐系统中的相似性探讨
+            评估指标之auc和logloss
         </h1>
     
 
@@ -477,115 +491,152 @@
             
         
         
-            <h4 id="1-从购物篮到文式图"><a href="#1-从购物篮到文式图" class="headerlink" title="1. 从购物篮到文式图"></a>1. 从购物篮到文式图</h4><p>在常见的购物篮分析中，常常出现这样的数据：</p>
+            <h3 id="评估指标"><a href="#评估指标" class="headerlink" title="评估指标"></a>评估指标</h3><p>评估指标大致分为两种，值评估和序评估。</p>
+<span id="more"></span>
+
 <table>
 <thead>
 <tr>
-<th align="left">购物篮</th>
+<th>值评估</th>
+<th>序评估</th>
 </tr>
 </thead>
 <tbody><tr>
-<td align="left">A B</td>
+<td>MSE&#x2F;RMSE</td>
+<td>AUC&#x2F;AUPR</td>
 </tr>
 <tr>
-<td align="left">B C</td>
+<td>R^2</td>
+<td>P@k&#x2F;MAP&#x2F;nDCG</td>
 </tr>
 <tr>
-<td align="left">A B C</td>
+<td>logloss</td>
+<td>Precision&#x2F;Recall</td>
 </tr>
 <tr>
-<td align="left">A B</td>
-</tr>
-<tr>
-<td align="left">C D</td>
-</tr>
-<tr>
-<td align="left">D E</td>
-</tr>
-<tr>
-<td align="left">C E</td>
+<td>MAE</td>
+<td>TP&#x2F;FP&#x2F;TN&#x2F;FN&#x2F;F1</td>
 </tr>
 </tbody></table>
-<p>在讨论A和B的相似性的时候，用文式图可以方便的表示：<br></p>
-<img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E6%96%87%E5%BC%8F%E5%9B%BE.png" class="" title="[文式图.png]">
-
-<p>那么A和B越相似的表现是：</p>
-<ol>
-<li><p>【频繁一项集】A和B的出现次数很多，数据充足有说服力，即频繁一项集大 1.1 count(A) &#x3D; 3, count(B) &#x3D; 4，这两个值足够大</p>
+<h3 id="序准-VS-值准"><a href="#序准-VS-值准" class="headerlink" title="序准 VS 值准"></a>序准 VS 值准</h3><ul>
+<li>指标和目的<ul>
+<li>序评估目的是为了序准</li>
+<li>值评估目的是为了值准</li>
+</ul>
 </li>
-<li><p>【support】A∩B的值很大，数据充足有说服力，表现为重合面积大，即频繁二项集大或者support高 2.1 频繁二项集 &#x3D; count(A∩B) &#x3D; 3，这个值越大越好 2.2 support &#x3D; count(A∩B) &#x2F; count(ALL) &#x3D; 3 &#x2F; 7，这个值越大越好</p>
+<li>应用场景<ul>
+<li>序准适用于推荐系统，pCTR相对准确，目的是用户价值最大化</li>
+<li>值准适用于商业化系统，pCTR绝对准确，pCTR*cpc，目的是商业价值最大化</li>
+<li>综合公式 score&#x3D;pCTR^a * cpc^b，进行调权重</li>
+</ul>
 </li>
-<li><p>【jaccard】A∩B的值在A∪B的中占比很大，有A就有B，表现为jaccard相似度高 3.1 jaccard(A, B) &#x3D; count(A∩B) &#x2F; count(A∪B) &#x3D; 3&#x2F;4 ，这个值越大越好</p>
+</ul>
+<h3 id="AUC的由来和计算"><a href="#AUC的由来和计算" class="headerlink" title="AUC的由来和计算"></a>AUC的由来和计算</h3><p>auc的一些基础知识，可以参考维基百科的解释:</p>
+<p><a href="https://en.wikipedia.org/wiki/Receiver_operating_characteristic">https://en.wikipedia.org/wiki/Receiver_operating_characteristic</a></p>
+<p>这里需要提到一些常见的错误：</p>
+<ul>
+<li><p>错误1：auc是一条光滑曲线<br>auc是一条折线，如下图</p>
+ <img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/2.%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87%E4%B9%8Bauc%E5%92%8Clogloss/1.gif" class="" title="[1.gif]">
+</li>
+<li><p>错误2：auc是和预估值有关系的<br>auc只和序有关系，和值无关。</p>
+</li>
+<li><p>错误3：求auc需要画出roc曲线<br>auc计算部分，除了画出roc曲线，还可以直接计算：</p>
+ <img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/2.%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87%E4%B9%8Bauc%E5%92%8Clogloss/2.png" class="" title="[2.png]">
+<p>其中,<br>M为正类样本的数目，N为负类样本的数目<br>rank是用的tiedrank</p>
+</li>
+</ul>
+<h4 id="AUC的物理意义"><a href="#AUC的物理意义" class="headerlink" title="AUC的物理意义"></a>AUC的物理意义</h4><p>和Wilcoxon-Mann-Witney Test有关，即:<br>auc&#x3D;“测试任意给一个正类样本和一个负类样本，正类样本的score有多大的概率大于负类样本的score”，也即auc的物理意义。</p>
+<h4 id="AUC的计算"><a href="#AUC的计算" class="headerlink" title="AUC的计算"></a>AUC的计算</h4><ul>
+<li><p>spark</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// Compute raw scores on the test set</span><br><span class="line">val predictionAndLabels = test.map &#123; case LabeledPoint(label, features) =&gt;</span><br><span class="line">  val prediction = model.predict(features)</span><br><span class="line">  (prediction, label)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// Instantiate metrics object</span><br><span class="line">val metrics = new BinaryClassificationMetrics(predictionAndLabels)</span><br><span class="line"></span><br><span class="line">// AUROC</span><br><span class="line">val auROC = metrics.areaUnderROC</span><br><span class="line">println(&quot;Area under ROC = &quot; + auROC)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>hivemall</p>
+ <img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/2.%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87%E4%B9%8Bauc%E5%92%8Clogloss/3.png" class="" title="[3.png]">
+</li>
+<li><p>C语言<br>Ref: <a href="https://github.com/liuzhiqiangruc/dml/blob/master/regr/auc.c">https://github.com/liuzhiqiangruc/dml/blob/master/regr/auc.c</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">double auc(int n, double *x, double *y) &#123;</span><br><span class="line">    if (!y || !x) return 0.0;</span><br><span class="line">    double *rk = (double*) malloc(sizeof(double) * n);</span><br><span class="line">    AucP *aucp = (AucP *)malloc(sizeof(AucP) * n);</span><br><span class="line">    int i, tsum;</span><br><span class="line">    double rksum, auc;</span><br><span class="line">    for (i = 0; i &lt; n; ++i) &#123;</span><br><span class="line">        aucp[i].x = x[i];</span><br><span class="line">        aucp[i].id = i;</span><br><span class="line">    &#125;</span><br><span class="line">    tiedrank(n, aucp, rk);</span><br><span class="line">    for (rksum = 0., tsum = 0, i = 0; i &lt; n; ++i) &#123;</span><br><span class="line">        if (y[i] &gt;= 1. - 1e-10) &#123;</span><br><span class="line">            rksum += rk[i];</span><br><span class="line">            tsum += 1;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    double mn, pst;</span><br><span class="line">    mn = (double) (n - tsum);</span><br><span class="line">    mn *= (double) tsum;</span><br><span class="line">    pst = (double) tsum;</span><br><span class="line">    pst *= (double) tsum + 1;</span><br><span class="line">    auc = (rksum - pst / 2.) / mn;</span><br><span class="line">    free(rk);</span><br><span class="line">    free(aucp);</span><br><span class="line">    return auc;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="AUC的弊端和AUPR"><a href="#AUC的弊端和AUPR" class="headerlink" title="AUC的弊端和AUPR"></a>AUC的弊端和AUPR</h4> <img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/2.%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87%E4%B9%8Bauc%E5%92%8Clogloss/4.png" class="" title="[4.png]">
+ <img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/2.%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87%E4%B9%8Bauc%E5%92%8Clogloss/6.png" class="" title="[6.png]">
+ <img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/2.%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87%E4%B9%8Bauc%E5%92%8Clogloss/7.png" class="" title="[7.png]">
+
+<h3 id="logloss的由来和计算"><a href="#logloss的由来和计算" class="headerlink" title="logloss的由来和计算"></a>logloss的由来和计算</h3><h4 id="logloss由来"><a href="#logloss由来" class="headerlink" title="logloss由来"></a>logloss由来</h4><p>logloss是根据最大似然推导得到的，可参考：<br><a href="http://www.csuldw.com/2016/03/26/2016-03-26-loss-function/">http://www.csuldw.com/2016/03/26/2016-03-26-loss-function/</a></p>
+<p>有些概念需要区分一下</p>
+<ul>
+<li>loss function: 样本粒度的函数，如logloss, hingeloss等。<br>引用一张名图：<img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/2.%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87%E4%B9%8Bauc%E5%92%8Clogloss/9.png" class="" title="[9.png]"></li>
+</ul>
+<blockquote>
+<p>Plot of various loss functions. Blue is the 0–1 indicator function. Green is the square loss function. Purple is the hinge loss function. Yellow is the logistic loss function. Note that all surrogates give a loss penalty of 1 for yf(x) &#x3D; 0</p>
+</blockquote>
+<ul>
+<li>cost function: 集合粒度的函数，即 sum of loss.</li>
+</ul>
+<h4 id="logloss计算"><a href="#logloss计算" class="headerlink" title="logloss计算"></a>logloss计算</h4><p>logloss计算需要避免log0的情况，可以参考kaggle中的计算方式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">max(min(p,1−10^−15),10^−15)max(min(p,1−10^−15),10^−15).)</span><br></pre></td></tr></table></figure>
+<p>ref: <a href="https://www.kaggle.com/wiki/LogLoss">https://www.kaggle.com/wiki/LogLoss</a></p>
+<h3 id="AUC和logloss何时不一致"><a href="#AUC和logloss何时不一致" class="headerlink" title="AUC和logloss何时不一致"></a>AUC和logloss何时不一致</h3><p>在样本不均衡的情况下，AUC和logloss会出现很大的偏差。</p>
+<ol>
+<li><p>logloss低但是AUC也低<br>当负样本过多的时候，人为全部预测为负样本，可以实现低logloss，但是AUC&#x3D;0.5，并不优秀。</p>
+</li>
+<li><p>AUC高但是logloss也高<br>负样本过多，当位置pCTR顺序不变，AUC不变，pCTR统一扩大到接近1时候，导致logloss会变得非常的高。</p>
 </li>
 </ol>
-<h4 id="2-从文式图到行为关联"><a href="#2-从文式图到行为关联" class="headerlink" title="2. 从文式图到行为关联"></a>2. 从文式图到行为关联</h4><p>文式图应用到推荐往往是条件概率，求在先验下（使用A）后验的概率（使用B）是多少。<br></p>
-<img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E6%96%87%E5%BC%8F%E5%9B%BE2.png" class="" title="[文式图2.png]">
-
-<p>【置信度】 如上图，可以计算置信度，值越大越相似： confidence(B|A) &#x3D; P(B|A) &#x3D; P(使用B|使用A) &#x3D; P(A∩B|A) &#x3D; P(黄色|黄色+浅蓝) &#x3D; 1.0</p>
-<p>同理, （confidence可称conf） conf(A|B) &#x3D; 3&#x2F;4</p>
-<p>发现， conf(B|A)和conf(A|B)不同，说明conf是非对称的相似度； jaccard(A, B)和jaccard(B, A)相同，说明jaccard是对称的相似度。</p>
-<p>【置信度的痛点】 但是推荐过程中，使用会出现偏热的现象，是因为后验B太热门导致的。<br></p>
-<img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E6%96%874.png" class="" title="[文4.png]">
-
-<p>A是用户的先验（比如是手管的app）； B1是一款热门软件（比如微信）； B2是一款相对冷门的软件（比如同步助手）；</p>
-<p>可以发现由于B1的体量太大，导致conf(B1|A)很大； 由于B2的体量较小，导致conf(B2|A)偏小； 但是明显应该推荐B2，因为B2都快和A重合进去了，应该对B1的体量进行惩罚。</p>
-<p>【提升度】 提升度是置信度B1体量惩罚的其中一种方法，含义为：<br></p>
-<img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E6%96%876.png" class="" title="[文6.png]">
-
-<p>lift(B|A) &#x3D; conf(B|A) &#x2F; P(B) &#x3D; p(A∩B) | (P(A) * P(B)) &#x3D; count(A, B) * ALL &#x2F; (count(A) * count(B)) &#x3D; ( 3 乘 7 ) &#x2F; (3 乘 4) &#x3D; 21&#x2F;12</p>
-<p>其中， lift等于1，表示先验知识A的知道与否对B的概率没有影响。 lift大于1，表示促进作用； lift小于1，表示抑制作用；</p>
-<p>发现， lift(A|B)&#x3D;lift(B|A)，即lift是对称的。</p>
-<p>又发现， lift公式和cos很相似，对比下两者： cos(A, B) &#x3D; p(A∩B) &#x2F; sqrt( P(A) * P(B) )； lift(A, B) &#x3D; p(A∩B) &#x2F; ( P(A) * P(B) ) 差别仅仅在于一个sqrt，所以cos又被称作，harmonized lift，因为化简后， cos &#x3D; count(A, B) &#x2F; sqrt( count(A) * count(B) ) lift &#x3D; count(A, B) * ALL &#x2F; (count(A) * count(B)) 所以lift和ALL相关，而cos和ALL无关，只关心A和B，不关心外界。</p>
-<p>【KULC&amp;IR】 因为lift对于ALL非常的敏感，如果为了消除这种null-transactions的影响，可以用cos来代替。 或者， 因为lift的错误是因为A和B的量级不同导致的，可以人为的规定【IR】必须小于多少，保证样本的平衡性，IR越小越好： IR(A, B) &#x3D; |P(A) - P(B)| &#x2F; (P(A) + P(B) - P(A∩B)) 或者， 因为lift的错误是因为A和B的量级不同导致的P(A|B)和P(B|A)的不同，把这两者平均一下，用KULC的指标来解决，KULC越大越好： KULC &#x3D; 0.5P(B|A) + 0.5P(A|B)</p>
-<p>【总结】 在实际应用中，一般需要如下步骤：</p>
-<ol>
-<li>清洗列表数据，去掉过长、过短等明显错误的记录；</li>
-<li>设置频繁一项集数值，低于该值便过滤；</li>
-<li>设置频繁二项集数值，低于该值便过滤；</li>
-<li>求解IR，设置IR阈值，高于该值过滤；</li>
-<li>求解cos, support, conf, lift, support, KULC 并设置阈值，低于该值过滤；</li>
-<li>选择conf或者kulc或者自设一个指标排序。</li>
+<h3 id="定向模式-VS-推荐模式"><a href="#定向模式-VS-推荐模式" class="headerlink" title="定向模式 VS 推荐模式"></a>定向模式 VS 推荐模式</h3><ol>
+<li>PUSH系统：广告为中心，为广告找用户，并push；展示可有可无。</li>
+<li>推荐系统：人为中心，为人找推荐项，并展示；用户来了必须展示。</li>
 </ol>
-<p>其他： 【卡方值】 和lift特性非常相似的还有卡方值，其和lift指标二选一即可，此处不再介绍。 【LLR】 全称，log-likelihood<br>ratio，是根据熵的变化计算相似度的一种方式。 对于item项A和B来说，有：<br></p>
-<img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E7%9F%A9%E9%98%B5.png" class="" title="[矩阵.png]">
-
-<p>LLR的计算公式为：<br></p>
-<img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/LLR.png" class="" title="[LLR.png]">
-
-
-<p>其中，熵的计算方法为：<br></p>
-<img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E7%86%B5.png" class="" title="[熵.png]">
-
-<p>由公式可知：</p>
-<ol>
-<li>满足交换律，LLR（a，b）&#x3D;LLR(b, a)</li>
-<li>表达式恒大于0，0表示不相关，&gt;0表示相关，可能正相关，也可能负相关。</li>
-</ol>
-<h4 id="3-从行为关联到多维度距离度量之cos"><a href="#3-从行为关联到多维度距离度量之cos" class="headerlink" title="3. 从行为关联到多维度距离度量之cos"></a>3. 从行为关联到多维度距离度量之cos</h4><p>行为是一个维度，物品A和物品B可能是多维度的，比如内容维度等等。又或者把user-item矩阵（N*M）来看成有N个维度，那么A和B的相似就是A向量和B向量的相似。</p>
-<p>【cos】 上文已经提到了cos，此处的cos和上文的不同在于，user-item矩阵可以是实数型的，而关联矩阵必须是0-1矩阵。 假设A和B是两个item，有 cos(A, B) &#x3D; A * B &#x2F; (|A| * |B|)</p>
-<p>【用adjust-cos去掉user-bias】 如果考虑到每user的打分标准都不同，user1喜欢打高分，user2喜欢打低分，应该把用户的打分标准减掉，有 adjust_cos(A, B) &#x3D; <br></p>
-<img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E5%9B%BE111.png" class="" title="[图111.png]">
-
-<p>【用pearson去掉item-bias】 如果把A和B的向量归一化去掉bias，再做cos，即pearson的相似度：<br></p>
-<img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/222.png" class="" title="[222.png]">
-
-<p>【去掉matrix的bias】 将所有的值都减去平均值，即可。</p>
-<p>【总结】</p>
-<ol>
-<li>得到user-item matrix打分矩阵</li>
-<li>去掉matrix bias</li>
-<li>去掉user bias</li>
-<li>去掉item bias</li>
-<li>做cos</li>
-</ol>
-<p>另外， 还有一些其他的距离，业务上用的不多，此处不再介绍： 欧式距离，编辑距离，曼哈顿距离（simhash可能有用）等等。</p>
-<p>【多目标问题】 推荐的目标有两个的时候（比如转化率和商业价值），需要用到切比雪夫距离，通过计算pareto占优，去掉转化率和商业价值都不足的模型。</p>
-<h4 id="4-分布的相似性"><a href="#4-分布的相似性" class="headerlink" title="4. 分布的相似性"></a>4. 分布的相似性</h4><p>分布的相似性目前在推荐业务中用的不多，理解还不深入。</p>
-<p>如：KL散度，互信息。</p>
-<h4 id="5-LLR的性质推导Code"><a href="#5-LLR的性质推导Code" class="headerlink" title="5.LLR的性质推导Code"></a>5.LLR的性质推导Code</h4><img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/1495174122_13_w1380_h340.png" class="" title="[1495174122_13_w1380_h340.png]">
-<img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/1495174132_11_w994_h1176.png" class="" title="[1495174132_11_w994_h1176.png]">
-
-
+<h3 id="线下AUC和线上不一致"><a href="#线下AUC和线上不一致" class="headerlink" title="线下AUC和线上不一致"></a>线下AUC和线上不一致</h3><p>有三种AUC，很多不一致是因为AUC的描述不同造成的<br>假设有user-item-pCTR矩阵，那么可以计算</p>
+<ul>
+<li>横向AUC：每用户AUC，适用于推荐系统</li>
+<li>纵向AUC：每广告AUC，适用于PUSH系统</li>
+<li>全局AUC：统一大模型的AUC</li>
+</ul>
+<p>存在很多种情况：</p>
+<ul>
+<li>纵向AUC高，横向AUC不一定高<br>单广告训练做推荐的典型的问题，举一个例子</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Item1</th>
+<th>Item2</th>
+<th>Item3</th>
+<th>Item4</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>UserA</td>
+<td>0.7(0)</td>
+<td>0.7(1)</td>
+<td>0.7(1)</td>
+<td>0.7(1)</td>
+</tr>
+<tr>
+<td>UserB</td>
+<td>0.6(0)</td>
+<td>0.6(0)</td>
+<td>0.6(1)</td>
+<td>0.6(1)</td>
+</tr>
+<tr>
+<td>UserC</td>
+<td>0.5(0)</td>
+<td>0.5(0)</td>
+<td>0.5(0)</td>
+<td>0.5(1)</td>
+</tr>
+</tbody></table>
+<p>从纵向来看，每个单Item模型的AUC&#x3D;1.0，但是横向的AUC&#x3D;0.5，因此纵向AUC高，并不代表横向AUC高。即：<br>从单广告训练的AUC，集合起来，变成真正用户X过来，对用户X进行广告排序，AUC不一定高。<br>这种不一致是由于基于Item的模型并没有发现用户的对比其他人“更”偏好什么。</p>
+<ul>
+<li>横向AUC高，纵向AUC不一定高<br>上图翻转，同理。</li>
+</ul>
+<h3 id="AUC-topk-VS-AUC人数加权"><a href="#AUC-topk-VS-AUC人数加权" class="headerlink" title="AUC@topk VS AUC人数加权"></a>AUC@topk VS AUC人数加权</h3><p>为了和线上的情况保持一致，最好的方式是：</p>
+<ul>
+<li>用户来了必须展示，因此AUC的计算方式是横向AUC，即每个用户计算AUC，然后加权；</li>
+<li>用户往往只看头部，因此只计算AUC@topk，衡量头部排序能力。</li>
+</ul>
+<h3 id="todo-gauc、pcopc、打分偏高、偏低"><a href="#todo-gauc、pcopc、打分偏高、偏低" class="headerlink" title="todo: gauc、pcopc、打分偏高、偏低"></a>todo: gauc、pcopc、打分偏高、偏低</h3>
             </div>
         
         <footer class="article-footer">
@@ -597,7 +648,7 @@
     
 <nav id="article-nav">
     
-        <a href="/wiki/4.%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/3.%E6%95%99%E5%91%98%E5%8D%83%E5%8F%A4/place_holder/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E5%B9%BF%E5%91%8A%E7%B3%BB%E7%BB%9F/%E5%87%BA%E4%BB%B7%E7%82%B9%E3%80%81%E7%AB%9E%E4%BB%B7%E7%82%B9/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Newer</strong>
             <div class="article-nav-title">
                 
@@ -606,11 +657,6 @@
             </div>
         </a>
     
-    
-        <a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E5%B9%BF%E5%91%8A%E7%B3%BB%E7%BB%9F/%E5%87%BA%E4%BB%B7%E7%82%B9%E3%80%81%E7%AB%9E%E4%BB%B7%E7%82%B9/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">place holder</div>
-        </a>
     
 </nav>
 
