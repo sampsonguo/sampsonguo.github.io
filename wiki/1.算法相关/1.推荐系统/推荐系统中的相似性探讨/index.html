@@ -3,39 +3,41 @@
 <head>
     <meta charset="utf-8">
     
-    <title>推荐系统中的相似性探讨 | Blog</title>
+    <title>推荐系统中的相似性探讨 | Wiki</title>
     
     
         <meta name="keywords" content="推荐系统中的相似性探讨" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="1. 从购物篮到文式图在常见的购物篮分析中，常常出现这样的数据：    购物篮    A B   B C   A B C   A B   C D   D E   C E   在讨论A和B的相似性的时候，用文式图可以方便的表示： 那么A和B越相似的表现是：  【频繁一项集】A和B的出现次数很多，数据充足有说服力，即频繁一项集大 1.1 count(A) &#x3D; 3, count(B) &amp;#x3">
+    <meta name="description" content="1. 从购物篮到文式图在常见的购物篮分析中，常常出现这样的数据：    购物篮    A B   B C   A B C   A B   C D   D E   C E   在讨论A和B的相似性的时候，用文式图可以方便的表示：     那么A和B越相似的表现是：  【频繁一项集】A和B的出现次数很多，数据充足有说服力，即频繁一项集大 1.1 count(A) &#x3D; 3, count(B)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="推荐系统中的相似性探讨">
 <meta property="og:url" content="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/index.html">
-<meta property="og:site_name" content="Blog">
-<meta property="og:description" content="1. 从购物篮到文式图在常见的购物篮分析中，常常出现这样的数据：    购物篮    A B   B C   A B C   A B   C D   D E   C E   在讨论A和B的相似性的时候，用文式图可以方便的表示： 那么A和B越相似的表现是：  【频繁一项集】A和B的出现次数很多，数据充足有说服力，即频繁一项集大 1.1 count(A) &#x3D; 3, count(B) &amp;#x3">
+<meta property="og:site_name" content="Wiki">
+<meta property="og:description" content="1. 从购物篮到文式图在常见的购物篮分析中，常常出现这样的数据：    购物篮    A B   B C   A B C   A B   C D   D E   C E   在讨论A和B的相似性的时候，用文式图可以方便的表示：     那么A和B越相似的表现是：  【频繁一项集】A和B的出现次数很多，数据充足有说服力，即频繁一项集大 1.1 count(A) &#x3D; 3, count(B)">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://sampsonguo.github.io/gitbook/images/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E6%96%87%E5%BC%8F%E5%9B%BE.png">
-<meta property="og:image" content="https://sampsonguo.github.io/gitbook/images/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E6%96%87%E5%BC%8F%E5%9B%BE2.png">
-<meta property="og:image" content="https://sampsonguo.github.io/gitbook/images/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E6%96%874.png">
-<meta property="og:image" content="https://sampsonguo.github.io/gitbook/images/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E6%96%876.png">
-<meta property="og:image" content="https://sampsonguo.github.io/gitbook/images/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E7%9F%A9%E9%98%B5.png">
-<meta property="og:image" content="https://sampsonguo.github.io/gitbook/images/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/LLR.png">
-<meta property="og:image" content="https://sampsonguo.github.io/gitbook/images/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E7%86%B5.png">
-<meta property="og:image" content="https://sampsonguo.github.io/gitbook/images/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E5%9B%BE111.png">
-<meta property="og:image" content="https://sampsonguo.github.io/gitbook/images/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/222.png">
-<meta property="og:image" content="https://sampsonguo.github.io/gitbook/images/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/1495174122_13_w1380_h340.png">
-<meta property="og:image" content="https://sampsonguo.github.io/gitbook/images/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/1495174132_11_w994_h1176.png">
+<meta property="og:image" content="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/222.png">
+<meta property="og:image" content="https://sampsonguo.github.io/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E6%96%87%E5%BC%8F%E5%9B%BE.png">
+<meta property="og:image" content="https://sampsonguo.github.io/%E6%96%87%E5%BC%8F%E5%9B%BE.png">
+<meta property="og:image" content="https://sampsonguo.github.io/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E6%96%87%E5%BC%8F%E5%9B%BE2.png">
+<meta property="og:image" content="https://sampsonguo.github.io/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E6%96%874.png">
+<meta property="og:image" content="https://sampsonguo.github.io/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E6%96%876.png">
+<meta property="og:image" content="https://sampsonguo.github.io/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E7%9F%A9%E9%98%B5.png">
+<meta property="og:image" content="https://sampsonguo.github.io/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/LLR.png">
+<meta property="og:image" content="https://sampsonguo.github.io/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E7%86%B5.png">
+<meta property="og:image" content="https://sampsonguo.github.io/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E5%9B%BE111.png">
+<meta property="og:image" content="https://sampsonguo.github.io/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/222.png">
+<meta property="og:image" content="https://sampsonguo.github.io/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/1495174122_13_w1380_h340.png">
+<meta property="og:image" content="https://sampsonguo.github.io/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/1495174132_11_w994_h1176.png">
 <meta property="article:published_time" content="2024-01-02T08:04:32.761Z">
-<meta property="article:modified_time" content="2024-01-02T08:06:17.114Z">
+<meta property="article:modified_time" content="2024-01-03T06:26:11.342Z">
 <meta property="article:author" content="sigmoidguo">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://sampsonguo.github.io/gitbook/images/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E6%96%87%E5%BC%8F%E5%9B%BE.png">
+<meta name="twitter:image" content="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/222.png">
     
 
     
-        <link rel="alternate" href="/atom.xml" title="Blog" type="application/atom+xml" />
+        <link rel="alternate" href="/atom.xml" title="Wiki" type="application/atom+xml" />
     
 
     
@@ -89,7 +91,7 @@
         <div class="outer">
             <a href="/" id="logo">
                 <i class="logo"></i>
-                <span class="site-title">Blog</span>
+                <span class="site-title">Wiki</span>
             </a>
             <nav id="main-nav">
                 
@@ -203,52 +205,52 @@
                             &nbsp;
                             1.推荐系统
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file active"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/">推荐系统中的相似性探讨</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87%E4%B9%8Bauc%E5%92%8Clogloss/">评估指标之auc和logloss</a></li>  <li class="file active"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/">推荐系统中的相似性探讨</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
                             &nbsp;
-                            2.机器学习
+                            2.广告系统
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/place_holder/">place holder</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E5%B9%BF%E5%91%8A%E7%B3%BB%E7%BB%9F/place_holder/">place holder</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
                             &nbsp;
-                            3.数据挖掘
+                            3.用户增长
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/3.%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/place_holder/">place holder</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/3.%E7%94%A8%E6%88%B7%E5%A2%9E%E9%95%BF/place_holder/">place holder</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
                             &nbsp;
-                            4.深度学习
+                            4.数据挖掘
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/4.%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/place_holder/">place holder</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/4.%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/place_holder/">place holder</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
                             &nbsp;
-                            5.用户增长
+                            5.深度学习
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/5.%E7%94%A8%E6%88%B7%E5%A2%9E%E9%95%BF/place_holder/">place holder</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/5.%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/place_holder/">place holder</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
                             &nbsp;
-                            6.大模型
+                            7.大模型
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/6.%E5%A4%A7%E6%A8%A1%E5%9E%8B/place_holder/">place holder</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/7.%E5%A4%A7%E6%A8%A1%E5%9E%8B/place_holder/">place holder</a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
@@ -506,7 +508,11 @@
 <td align="left">C E</td>
 </tr>
 </tbody></table>
-<p>在讨论A和B的相似性的时候，用文式图可以方便的表示：<br><br><img src="/../gitbook/images/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E6%96%87%E5%BC%8F%E5%9B%BE.png" alt="Local Image"><br></p>
+<p>在讨论A和B的相似性的时候，用文式图可以方便的表示：<br></p>
+<img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/222.png" class="" title="[222.png]">
+
+<p><img src="/./%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E6%96%87%E5%BC%8F%E5%9B%BE.png" alt="平面设计入门基础导图"><br></p>
+<p><img src="/./%E6%96%87%E5%BC%8F%E5%9B%BE.png" alt="Local Image"><br></p>
 <p>那么A和B越相似的表现是：</p>
 <ol>
 <li><p>【频繁一项集】A和B的出现次数很多，数据充足有说服力，即频繁一项集大 1.1 count(A) &#x3D; 3, count(B) &#x3D; 4，这两个值足够大</p>
@@ -516,15 +522,15 @@
 <li><p>【jaccard】A∩B的值在A∪B的中占比很大，有A就有B，表现为jaccard相似度高 3.1 jaccard(A, B) &#x3D; count(A∩B) &#x2F; count(A∪B) &#x3D; 3&#x2F;4 ，这个值越大越好</p>
 </li>
 </ol>
-<h4 id="2-从文式图到行为关联"><a href="#2-从文式图到行为关联" class="headerlink" title="2. 从文式图到行为关联"></a>2. 从文式图到行为关联</h4><p>文式图应用到推荐往往是条件概率，求在先验下（使用A）后验的概率（使用B）是多少。<br><br><img src="/../gitbook/images/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E6%96%87%E5%BC%8F%E5%9B%BE2.png" alt="Local Image"><br></p>
+<h4 id="2-从文式图到行为关联"><a href="#2-从文式图到行为关联" class="headerlink" title="2. 从文式图到行为关联"></a>2. 从文式图到行为关联</h4><p>文式图应用到推荐往往是条件概率，求在先验下（使用A）后验的概率（使用B）是多少。<br><br><img src="/./%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E6%96%87%E5%BC%8F%E5%9B%BE2.png" alt="Local Image"><br></p>
 <p>【置信度】 如上图，可以计算置信度，值越大越相似： confidence(B|A) &#x3D; P(B|A) &#x3D; P(使用B|使用A) &#x3D; P(A∩B|A) &#x3D; P(黄色|黄色+浅蓝) &#x3D; 1.0</p>
 <p>同理, （confidence可称conf） conf(A|B) &#x3D; 3&#x2F;4</p>
 <p>发现， conf(B|A)和conf(A|B)不同，说明conf是非对称的相似度； jaccard(A, B)和jaccard(B, A)相同，说明jaccard是对称的相似度。</p>
 <p>【置信度的痛点】 但是推荐过程中，使用会出现偏热的现象，是因为后验B太热门导致的。<br></p>
-<p><img src="/../gitbook/images/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E6%96%874.png" alt="Local Image"><br></p>
+<p><img src="/./%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E6%96%874.png" alt="Local Image"><br></p>
 <p>A是用户的先验（比如是手管的app）； B1是一款热门软件（比如微信）； B2是一款相对冷门的软件（比如同步助手）；</p>
 <p>可以发现由于B1的体量太大，导致conf(B1|A)很大； 由于B2的体量较小，导致conf(B2|A)偏小； 但是明显应该推荐B2，因为B2都快和A重合进去了，应该对B1的体量进行惩罚。</p>
-<p>【提升度】 提升度是置信度B1体量惩罚的其中一种方法，含义为：<br><br><img src="/../gitbook/images/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E6%96%876.png" alt="Local Image"><br></p>
+<p>【提升度】 提升度是置信度B1体量惩罚的其中一种方法，含义为：<br><br><img src="/./%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E6%96%876.png" alt="Local Image"><br></p>
 <p>lift(B|A) &#x3D; conf(B|A) &#x2F; P(B) &#x3D; p(A∩B) | (P(A) * P(B)) &#x3D; count(A, B) * ALL &#x2F; (count(A) * count(B)) &#x3D; ( 3 乘 7 ) &#x2F; (3 乘 4) &#x3D; 21&#x2F;12</p>
 <p>其中， lift等于1，表示先验知识A的知道与否对B的概率没有影响。 lift大于1，表示促进作用； lift小于1，表示抑制作用；</p>
 <p>发现， lift(A|B)&#x3D;lift(B|A)，即lift是对称的。</p>
@@ -540,9 +546,9 @@
 <li>选择conf或者kulc或者自设一个指标排序。</li>
 </ol>
 <p>其他： 【卡方值】 和lift特性非常相似的还有卡方值，其和lift指标二选一即可，此处不再介绍。 【LLR】 全称，log-likelihood<br>ratio，是根据熵的变化计算相似度的一种方式。 对于item项A和B来说，有：<br></p>
-<p><img src="/../gitbook/images/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E7%9F%A9%E9%98%B5.png" alt="Local Image"><br></p>
-<p>LLR的计算公式为：<br><br><img src="/../gitbook/images/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/LLR.png" alt="Local Image"><br></p>
-<p>其中，熵的计算方法为：<br><br><img src="/../gitbook/images/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E7%86%B5.png" alt="Local Image"><br></p>
+<p><img src="/./%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E7%9F%A9%E9%98%B5.png" alt="Local Image"><br></p>
+<p>LLR的计算公式为：<br><br><img src="/./%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/LLR.png" alt="Local Image"><br></p>
+<p>其中，熵的计算方法为：<br><br><img src="/./%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E7%86%B5.png" alt="Local Image"><br></p>
 <p>由公式可知：</p>
 <ol>
 <li>满足交换律，LLR（a，b）&#x3D;LLR(b, a)</li>
@@ -551,9 +557,9 @@
 <h4 id="3-从行为关联到多维度距离度量之cos"><a href="#3-从行为关联到多维度距离度量之cos" class="headerlink" title="3. 从行为关联到多维度距离度量之cos"></a>3. 从行为关联到多维度距离度量之cos</h4><p>行为是一个维度，物品A和物品B可能是多维度的，比如内容维度等等。又或者把user-item矩阵（N*M）来看成有N个维度，那么A和B的相似就是A向量和B向量的相似。</p>
 <p>【cos】 上文已经提到了cos，此处的cos和上文的不同在于，user-item矩阵可以是实数型的，而关联矩阵必须是0-1矩阵。 假设A和B是两个item，有 cos(A, B) &#x3D; A * B &#x2F; (|A| * |B|)</p>
 <p>【用adjust-cos去掉user-bias】 如果考虑到每user的打分标准都不同，user1喜欢打高分，user2喜欢打低分，应该把用户的打分标准减掉，有 adjust_cos(A, B) &#x3D; <br></p>
-<p><img src="/../gitbook/images/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E5%9B%BE111.png" alt="Local Image"><br></p>
+<p><img src="/./%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E5%9B%BE111.png" alt="Local Image"><br></p>
 <p>【用pearson去掉item-bias】 如果把A和B的向量归一化去掉bias，再做cos，即pearson的相似度：<br></p>
-<p><img src="/../gitbook/images/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/222.png" alt="Local Image"><br></p>
+<p><img src="/./%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/222.png" alt="Local Image"><br></p>
 <p>【去掉matrix的bias】 将所有的值都减去平均值，即可。</p>
 <p>【总结】</p>
 <ol>
@@ -567,7 +573,7 @@
 <p>【多目标问题】 推荐的目标有两个的时候（比如转化率和商业价值），需要用到切比雪夫距离，通过计算pareto占优，去掉转化率和商业价值都不足的模型。</p>
 <h4 id="4-分布的相似性"><a href="#4-分布的相似性" class="headerlink" title="4. 分布的相似性"></a>4. 分布的相似性</h4><p>分布的相似性目前在推荐业务中用的不多，理解还不深入。</p>
 <p>如：KL散度，互信息。</p>
-<h4 id="5-LLR的性质推导Code"><a href="#5-LLR的性质推导Code" class="headerlink" title="5.LLR的性质推导Code"></a>5.LLR的性质推导Code</h4><p><img src="/../gitbook/images/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/1495174122_13_w1380_h340.png" alt="Local Image"><br><br><img src="/../gitbook/images/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/1495174132_11_w994_h1176.png" alt="Local Image"><br></p>
+<h4 id="5-LLR的性质推导Code"><a href="#5-LLR的性质推导Code" class="headerlink" title="5.LLR的性质推导Code"></a>5.LLR的性质推导Code</h4><p><img src="/./%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/1495174122_13_w1380_h340.png" alt="Local Image"><br><br><img src="/./%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/1495174132_11_w994_h1176.png" alt="Local Image"><br></p>
 
             </div>
         
@@ -580,7 +586,7 @@
     
 <nav id="article-nav">
     
-        <a href="/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/1.%E4%BC%A0%E7%BB%9F%E6%95%B0%E4%BB%93/1.flink/place_holder/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/wiki/4.%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/3.%E6%95%99%E5%91%98%E5%8D%83%E5%8F%A4/place_holder/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Newer</strong>
             <div class="article-nav-title">
                 
@@ -590,7 +596,7 @@
         </a>
     
     
-        <a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/place_holder/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E5%B9%BF%E5%91%8A%E7%B3%BB%E7%BB%9F/place_holder/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
             <div class="article-nav-title">place holder</div>
         </a>
@@ -617,8 +623,8 @@
     <div class="outer">
         <div id="footer-info" class="inner">
             sigmoidguo &copy; 2024 
-            <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
-            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a target="_blank" rel="noopener" href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
             
                 <br>
                 <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
