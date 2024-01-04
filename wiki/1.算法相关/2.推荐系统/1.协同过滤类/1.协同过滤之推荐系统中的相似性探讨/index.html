@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset="utf-8">
+    
+    <title>1.协同过滤之推荐系统中的相似性探讨 | Wiki</title>
+    
+    
+        <meta name="keywords" content="1.协同过滤之推荐系统中的相似性探讨" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="1. 从购物篮到文式图在常见的购物篮分析中，常常出现这样的数据：    购物篮    A B   B C   A B C   A B   C D   D E   C E   在讨论A和B的相似性的时候，用文式图可以方便的表示：   那么A和B越相似的表现是：  【频繁一项集】A和B的出现次数很多，数据充足有说服力，即频繁一项集大 1.1 count(A) &#x3D; 3, count(B) &amp;#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="1.协同过滤之推荐系统中的相似性探讨">
+<meta property="og:url" content="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/index.html">
+<meta property="og:site_name" content="Wiki">
+<meta property="og:description" content="1. 从购物篮到文式图在常见的购物篮分析中，常常出现这样的数据：    购物篮    A B   B C   A B C   A B   C D   D E   C E   在讨论A和B的相似性的时候，用文式图可以方便的表示：   那么A和B越相似的表现是：  【频繁一项集】A和B的出现次数很多，数据充足有说服力，即频繁一项集大 1.1 count(A) &#x3D; 3, count(B) &amp;#">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E6%96%871.png">
+<meta property="og:image" content="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E6%96%872.png">
+<meta property="og:image" content="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E6%96%874.png">
+<meta property="og:image" content="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E6%96%876.png">
+<meta property="og:image" content="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E7%9F%A9%E9%98%B5.png">
+<meta property="og:image" content="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/LLR.png">
+<meta property="og:image" content="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E7%86%B5.png">
+<meta property="og:image" content="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E5%9B%BE1.png">
+<meta property="og:image" content="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E5%9B%BE2.png">
+<meta property="og:image" content="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/LLR1.png">
+<meta property="og:image" content="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/LLR2.png">
+<meta property="article:published_time" content="2024-01-02T08:04:32.761Z">
+<meta property="article:modified_time" content="2024-01-04T08:40:53.119Z">
+<meta property="article:author" content="sampsonguo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E6%96%871.png">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="Wiki" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/open-sans/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    
+<script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Wiki</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id='categories'>
+        <h3 class="widget-title">
+            <span>categories</span>
+            &nbsp;
+            <a id='allExpand' href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree" > 
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            1.算法相关
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            1.特征工程
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/1.%E7%89%B9%E5%BE%81%E5%A5%BD%E5%9D%8F%E5%92%8C0-1%E6%A0%87%E7%AD%BE%E8%A6%86%E7%9B%96%E7%8E%87%E7%9A%84%E5%85%B3%E7%B3%BB%E6%8E%A2%E8%AE%A8/">1.特征好坏和0-1标签覆盖率的关系探讨</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            2.推荐系统
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            1.协同过滤类
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file active"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/">1.协同过滤之推荐系统中的相似性探讨</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/2.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E7%83%AD%E4%BC%A0%E5%AF%BC%E5%8E%9F%E7%90%86%E5%92%8C%E5%AE%9E%E8%B7%B5/">2.协同过滤之热传导原理和实践</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            2.矩阵分解类
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/2.%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3%E7%B1%BB/place_holder/">place holder</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            3.决策树类 
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/3.%E5%86%B3%E7%AD%96%E6%A0%91%E7%B1%BB%20/1.%E4%BB%8Eadaboosting%E8%B0%88%E8%B5%B7/">1.从adaboosting谈起</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            4.线性回归及其变形
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/4.%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E5%8F%8A%E5%85%B6%E5%8F%98%E5%BD%A2/1.FM/">FM</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/4.%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E5%8F%8A%E5%85%B6%E5%8F%98%E5%BD%A2/2.FTRL/">FTRL</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            5.深度学习类
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/5.%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%B1%BB/place_holder/">place holder</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            6.评估指标
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/6.%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/2.%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87%E4%B9%8Bauc%E5%92%8Clogloss/">评估指标之auc和logloss</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/6.%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/1.AUC%E7%9A%84%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/">AUC的计算方法</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            3.广告系统
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/3.%E5%B9%BF%E5%91%8A%E7%B3%BB%E7%BB%9F/%E5%87%BA%E4%BB%B7%E7%82%B9%E3%80%81%E7%AB%9E%E4%BB%B7%E7%82%B9/">place holder</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            4.用户增长
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/4.%E7%94%A8%E6%88%B7%E5%A2%9E%E9%95%BF/%E6%96%B0%E5%A2%9E%E7%95%99%E5%AD%98%E4%BB%98%E8%B4%B9%E5%9B%9E%E6%B5%81/">place holder</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            5.数据挖掘
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/5.%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/3.LDA%E5%8E%9F%E7%90%86%E5%92%8C%E5%AE%9E%E8%B7%B5/">LDA原理和实践</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/5.%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/2.DensityPeaksClustering/">DensityPeaksClustering</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/5.%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/1.%E5%BC%82%E5%B8%B8%E7%82%B9%E6%A3%80%E6%B5%8B%E7%AE%97%E6%B3%95/">异常点检测算法</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/5.%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/4.LSH%E5%B0%8F%E7%BB%93/">LSH小结</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            6.深度学习
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/6.%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/transformer/">transformer</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            7.机制策略
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/7.%E6%9C%BA%E5%88%B6%E7%AD%96%E7%95%A5/1.bandit%E7%AE%97%E6%B3%95%E6%94%B9%E8%BF%9B%E5%92%8C%E5%AE%9E%E8%B7%B5/">bandit算法改进和实践</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            8.大模型
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/8.%E5%A4%A7%E6%A8%A1%E5%9E%8B/place_holder/">place holder</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            2.数据相关
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            1.数据仓库
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            1.flink
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/1.%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/1.flink/place_holder/">place holder</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            2.hive
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/1.%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2.hive/place_holder/">place holder</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            2.数据湖
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            1.iceberg
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/2.%E6%95%B0%E6%8D%AE%E6%B9%96/1.iceberg/place_holder/">place holder</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            2.impala
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/2.%E6%95%B0%E6%8D%AE%E6%B9%96/2.impala/place_holder/">place holder</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            3.BI
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/3.BI/place_holder/">place holder</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            4.数据平台
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/4.%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/2.ElasticSearch/">Elastic Search</a></li>  <li class="file"><a href="/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/4.%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/1.azkaban/">azkaban</a></li>  <li class="file"><a href="/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/4.%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/3.hivemall/">hivemall</a></li>  <li class="file"><a href="/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/4.%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/4.storm/">storm</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            3.服务相关
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            1.平台工具
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/1.%E5%B9%B3%E5%8F%B0%E5%B7%A5%E5%85%B7/place_holder/">place holder</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            2.后台开发
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/2.%E5%90%8E%E5%8F%B0%E5%BC%80%E5%8F%91/place_holder/">place holder</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            3.算法平台
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/3.%E7%AE%97%E6%B3%95%E5%B9%B3%E5%8F%B0/place_holder/">place holder</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            4.算法服务
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/4.%E7%AE%97%E6%B3%95%E6%9C%8D%E5%8A%A1/1.%E7%A6%BB%E7%BA%BF%E5%9C%A8%E7%BA%BF%E6%89%93%E9%80%9A%E6%96%B9%E6%A1%88%E5%88%86%E6%9E%90/">离线在线打通方案分析</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            5.EPC
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/5.EPC/place_holder/">place holder</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            4.日常相关
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            1.数学知识
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/4.%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/1.%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/place_holder/">place holder</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            2.算法竞赛
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/4.%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/2.%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/place_holder/">place holder</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            3.教员千古
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/4.%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/3.%E6%95%99%E5%91%98%E5%8D%83%E5%8F%A4/place_holder/">place holder</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            4.日常思考
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/4.%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/4.%E6%97%A5%E5%B8%B8%E6%80%9D%E8%80%83/1.%E4%BC%98%E6%83%A0%E5%88%B8%E4%B8%8E%E5%89%A9%E4%BD%99%E4%BB%B7%E5%80%BC/">优惠券和剩余价值</a></li>  <li class="file"><a href="/wiki/4.%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/4.%E6%97%A5%E5%B8%B8%E6%80%9D%E8%80%83/2.%E7%A7%AF%E5%88%86%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%80%9D%E8%80%83/">积分系统的思考</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-1.算法相关/2.推荐系统/1.协同过滤类/1.协同过滤之推荐系统中的相似性探讨" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/">1.算法相关</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2-%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/">2.推荐系统</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2-%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1-%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/">1.协同过滤类</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/">
+            <time datetime="2024-01-02T08:04:32.761Z" itemprop="datePublished">2024-01-02</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            1.协同过滤之推荐系统中的相似性探讨
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+        
+        
+            <h4 id="1-从购物篮到文式图"><a href="#1-从购物篮到文式图" class="headerlink" title="1. 从购物篮到文式图"></a>1. 从购物篮到文式图</h4><p>在常见的购物篮分析中，常常出现这样的数据：</p>
+<table>
+<thead>
+<tr>
+<th align="left">购物篮</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">A B</td>
+</tr>
+<tr>
+<td align="left">B C</td>
+</tr>
+<tr>
+<td align="left">A B C</td>
+</tr>
+<tr>
+<td align="left">A B</td>
+</tr>
+<tr>
+<td align="left">C D</td>
+</tr>
+<tr>
+<td align="left">D E</td>
+</tr>
+<tr>
+<td align="left">C E</td>
+</tr>
+</tbody></table>
+<p>在讨论A和B的相似性的时候，用文式图可以方便的表示：<br></p>
+<img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E6%96%871.png" class="" title="[文1.png]">
+
+<p>那么A和B越相似的表现是：</p>
+<ol>
+<li><p>【频繁一项集】A和B的出现次数很多，数据充足有说服力，即频繁一项集大 1.1 count(A) &#x3D; 3, count(B) &#x3D; 4，这两个值足够大</p>
+</li>
+<li><p>【support】A∩B的值很大，数据充足有说服力，表现为重合面积大，即频繁二项集大或者support高 2.1 频繁二项集 &#x3D; count(A∩B) &#x3D; 3，这个值越大越好 2.2 support &#x3D; count(A∩B) &#x2F; count(ALL) &#x3D; 3 &#x2F; 7，这个值越大越好</p>
+</li>
+<li><p>【jaccard】A∩B的值在A∪B的中占比很大，有A就有B，表现为jaccard相似度高 3.1 jaccard(A, B) &#x3D; count(A∩B) &#x2F; count(A∪B) &#x3D; 3&#x2F;4 ，这个值越大越好</p>
+</li>
+</ol>
+<h4 id="2-从文式图到行为关联"><a href="#2-从文式图到行为关联" class="headerlink" title="2. 从文式图到行为关联"></a>2. 从文式图到行为关联</h4><p>文式图应用到推荐往往是条件概率，求在先验下（使用A）后验的概率（使用B）是多少。<br></p>
+<img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E6%96%872.png" class="" title="[文2.png]">
+
+<p>【置信度】 如上图，可以计算置信度，值越大越相似： confidence(B|A) &#x3D; P(B|A) &#x3D; P(使用B|使用A) &#x3D; P(A∩B|A) &#x3D; P(黄色|黄色+浅蓝) &#x3D; 1.0</p>
+<p>同理, （confidence可称conf） conf(A|B) &#x3D; 3&#x2F;4</p>
+<p>发现， conf(B|A)和conf(A|B)不同，说明conf是非对称的相似度； jaccard(A, B)和jaccard(B, A)相同，说明jaccard是对称的相似度。</p>
+<p>【置信度的痛点】 但是推荐过程中，使用会出现偏热的现象，是因为后验B太热门导致的。<br></p>
+<img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E6%96%874.png" class="" title="[文4.png]">
+
+<p>A是用户的先验（比如是手管的app）； B1是一款热门软件（比如微信）； B2是一款相对冷门的软件（比如同步助手）；</p>
+<p>可以发现由于B1的体量太大，导致conf(B1|A)很大； 由于B2的体量较小，导致conf(B2|A)偏小； 但是明显应该推荐B2，因为B2都快和A重合进去了，应该对B1的体量进行惩罚。</p>
+<p>【提升度】 提升度是置信度B1体量惩罚的其中一种方法，含义为：<br></p>
+<img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E6%96%876.png" class="" title="[文6.png]">
+
+<p>lift(B|A) &#x3D; conf(B|A) &#x2F; P(B) &#x3D; p(A∩B) | (P(A) * P(B)) &#x3D; count(A, B) * ALL &#x2F; (count(A) * count(B)) &#x3D; ( 3 乘 7 ) &#x2F; (3 乘 4) &#x3D; 21&#x2F;12</p>
+<p>其中， lift等于1，表示先验知识A的知道与否对B的概率没有影响。 lift大于1，表示促进作用； lift小于1，表示抑制作用；</p>
+<p>发现， lift(A|B)&#x3D;lift(B|A)，即lift是对称的。</p>
+<p>又发现， lift公式和cos很相似，对比下两者： cos(A, B) &#x3D; p(A∩B) &#x2F; sqrt( P(A) * P(B) )； lift(A, B) &#x3D; p(A∩B) &#x2F; ( P(A) * P(B) ) 差别仅仅在于一个sqrt，所以cos又被称作，harmonized lift，因为化简后， cos &#x3D; count(A, B) &#x2F; sqrt( count(A) * count(B) ) lift &#x3D; count(A, B) * ALL &#x2F; (count(A) * count(B)) 所以lift和ALL相关，而cos和ALL无关，只关心A和B，不关心外界。</p>
+<p>【KULC&amp;IR】 因为lift对于ALL非常的敏感，如果为了消除这种null-transactions的影响，可以用cos来代替。 或者， 因为lift的错误是因为A和B的量级不同导致的，可以人为的规定【IR】必须小于多少，保证样本的平衡性，IR越小越好： IR(A, B) &#x3D; |P(A) - P(B)| &#x2F; (P(A) + P(B) - P(A∩B)) 或者， 因为lift的错误是因为A和B的量级不同导致的P(A|B)和P(B|A)的不同，把这两者平均一下，用KULC的指标来解决，KULC越大越好： KULC &#x3D; 0.5P(B|A) + 0.5P(A|B)</p>
+<p>【总结】 在实际应用中，一般需要如下步骤：</p>
+<ol>
+<li>清洗列表数据，去掉过长、过短等明显错误的记录；</li>
+<li>设置频繁一项集数值，低于该值便过滤；</li>
+<li>设置频繁二项集数值，低于该值便过滤；</li>
+<li>求解IR，设置IR阈值，高于该值过滤；</li>
+<li>求解cos, support, conf, lift, support, KULC 并设置阈值，低于该值过滤；</li>
+<li>选择conf或者kulc或者自设一个指标排序。</li>
+</ol>
+<p>其他： 【卡方值】 和lift特性非常相似的还有卡方值，其和lift指标二选一即可，此处不再介绍。 【LLR】 全称，log-likelihood<br>ratio，是根据熵的变化计算相似度的一种方式。 对于item项A和B来说，有：<br></p>
+<img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E7%9F%A9%E9%98%B5.png" class="" title="[矩阵.png]">
+
+<p>LLR的计算公式为：<br></p>
+<img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/LLR.png" class="" title="[LLR.png]">
+
+
+<p>其中，熵的计算方法为：<br></p>
+<img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E7%86%B5.png" class="" title="[熵.png]">
+
+<p>由公式可知：</p>
+<ol>
+<li>满足交换律，LLR（a，b）&#x3D;LLR(b, a)</li>
+<li>表达式恒大于0，0表示不相关，&gt;0表示相关，可能正相关，也可能负相关。</li>
+</ol>
+<h4 id="3-从行为关联到多维度距离度量之cos"><a href="#3-从行为关联到多维度距离度量之cos" class="headerlink" title="3. 从行为关联到多维度距离度量之cos"></a>3. 从行为关联到多维度距离度量之cos</h4><p>行为是一个维度，物品A和物品B可能是多维度的，比如内容维度等等。又或者把user-item矩阵（N*M）来看成有N个维度，那么A和B的相似就是A向量和B向量的相似。</p>
+<p>【cos】 上文已经提到了cos，此处的cos和上文的不同在于，user-item矩阵可以是实数型的，而关联矩阵必须是0-1矩阵。 假设A和B是两个item，有 cos(A, B) &#x3D; A * B &#x2F; (|A| * |B|)</p>
+<p>【用adjust-cos去掉user-bias】 如果考虑到每user的打分标准都不同，user1喜欢打高分，user2喜欢打低分，应该把用户的打分标准减掉，有 adjust_cos(A, B) &#x3D; <br></p>
+<img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E5%9B%BE1.png" class="" title="[图1.png]">
+
+<p>【用pearson去掉item-bias】 如果把A和B的向量归一化去掉bias，再做cos，即pearson的相似度：<br></p>
+<img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/%E5%9B%BE2.png" class="" title="[图2.png]">
+
+<p>【去掉matrix的bias】 将所有的值都减去平均值，即可。</p>
+<p>【总结】</p>
+<ol>
+<li>得到user-item matrix打分矩阵</li>
+<li>去掉matrix bias</li>
+<li>去掉user bias</li>
+<li>去掉item bias</li>
+<li>做cos</li>
+</ol>
+<p>另外， 还有一些其他的距离，业务上用的不多，此处不再介绍： 欧式距离，编辑距离，曼哈顿距离（simhash可能有用）等等。</p>
+<p>【多目标问题】 推荐的目标有两个的时候（比如转化率和商业价值），需要用到切比雪夫距离，通过计算pareto占优，去掉转化率和商业价值都不足的模型。</p>
+<h4 id="4-分布的相似性"><a href="#4-分布的相似性" class="headerlink" title="4. 分布的相似性"></a>4. 分布的相似性</h4><p>分布的相似性目前在推荐业务中用的不多，理解还不深入。</p>
+<p>如：KL散度，互信息。</p>
+<h4 id="5-LLR的性质推导Code"><a href="#5-LLR的性质推导Code" class="headerlink" title="5.LLR的性质推导Code"></a>5.LLR的性质推导Code</h4><img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/LLR1.png" class="" title="[LLR1.png]">
+<img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/LLR2.png" class="" title="[LLR2.png]">
+
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/2.%E6%95%B0%E6%8D%AE%E6%B9%96/2.impala/place_holder/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    place holder
+                
+            </div>
+        </a>
+    
+    
+        <a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/3.%E5%B9%BF%E5%91%8A%E7%B3%BB%E7%BB%9F/%E5%87%BA%E4%BB%B7%E7%82%B9%E3%80%81%E7%AB%9E%E4%BB%B7%E7%82%B9/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">place holder</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            sampsonguo &copy; 2024 
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+    </div>
+</body>
+</html>
