@@ -3,28 +3,28 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Wiki</title>
+    <title>离线在线打通方案分析 | Wiki</title>
     
     
-        <meta name="keywords" content="Wiki" />
+        <meta name="keywords" content="离线在线打通方案分析" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="离线在线打通，有如下几种方案 方案一：结果传递 方案典型的Item-cf离线推荐，即是离线挖掘的结果，完整写入Cache中提供给在线服务使用，算法在离线侧，算法结果在在线侧，整个算法对在线完全透明。  痛点  不可以实时化（模型实时化，特征实时化均不可） 通常是天级别（最快小时级别）更新的 覆盖率痛点，无法覆盖全量用户（尤其是新用户）    方案二：枚举传递第一期的时候，为了实现快速迭代，采用了简">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Wiki">
+<meta property="og:title" content="离线在线打通方案分析">
 <meta property="og:url" content="https://sampsonguo.github.io/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/4.%E7%AE%97%E6%B3%95%E6%9C%8D%E5%8A%A1/%E7%A6%BB%E7%BA%BF%E5%9C%A8%E7%BA%BF%E6%89%93%E9%80%9A%E6%96%B9%E6%A1%88%E5%88%86%E6%9E%90/index.html">
 <meta property="og:site_name" content="Wiki">
 <meta property="og:description" content="离线在线打通，有如下几种方案 方案一：结果传递 方案典型的Item-cf离线推荐，即是离线挖掘的结果，完整写入Cache中提供给在线服务使用，算法在离线侧，算法结果在在线侧，整个算法对在线完全透明。  痛点  不可以实时化（模型实时化，特征实时化均不可） 通常是天级别（最快小时级别）更新的 覆盖率痛点，无法覆盖全量用户（尤其是新用户）    方案二：枚举传递第一期的时候，为了实现快速迭代，采用了简">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://sampsonguo.github.io/gitbook/images/%E7%A6%BB%E7%BA%BF%E5%9C%A8%E7%BA%BF%E6%96%B9%E6%A1%88%E6%89%93%E9%80%9A%E5%88%86%E6%9E%90/1.png">
-<meta property="og:image" content="https://sampsonguo.github.io/gitbook/images/%E7%A6%BB%E7%BA%BF%E5%9C%A8%E7%BA%BF%E6%96%B9%E6%A1%88%E6%89%93%E9%80%9A%E5%88%86%E6%9E%90/2.png">
-<meta property="og:image" content="https://sampsonguo.github.io/gitbook/images/%E7%A6%BB%E7%BA%BF%E5%9C%A8%E7%BA%BF%E6%96%B9%E6%A1%88%E6%89%93%E9%80%9A%E5%88%86%E6%9E%90/3.png">
-<meta property="og:image" content="https://sampsonguo.github.io/gitbook/images/%E7%A6%BB%E7%BA%BF%E5%9C%A8%E7%BA%BF%E6%96%B9%E6%A1%88%E6%89%93%E9%80%9A%E5%88%86%E6%9E%90/4.png">
+<meta property="og:image" content="https://sampsonguo.github.io/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/4.%E7%AE%97%E6%B3%95%E6%9C%8D%E5%8A%A1/%E7%A6%BB%E7%BA%BF%E5%9C%A8%E7%BA%BF%E6%89%93%E9%80%9A%E6%96%B9%E6%A1%88%E5%88%86%E6%9E%90/1.png">
+<meta property="og:image" content="https://sampsonguo.github.io/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/4.%E7%AE%97%E6%B3%95%E6%9C%8D%E5%8A%A1/%E7%A6%BB%E7%BA%BF%E5%9C%A8%E7%BA%BF%E6%89%93%E9%80%9A%E6%96%B9%E6%A1%88%E5%88%86%E6%9E%90/2.png">
+<meta property="og:image" content="https://sampsonguo.github.io/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/4.%E7%AE%97%E6%B3%95%E6%9C%8D%E5%8A%A1/%E7%A6%BB%E7%BA%BF%E5%9C%A8%E7%BA%BF%E6%89%93%E9%80%9A%E6%96%B9%E6%A1%88%E5%88%86%E6%9E%90/3.png">
+<meta property="og:image" content="https://sampsonguo.github.io/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/4.%E7%AE%97%E6%B3%95%E6%9C%8D%E5%8A%A1/%E7%A6%BB%E7%BA%BF%E5%9C%A8%E7%BA%BF%E6%89%93%E9%80%9A%E6%96%B9%E6%A1%88%E5%88%86%E6%9E%90/4.png">
 <meta property="article:published_time" content="2024-01-03T09:41:01.806Z">
-<meta property="article:modified_time" content="2024-01-03T09:41:01.806Z">
+<meta property="article:modified_time" content="2024-01-04T04:51:14.830Z">
 <meta property="article:author" content="sampsonguo">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://sampsonguo.github.io/gitbook/images/%E7%A6%BB%E7%BA%BF%E5%9C%A8%E7%BA%BF%E6%96%B9%E6%A1%88%E6%89%93%E9%80%9A%E5%88%86%E6%9E%90/1.png">
+<meta name="twitter:image" content="https://sampsonguo.github.io/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/4.%E7%AE%97%E6%B3%95%E6%9C%8D%E5%8A%A1/%E7%A6%BB%E7%BA%BF%E5%9C%A8%E7%BA%BF%E6%89%93%E9%80%9A%E6%96%B9%E6%A1%88%E5%88%86%E6%9E%90/1.png">
     
 
     
@@ -412,7 +412,7 @@
                             &nbsp;
                             4.算法服务
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/4.%E7%AE%97%E6%B3%95%E6%9C%8D%E5%8A%A1/place_holder/">place holder</a></li>  <li class="file active"><a href="/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/4.%E7%AE%97%E6%B3%95%E6%9C%8D%E5%8A%A1/%E7%A6%BB%E7%BA%BF%E5%9C%A8%E7%BA%BF%E6%89%93%E9%80%9A%E6%96%B9%E6%A1%88%E5%88%86%E6%9E%90/"></a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file active"><a href="/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/4.%E7%AE%97%E6%B3%95%E6%9C%8D%E5%8A%A1/%E7%A6%BB%E7%BA%BF%E5%9C%A8%E7%BA%BF%E6%89%93%E9%80%9A%E6%96%B9%E6%A1%88%E5%88%86%E6%9E%90/">离线在线打通方案分析</a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
@@ -536,6 +536,41 @@
     <div class="article-inner">
         
         
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/3-%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/">3.服务相关</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/3-%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/4-%E7%AE%97%E6%B3%95%E6%9C%8D%E5%8A%A1/">4.算法服务</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/4.%E7%AE%97%E6%B3%95%E6%9C%8D%E5%8A%A1/%E7%A6%BB%E7%BA%BF%E5%9C%A8%E7%BA%BF%E6%89%93%E9%80%9A%E6%96%B9%E6%A1%88%E5%88%86%E6%9E%90/">
+            <time datetime="2024-01-03T09:41:01.806Z" itemprop="datePublished">2024-01-03</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            离线在线打通方案分析
+        </h1>
+    
+
+            </header>
+        
         
         <div class="article-entry" itemprop="articleBody">
         
@@ -574,7 +609,7 @@
 <h5 id="参数打通"><a href="#参数打通" class="headerlink" title="参数打通"></a>参数打通</h5><ul>
 <li><p>方案<br></p>
 <ul>
-<li>为了解决枚举过多的痛点，可以将参数放到线上，每次线上实时去计算推荐列表。第一期采用LR的模型，把LR的权重参数传递到mysql中，如下图展示了top10权重的特征<br><br>   <img src="/../gitbook/images/%E7%A6%BB%E7%BA%BF%E5%9C%A8%E7%BA%BF%E6%96%B9%E6%A1%88%E6%89%93%E9%80%9A%E5%88%86%E6%9E%90/1.png" alt="Local Image"><br></li>
+<li>为了解决枚举过多的痛点，可以将参数放到线上，每次线上实时去计算推荐列表。第一期采用LR的模型，把LR的权重参数传递到mysql中，如下图展示了top10权重的特征<br><img src="/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/4.%E7%AE%97%E6%B3%95%E6%9C%8D%E5%8A%A1/%E7%A6%BB%E7%BA%BF%E5%9C%A8%E7%BA%BF%E6%89%93%E9%80%9A%E6%96%B9%E6%A1%88%E5%88%86%E6%9E%90/1.png" class="" title="[1.png]"></li>
 <li>并且把app特征也放到mysql db中。</li>
 <li>在离线和在线定义同一套app feature和user feature交叉的特征工程方法，实现线上排序</li>
 </ul>
@@ -584,9 +619,11 @@
 </ul>
 <h5 id="原始特征-模型打通"><a href="#原始特征-模型打通" class="headerlink" title="原始特征+模型打通"></a>原始特征+模型打通</h5><ul>
 <li>方案<br><ol>
-<li>训练feature传递，单值返回<br><br>  <img src="/../gitbook/images/%E7%A6%BB%E7%BA%BF%E5%9C%A8%E7%BA%BF%E6%96%B9%E6%A1%88%E6%89%93%E9%80%9A%E5%88%86%E6%9E%90/2.png" alt="Local Image"><br><br>  <strong>痛点:</strong><br><br>  离线侧和在线侧要实现两套同样的特征工程逻辑，每次都要对齐比较繁琐，是可以优化的点。</li>
-<li>原始feature传递，单值返回<br><br>  <img src="/../gitbook/images/%E7%A6%BB%E7%BA%BF%E5%9C%A8%E7%BA%BF%E6%96%B9%E6%A1%88%E6%89%93%E9%80%9A%E5%88%86%E6%9E%90/3.png" alt="Local Image"><br><br>  <strong>痛点</strong><br><br>  app推荐的多样性和新颖性非常的重要，往往在最顶层需要对多样性和新颖性进行排序，让列表更加整体，更新信息更丰富。</li>
-<li>原始feature传递，列表返回<br><br>  <img src="/../gitbook/images/%E7%A6%BB%E7%BA%BF%E5%9C%A8%E7%BA%BF%E6%96%B9%E6%A1%88%E6%89%93%E9%80%9A%E5%88%86%E6%9E%90/4.png" alt="Local Image"><br></li>
+<li>训练feature传递，单值返回<br><img src="/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/4.%E7%AE%97%E6%B3%95%E6%9C%8D%E5%8A%A1/%E7%A6%BB%E7%BA%BF%E5%9C%A8%E7%BA%BF%E6%89%93%E9%80%9A%E6%96%B9%E6%A1%88%E5%88%86%E6%9E%90/2.png" class="" title="[2.png]">
+  <strong>痛点:</strong><br><br>  离线侧和在线侧要实现两套同样的特征工程逻辑，每次都要对齐比较繁琐，是可以优化的点。</li>
+<li>原始feature传递，单值返回<br><img src="/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/4.%E7%AE%97%E6%B3%95%E6%9C%8D%E5%8A%A1/%E7%A6%BB%E7%BA%BF%E5%9C%A8%E7%BA%BF%E6%89%93%E9%80%9A%E6%96%B9%E6%A1%88%E5%88%86%E6%9E%90/3.png" class="" title="[3.png]">
+  <strong>痛点</strong><br><br>  app推荐的多样性和新颖性非常的重要，往往在最顶层需要对多样性和新颖性进行排序，让列表更加整体，更新信息更丰富。</li>
+<li>原始feature传递，列表返回<br><img src="/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/4.%E7%AE%97%E6%B3%95%E6%9C%8D%E5%8A%A1/%E7%A6%BB%E7%BA%BF%E5%9C%A8%E7%BA%BF%E6%89%93%E9%80%9A%E6%96%B9%E6%A1%88%E5%88%86%E6%9E%90/4.png" class="" title="[4.png]"></li>
 </ol>
 </li>
 </ul>
