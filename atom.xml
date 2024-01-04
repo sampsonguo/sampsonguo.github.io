@@ -6,7 +6,7 @@
   <link href="https://sampsonguo.github.io/atom.xml" rel="self"/>
   
   <link href="https://sampsonguo.github.io/"/>
-  <updated>2024-01-04T02:18:32.471Z</updated>
+  <updated>2024-01-03T09:41:01.806Z</updated>
   <id>https://sampsonguo.github.io/</id>
   
   <author>
@@ -15,6 +15,425 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/%E5%85%88%E5%90%8E%E9%AA%8C%E5%88%86%E7%A6%BBAR%E7%AE%97%E6%B3%95%E5%AE%9E%E8%B7%B5/"/>
+    <id>https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/%E5%85%88%E5%90%8E%E9%AA%8C%E5%88%86%E7%A6%BBAR%E7%AE%97%E6%B3%95%E5%AE%9E%E8%B7%B5/</id>
+    <published>2024-01-03T09:41:01.806Z</published>
+    <updated>2024-01-03T09:41:01.806Z</updated>
+    
+    
+    
+    
+    <category term="1.算法相关" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/"/>
+    
+    <category term="2.推荐系统" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2-%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/"/>
+    
+    <category term="1.协同过滤类" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2-%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1-%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/7.%E6%9C%BA%E5%88%B6%E7%AD%96%E7%95%A5/bandit%E7%AE%97%E6%B3%95%E6%94%B9%E8%BF%9B%E5%92%8C%E5%AE%9E%E8%B7%B5/"/>
+    <id>https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/7.%E6%9C%BA%E5%88%B6%E7%AD%96%E7%95%A5/bandit%E7%AE%97%E6%B3%95%E6%94%B9%E8%BF%9B%E5%92%8C%E5%AE%9E%E8%B7%B5/</id>
+    <published>2024-01-03T09:41:01.806Z</published>
+    <updated>2024-01-03T09:41:01.806Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://github.com/sampsonguo/blog/tree/master/papers/Bayesian_Bandit%E7%9A%84%E6%8E%A8%E8%8D%90%E7%AE%97%E6%B3%95%E5%8F%8A%E5%AE%9E%E7%8E%B0_blog.pdf">Bayesian Bandit的推荐算法及实现</a></p><br>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://github.com/sampsonguo/blog/tree/master/papers/Bayesian_Bandit%E7%9A%84%E6%8E%A8%E8%8D%90%E7%AE%97%E6%B3%95%E5%8F%8A%E5%A</summary>
+      
+    
+    
+    
+    <category term="1.算法相关" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/"/>
+    
+    <category term="7.机制策略" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/7-%E6%9C%BA%E5%88%B6%E7%AD%96%E7%95%A5/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://sampsonguo.github.io/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/4.%E7%AE%97%E6%B3%95%E6%9C%8D%E5%8A%A1/%E7%A6%BB%E7%BA%BF%E5%9C%A8%E7%BA%BF%E6%89%93%E9%80%9A%E6%96%B9%E6%A1%88%E5%88%86%E6%9E%90/"/>
+    <id>https://sampsonguo.github.io/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/4.%E7%AE%97%E6%B3%95%E6%9C%8D%E5%8A%A1/%E7%A6%BB%E7%BA%BF%E5%9C%A8%E7%BA%BF%E6%89%93%E9%80%9A%E6%96%B9%E6%A1%88%E5%88%86%E6%9E%90/</id>
+    <published>2024-01-03T09:41:01.806Z</published>
+    <updated>2024-01-03T09:41:01.806Z</updated>
+    
+    <content type="html"><![CDATA[<p>离线在线打通，有如下几种方案</p><h5 id="方案一：结果传递"><a href="#方案一：结果传递" class="headerlink" title="方案一：结果传递"></a>方案一：结果传递</h5><ul><li><p>方案<br><br>典型的Item-cf离线推荐，即是离线挖掘的结果，完整写入Cache中提供给在线服务使用，算法在离线侧，算法结果在在线侧，整个算法对在线完全透明。</p></li><li><p>痛点<br></p><ul><li>不可以实时化（模型实时化，特征实时化均不可）</li><li>通常是天级别（最快小时级别）更新的</li><li>覆盖率痛点，无法覆盖全量用户（尤其是新用户）</li></ul></li></ul><h5 id="方案二：枚举传递"><a href="#方案二：枚举传递" class="headerlink" title="方案二：枚举传递"></a>方案二：枚举传递<br></h5><p>第一期的时候，为了实现快速迭代，采用了简单的枚举的方案。枚举的字段是，场景＋用户性别分段＋用户年龄分段。<br></p><ul><li><p>例子<br></p><ul><li>场景1，男性，18-25岁：微信，陌陌，微博，今日头条等<br></li><li>场景2，女性，&lt;18岁：天天爱消除，贪吃蛇大作战，王者荣耀等<br></li><li>场景有x个，场景1，场景2，场景3等<br></li><li>性别有3种：男，女，未知<br></li><li>年龄有6种：&lt;18, 18-25, 26-35, 36-45, 45以上<br></li><li>枚举的行数有3<em>6</em>4&#x3D;72个<br></li><li>将72个枚举导入Dcache进行在线的服务即可。<br></li></ul></li><li><p>痛点<br>随着场景的增加特征的增加，逐渐的枚举量太大了，Dcache的容量有限。例如加入了30个软件类型0&#x2F;1特征，2^30很容易撑爆Dcache.</p></li></ul><h5 id="参数打通"><a href="#参数打通" class="headerlink" title="参数打通"></a>参数打通</h5><ul><li><p>方案<br></p><ul><li>为了解决枚举过多的痛点，可以将参数放到线上，每次线上实时去计算推荐列表。第一期采用LR的模型，把LR的权重参数传递到mysql中，如下图展示了top10权重的特征<br><br>   <img src="/../gitbook/images/%E7%A6%BB%E7%BA%BF%E5%9C%A8%E7%BA%BF%E6%96%B9%E6%A1%88%E6%89%93%E9%80%9A%E5%88%86%E6%9E%90/1.png" alt="Local Image"><br></li><li>并且把app特征也放到mysql db中。</li><li>在离线和在线定义同一套app feature和user feature交叉的特征工程方法，实现线上排序</li></ul></li><li><p>痛点<br><br>当尝试更多的模型的时候（如GBDT, GBDT+LR等），模型过于复杂，通过暴露参数的方法已经不能在线上实现模型了。</p></li></ul><h5 id="原始特征-模型打通"><a href="#原始特征-模型打通" class="headerlink" title="原始特征+模型打通"></a>原始特征+模型打通</h5><ul><li>方案<br><ol><li>训练feature传递，单值返回<br><br>  <img src="/../gitbook/images/%E7%A6%BB%E7%BA%BF%E5%9C%A8%E7%BA%BF%E6%96%B9%E6%A1%88%E6%89%93%E9%80%9A%E5%88%86%E6%9E%90/2.png" alt="Local Image"><br><br>  <strong>痛点:</strong><br><br>  离线侧和在线侧要实现两套同样的特征工程逻辑，每次都要对齐比较繁琐，是可以优化的点。</li><li>原始feature传递，单值返回<br><br>  <img src="/../gitbook/images/%E7%A6%BB%E7%BA%BF%E5%9C%A8%E7%BA%BF%E6%96%B9%E6%A1%88%E6%89%93%E9%80%9A%E5%88%86%E6%9E%90/3.png" alt="Local Image"><br><br>  <strong>痛点</strong><br><br>  app推荐的多样性和新颖性非常的重要，往往在最顶层需要对多样性和新颖性进行排序，让列表更加整体，更新信息更丰富。</li><li>原始feature传递，列表返回<br><br>  <img src="/../gitbook/images/%E7%A6%BB%E7%BA%BF%E5%9C%A8%E7%BA%BF%E6%96%B9%E6%A1%88%E6%89%93%E9%80%9A%E5%88%86%E6%9E%90/4.png" alt="Local Image"><br></li></ol></li></ul><h5 id="特征实时化"><a href="#特征实时化" class="headerlink" title="特征实时化"></a>特征实时化</h5><p>实时特征的获取，对用户的场景把控更准确。</p><h5 id="模型实时化"><a href="#模型实时化" class="headerlink" title="模型实时化"></a>模型实时化</h5><p>在线训练，更快捕捉模型的变化</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;离线在线打通，有如下几种方案&lt;/p&gt;
+&lt;h5 id=&quot;方案一：结果传递&quot;&gt;&lt;a href=&quot;#方案一：结果传递&quot; class=&quot;headerlink&quot; title=&quot;方案一：结果传递&quot;&gt;&lt;/a&gt;方案一：结果传递&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;方案&lt;br&gt;&lt;br&gt;典型的It</summary>
+      
+    
+    
+    
+    <category term="3.服务相关" scheme="https://sampsonguo.github.io/categories/3-%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/"/>
+    
+    <category term="4.算法服务" scheme="https://sampsonguo.github.io/categories/3-%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/4-%E7%AE%97%E6%B3%95%E6%9C%8D%E5%8A%A1/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>特征好坏和0-1标签覆盖率的关系探讨</title>
+    <link href="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/%E7%89%B9%E5%BE%81%E5%A5%BD%E5%9D%8F%E5%92%8C0-1%E6%A0%87%E7%AD%BE%E8%A6%86%E7%9B%96%E7%8E%87%E7%9A%84%E5%85%B3%E7%B3%BB%E6%8E%A2%E8%AE%A8/"/>
+    <id>https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/%E7%89%B9%E5%BE%81%E5%A5%BD%E5%9D%8F%E5%92%8C0-1%E6%A0%87%E7%AD%BE%E8%A6%86%E7%9B%96%E7%8E%87%E7%9A%84%E5%85%B3%E7%B3%BB%E6%8E%A2%E8%AE%A8/</id>
+    <published>2024-01-03T09:41:01.096Z</published>
+    <updated>2024-01-04T03:35:44.139Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题<br></h4><p>特征的好坏衡量有很多的方法，如：<br></p><ol><li>单特征AUC</li><li>信息增益，信息增益率，gini index</li><li>相关系数 （label连续值）</li><li>L1正则</li></ol><p>但是，有些特征是低召回高精准的，即决策树中的某１子树集合很小很纯，另外１子树集合较大不纯。<br></p><p>如类似于同事举的例子:</p><p>下图为三列为 金融理财标签，优惠券标签，是否点击</p><img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/%E7%89%B9%E5%BE%81%E5%A5%BD%E5%9D%8F%E5%92%8C0-1%E6%A0%87%E7%AD%BE%E8%A6%86%E7%9B%96%E7%8E%87%E7%9A%84%E5%85%B3%E7%B3%BB%E6%8E%A2%E8%AE%A8/1.png" class="" title="[1.png]"><p>那么有：<br><br>优惠券标签 <br><br>1– 覆盖率30%, ctr 66.7% (2&#x2F;3) <br><br>0– 覆盖率70%, ctr 28.6% (2&#x2F;7) <br></p><p>金融理财标签 <br><br>1– 覆盖率70%, ctr 57.1% (4&#x2F;7) <br><br>0– 覆盖率30%, ctr 0% (0&#x2F;3) <br></p><h4 id="单特征AUC"><a href="#单特征AUC" class="headerlink" title="单特征AUC"></a>单特征AUC</h4><ol><li>优惠券标签的单特征roc曲线如下<br><img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/%E7%89%B9%E5%BE%81%E5%A5%BD%E5%9D%8F%E5%92%8C0-1%E6%A0%87%E7%AD%BE%E8%A6%86%E7%9B%96%E7%8E%87%E7%9A%84%E5%85%B3%E7%B3%BB%E6%8E%A2%E8%AE%A8/2.png" class="" title="[2.png]">计算得到，auc&#x3D;0.667 (16.0&#x2F;24）</li><li>金融理财的单特征roc曲线如下<br><img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/%E7%89%B9%E5%BE%81%E5%A5%BD%E5%9D%8F%E5%92%8C0-1%E6%A0%87%E7%AD%BE%E8%A6%86%E7%9B%96%E7%8E%87%E7%9A%84%E5%85%B3%E7%B3%BB%E6%8E%A2%E8%AE%A8/3.png" class="" title="[3.png]">计算得到，auc&#x3D;0.75 (18&#x2F;24)<br>这样看金融理财是比优惠券标签要好的。</li></ol><h4 id="定量投放"><a href="#定量投放" class="headerlink" title="定量投放"></a>定量投放</h4><p>假如广告主买2个c，只考虑用单个特征的话：</p><ol><li>优惠券标签选择为1的投放，ctr&#x3D;66.7%</li><li>金融理财选择为1的投放，ctr&#x3D;57.1%</li></ol><p>这时，优惠券是比金融理财要好的。<br>假如广告主买3个c的话：</p><ol><li>优惠券选择为1的投放+选择一半0的投放，ctr&#x3D;3&#x2F;(3+3.5)&#x3D;46.1%</li><li>金融理财选择1的投放，ctr&#x3D;57.1%</li></ol><p>这时，选择金融理财是好的。</p><h4 id="AUC分析"><a href="#AUC分析" class="headerlink" title="AUC分析"></a>AUC分析</h4><p>广告主买了2个c，使用金融理财的标签，在roc上的表现如下图<br></p><img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/%E7%89%B9%E5%BE%81%E5%A5%BD%E5%9D%8F%E5%92%8C0-1%E6%A0%87%E7%AD%BE%E8%A6%86%E7%9B%96%E7%8E%87%E7%9A%84%E5%85%B3%E7%B3%BB%E6%8E%A2%E8%AE%A8/5.png" class="" title="[5.png]"><p>广告主买了2个c，3个c和分别使用两种标签的roc表现如下图<br></p><img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/%E7%89%B9%E5%BE%81%E5%A5%BD%E5%9D%8F%E5%92%8C0-1%E6%A0%87%E7%AD%BE%E8%A6%86%E7%9B%96%E7%8E%87%E7%9A%84%E5%85%B3%E7%B3%BB%E6%8E%A2%E8%AE%A8/6.png" class="" title="[6.png]"><p>点H的fpr比点O的fpr低，所以买2个c优惠券的比金融理财的标签好；<br>点P的fpr比点Q的fpr低，所以买3个c金融理财的比优惠券的标签好。</p><h4 id="综合分析"><a href="#综合分析" class="headerlink" title="综合分析"></a>综合分析</h4><p>两条roc曲线交叉的点，即是分界点。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h4 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;br&gt;&lt;/h4&gt;&lt;p&gt;特征的好坏衡量有很多的方法，如：&lt;br&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;单特征AUC&lt;/li&gt;
+&lt;li&gt;信息增益，信息增益率，gini </summary>
+      
+    
+    
+    
+    <category term="1.算法相关" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/"/>
+    
+    <category term="1.特征工程" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1-%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/3.%E5%86%B3%E7%AD%96%E6%A0%91%E7%B1%BB%20/%E4%BB%8Eadaboosting%E8%B0%88%E8%B5%B7/"/>
+    <id>https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/3.%E5%86%B3%E7%AD%96%E6%A0%91%E7%B1%BB%20/%E4%BB%8Eadaboosting%E8%B0%88%E8%B5%B7/</id>
+    <published>2024-01-03T09:41:01.096Z</published>
+    <updated>2024-01-03T09:41:01.096Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="从adaboosting到bias的重要性和非线性能力的实现"><a href="#从adaboosting到bias的重要性和非线性能力的实现" class="headerlink" title="从adaboosting到bias的重要性和非线性能力的实现"></a>从adaboosting到bias的重要性和非线性能力的实现</h3><p>精准推荐是商业化的重要能力，而分类能力是精准推荐的基础。</p><h4 id="集成学习"><a href="#集成学习" class="headerlink" title="集成学习"></a>集成学习</h4><p>集成学习有两种方法，bagging, boosting和stacking。<br><br>adaboosting全称adaptive boosting（自适应调节的boosting，属于十大机器学习算法之一）</p><p>集成学习：集成学习就是一堆弱分类器一起共同努力，拼凑成一个强分类器，团结的力量就是大。<br><br>（有理论证明弱学习算法（正确率超过50%即可）可以组合提升为强学习算法（多棵决策树有用的原因：一棵准确率0.6，三棵准确率0.6^3+0.6^2<em>0.4</em>3&#x3D;0.648…  ）<br>   既然一堆分类器想要集成，那么就有投票权力的分配问题了。</p><h4 id="投票方法"><a href="#投票方法" class="headerlink" title="投票方法"></a>投票方法</h4><p>一人一票制度：一堆分类器一人一票制度投票，来决定分类结果。如bagging和random forest的方法。</p><p>一人多票制度：一堆分类器，根据分类器的好坏，好分类器多分给他几票，差分类器少分给他几票。如boosting的方法。</p><h4 id="抽样方法"><a href="#抽样方法" class="headerlink" title="抽样方法"></a>抽样方法</h4><p>样本等概率    VS    样本不等概率<br><br>全部样本  VS 部分样本<br><br>重复抽样 VS 不重复抽样<br></p><h4 id="adaboosting"><a href="#adaboosting" class="headerlink" title="adaboosting"></a>adaboosting</h4><p>adaboosting在里面的位置，属于：一人多票制度+样本不等概率+全部样本+不重复抽样</p><h4 id="弱分类器"><a href="#弱分类器" class="headerlink" title="弱分类器"></a>弱分类器</h4><p>adaboosting对其弱分类器的要求不高，所以我们采用最简单的decision stump的方法，即只有一层的决策树。</p><h4 id="训练流程"><a href="#训练流程" class="headerlink" title="训练流程"></a>训练流程</h4><p><img src="/../gitbook/images/adaboosting/1.png" alt="Local Image"><br></p><h4 id="demo实现"><a href="#demo实现" class="headerlink" title="demo实现"></a>demo实现</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br></pre></td><td class="code"><pre><span class="line">import math</span><br><span class="line"></span><br><span class="line">class sample(object):</span><br><span class="line">    def __init__(self, feature, label, weight):</span><br><span class="line">        self.feature = feature</span><br><span class="line">        self.label = label</span><br><span class="line">        self.weight = weight</span><br><span class="line"></span><br><span class="line">class stump(object):</span><br><span class="line">    def __init__(self, dimension, sample_L):</span><br><span class="line">        self.dimension = dimension</span><br><span class="line">        self.threshold = None</span><br><span class="line">        self.leftLabel = None</span><br><span class="line">        self.rightLabel = None</span><br><span class="line">        self.error_rate = None</span><br><span class="line">        self.weight = None</span><br><span class="line">        self.leftLabel_x = None</span><br><span class="line">        self.rightLabel_x = None</span><br><span class="line">        self.sample_L = sample_L</span><br><span class="line">        self.total_error = sum([sample_x.weight for sample_x in sample_L])</span><br><span class="line"></span><br><span class="line">        ## get the best threshold ##</span><br><span class="line">        for sample_x in sample_L:</span><br><span class="line">            threshold_x = sample_x.feature[self.dimension]</span><br><span class="line">            error_rate_x = self.getErrorRate(threshold_x)</span><br><span class="line">            if self.error_rate is None or self.error_rate &gt; error_rate_x:</span><br><span class="line">                self.threshold = threshold_x</span><br><span class="line">                self.leftLabel = self.leftLabel_x</span><br><span class="line">                self.rightLabel = self.rightLabel_x</span><br><span class="line">                self.error_rate = error_rate_x</span><br><span class="line">        self.weight = self.getWeight()</span><br><span class="line"></span><br><span class="line">    def getWeight(self):</span><br><span class="line">        return 0.5*math.log((1-self.error_rate)/max(self.error_rate, 0.0001))</span><br><span class="line"></span><br><span class="line">    def getErrorRate(self, threshold_x):</span><br><span class="line">        left_1_error = 0.0</span><br><span class="line">        left_0_error = 0.0</span><br><span class="line">        right_1_error = 0.0</span><br><span class="line">        right_0_error = 0.0</span><br><span class="line">        ## get left errors ##</span><br><span class="line">        for sample_y in self.sample_L:</span><br><span class="line">            if sample_y.feature[self.dimension] &lt;= threshold_x:</span><br><span class="line">                if sample_y.label == -1:</span><br><span class="line">                    left_1_error += sample_y.weight</span><br><span class="line">                else:</span><br><span class="line">                    left_0_error += sample_y.weight</span><br><span class="line">            else:</span><br><span class="line">                if sample_y.label == -1:</span><br><span class="line">                    right_1_error += sample_y.weight</span><br><span class="line">                else:</span><br><span class="line">                    right_0_error += sample_y.weight</span><br><span class="line">        ## get error and labels ##</span><br><span class="line">        if left_1_error &lt; left_0_error:</span><br><span class="line">            self.leftLabel_x = 1</span><br><span class="line">        else:</span><br><span class="line">            self.leftLabel_x = -1</span><br><span class="line">        if right_1_error &lt; right_0_error:</span><br><span class="line">            self.rightLabel_x = 1</span><br><span class="line">        else:</span><br><span class="line">            self.rightLabel_x = -1</span><br><span class="line">        return (min(left_1_error, left_0_error) + min(right_1_error, right_0_error))/self.total_error</span><br><span class="line"></span><br><span class="line">    def reWeightSample(self):</span><br><span class="line">        for i in range(len(self.sample_L)):</span><br><span class="line">            if (self.sample_L[i].feature[self.dimension] &lt;= self.threshold and self.leftLabel == self.sample_L[i].label) \</span><br><span class="line">                or (self.sample_L[i].feature[self.dimension] &gt; self.threshold and self.rightLabel == self.sample_L[i].label):</span><br><span class="line">                self.sample_L[i].weight *= math.sqrt(self.error_rate/max(1-self.error_rate, 0.0001))</span><br><span class="line">            else:</span><br><span class="line">                self.sample_L[i].weight *= math.sqrt((1-self.error_rate)/max(self.error_rate, 0.0001))</span><br><span class="line"></span><br><span class="line">    def predict(self, sample_x):</span><br><span class="line">        if sample_x.feature[self.dimension] &lt;= self.threshold:</span><br><span class="line">            return self.leftLabel</span><br><span class="line">        else: return self.rightLabel</span><br><span class="line"></span><br><span class="line">nWeak = 3</span><br><span class="line">nSample = -1</span><br><span class="line">sample_L = []</span><br><span class="line">stump_L = []</span><br><span class="line"></span><br><span class="line">def run():</span><br><span class="line">    ## input data ##</span><br><span class="line">    inFp = open(&quot;sample&quot;, &#x27;r&#x27;)</span><br><span class="line">    nSample = int(inFp.readline().strip())</span><br><span class="line">    while True:</span><br><span class="line">        line = inFp.readline()</span><br><span class="line">        if not line:</span><br><span class="line">            break</span><br><span class="line">        item = map(int, line.strip().split(&quot;\t&quot;))</span><br><span class="line">        sample_x = sample(item[1:], item[0], 1.0/nSample)</span><br><span class="line">        sample_L.append(sample_x)</span><br><span class="line">    inFp.close()</span><br><span class="line"></span><br><span class="line">    ## train weak classfier ##</span><br><span class="line">    for t in range(nWeak):</span><br><span class="line">        dimension = t % 2</span><br><span class="line">        stump_x = stump(dimension, sample_L)</span><br><span class="line">        stump_x.reWeightSample()</span><br><span class="line">        print &quot;....&quot;</span><br><span class="line">        print &quot;the dimension is %d&quot;%stump_x.dimension</span><br><span class="line">        print &quot;the threshold is %.9f&quot;%stump_x.threshold</span><br><span class="line">        print &quot;the leftLabel is %d&quot;%stump_x.leftLabel</span><br><span class="line">        print &quot;the rightLabel is %d&quot;%stump_x.rightLabel</span><br><span class="line">        print &quot;the error_rate is %.9f&quot;%stump_x.error_rate</span><br><span class="line">        print &quot;the weight is %.9f&quot;%stump_x.weight</span><br><span class="line">        print [sample_x.weight for sample_x in sample_L]</span><br><span class="line">        stump_L.append(stump_x)</span><br><span class="line"></span><br><span class="line">    ## predict ##</span><br><span class="line">    for sample_x in sample_L:</span><br><span class="line">        predict_one = 0</span><br><span class="line">        for stump_x in stump_L:</span><br><span class="line">            predict_one += stump_x.weight*stump_x.predict(sample_x)</span><br><span class="line">        if predict_one &gt; 0:</span><br><span class="line">            print &quot;predict is 1&quot;</span><br><span class="line">        else:</span><br><span class="line">            print &quot;predict is -1&quot;</span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    run()</span><br></pre></td></tr></table></figure><p>测试样例<br></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">10</span><br><span class="line">1       1       3</span><br><span class="line">1       2       2</span><br><span class="line">-1      3       2</span><br><span class="line">-1      4       3</span><br><span class="line">1       5       4</span><br><span class="line">1       6       6</span><br><span class="line">-1      6       3</span><br><span class="line">1       7       4</span><br><span class="line">-1      8       2</span><br><span class="line">-1      8       5</span><br></pre></td></tr></table></figure><p>输出</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">the dimension is 0</span><br><span class="line">the threshold is 2.000000000</span><br><span class="line">the leftLabel is 1</span><br><span class="line">the rightLabel is -1</span><br><span class="line">the error_rate is 0.300000000</span><br><span class="line">the weight is 0.423648930</span><br><span class="line">[0.06546536707079773, 0.06546536707079773, 0.06546536707079773, 0.06546536707079773, 0.15275252316519466, 0.15275252316519466, 0.06546536707079773, 0.15275252316519466, 0.06546536707079773, 0.06546536707079773]</span><br><span class="line">....</span><br><span class="line">the dimension is 1</span><br><span class="line">the threshold is 3.000000000</span><br><span class="line">the leftLabel is -1</span><br><span class="line">the rightLabel is 1</span><br><span class="line">the error_rate is 0.214285714</span><br><span class="line">the weight is 0.649641492</span><br><span class="line">[0.12535663410560177, 0.12535663410560177, 0.03418817293789139, 0.03418817293789139, 0.07977240352174655, 0.07977240352174655, 0.03418817293789139, 0.07977240352174655, 0.03418817293789139, 0.12535663410560177]</span><br><span class="line">....</span><br><span class="line">the dimension is 0</span><br><span class="line">the threshold is 7.000000000</span><br><span class="line">the leftLabel is 1</span><br><span class="line">the rightLabel is -1</span><br><span class="line">the error_rate is 0.136363636</span><br><span class="line">the weight is 0.922913345</span><br><span class="line">[0.049811675413689895, 0.049811675413689895, 0.08603834844182799, 0.08603834844182799, 0.031698338899620836, 0.031698338899620836, 0.08603834844182799, 0.031698338899620836, 0.01358500238555179, 0.049811675413689895]</span><br><span class="line">predict is 1</span><br><span class="line">predict is 1</span><br><span class="line">predict is -1</span><br><span class="line">predict is -1</span><br><span class="line">predict is 1</span><br><span class="line">predict is 1</span><br><span class="line">predict is -1</span><br><span class="line">predict is 1</span><br><span class="line">predict is -1</span><br><span class="line">predict is -1</span><br></pre></td></tr></table></figure><h4 id="示意图"><a href="#示意图" class="headerlink" title="示意图"></a>示意图</h4><p><img src="/../gitbook/images/adaboosting/4.png" alt="Local Image"><br><br><img src="/../gitbook/images/adaboosting/3.png" alt="Local Image"><br><br><img src="/../gitbook/images/adaboosting/5.png" alt="Local Image"><br></p><h4 id="一个特殊的训练样本"><a href="#一个特殊的训练样本" class="headerlink" title="一个特殊的训练样本"></a>一个特殊的训练样本</h4><p><img src="/../gitbook/images/adaboosting/6.png" alt="Local Image"><br></p><h4 id="一些特殊的decision-stump"><a href="#一些特殊的decision-stump" class="headerlink" title="一些特殊的decision stump"></a>一些特殊的decision stump<br></h4><p>选择三颗树（上文中的代码需要五棵树，因为其交叉选取xy作为decision stump的threshold）就能训练出来，如图所示：<br><br><img src="/../gitbook/images/adaboosting/7.png" alt="Local Image"><br></p><p>树A：左侧红（-1分），右侧蓝（+1分）</p><p>树B：左侧红（-1分），右侧红（-1分）</p><p>树C：左侧蓝（+1分），右侧红（-1分）</p><p>最后得到，</p><p>A左侧：-1-1+1&#x3D;-1（红）</p><p>A~B:+1-1+1&#x3D;1 （蓝）</p><p>B~C: +1-1+1&#x3D;1（蓝）</p><p>C右侧：+1-1-1&#x3D;-1（红）</p><p>即正确的分类，其中有一棵树比较奇怪，即树B的右侧和左侧同时判断为红色。看起来没有什么用处，但正是这个bias的特点，保证了在这个训练集的非线性能力的实现。</p><h4 id="bias"><a href="#bias" class="headerlink" title="bias"></a>bias</h4><p>我的理解是，bias叫偏好，或者截距（类似于y&#x3D;kx+b里的b）</p><h4 id="神经网络的非线性能力和bias"><a href="#神经网络的非线性能力和bias" class="headerlink" title="神经网络的非线性能力和bias"></a>神经网络的非线性能力和bias</h4><p>神经网络的基本能力是其逻辑运算的能力，即“与”、“或”、”非“的能力。</p><p><img src="/../gitbook/images/adaboosting/8.png" alt="Local Image"><br><br><img src="/../gitbook/images/adaboosting/9.png" alt="Local Image"><br><br><img src="/../gitbook/images/adaboosting/10.png" alt="Local Image"><br></p><p>异或运算&#x3D;(!a&amp;b)||(a&amp;!b)</p><p>即借助bias和sigmoid函数，求内积也可以具有逻辑运算能力，那就赋予了其解决非线性问题的能力。</p><p>svm的非线性能力和kernal</p><p>svm的解决非线性问题是kernel的方法。</p><p>LR的非线性能力和画段</p><p>LR解决非线性问题可以依靠对feature的画段的feature engineer.</p><p>最后，希望在手管的商业化进程中，数据挖掘能力能够协助手管做出一些对手管有益处，用户又不反感的手术刀般精准的商业变现能力。</p><p>能力有限，如有错误，欢迎和各位探讨.</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;从adaboosting到bias的重要性和非线性能力的实现&quot;&gt;&lt;a href=&quot;#从adaboosting到bias的重要性和非线性能力的实现&quot; class=&quot;headerlink&quot; title=&quot;从adaboosting到bias的重要性和非线性能力的实现&quot;&gt;</summary>
+      
+    
+    
+    
+    <category term="1.算法相关" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/"/>
+    
+    <category term="2.推荐系统" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2-%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/"/>
+    
+    <category term="3.决策树类 " scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2-%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/3-%E5%86%B3%E7%AD%96%E6%A0%91%E7%B1%BB/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/4.%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E5%8F%8A%E5%85%B6%E5%8F%98%E5%BD%A2/FTRL/"/>
+    <id>https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/4.%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E5%8F%8A%E5%85%B6%E5%8F%98%E5%BD%A2/FTRL/</id>
+    <published>2024-01-03T09:41:01.096Z</published>
+    <updated>2024-01-03T09:41:01.096Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="在线和离线的不同"><a href="#在线和离线的不同" class="headerlink" title="在线和离线的不同"></a>在线和离线的不同</h4><h4 id="OGD"><a href="#OGD" class="headerlink" title="OGD"></a>OGD</h4><h4 id="TG"><a href="#TG" class="headerlink" title="TG"></a>TG</h4><h4 id="FOBOS"><a href="#FOBOS" class="headerlink" title="FOBOS"></a>FOBOS</h4><h4 id="RDA"><a href="#RDA" class="headerlink" title="RDA"></a>RDA</h4><h4 id="FTRL"><a href="#FTRL" class="headerlink" title="FTRL"></a>FTRL</h4><h4 id="Angel"><a href="#Angel" class="headerlink" title="Angel"></a>Angel</h4>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h4 id=&quot;在线和离线的不同&quot;&gt;&lt;a href=&quot;#在线和离线的不同&quot; class=&quot;headerlink&quot; title=&quot;在线和离线的不同&quot;&gt;&lt;/a&gt;在线和离线的不同&lt;/h4&gt;&lt;h4 id=&quot;OGD&quot;&gt;&lt;a href=&quot;#OGD&quot; class=&quot;headerlink&quot; ti</summary>
+      
+    
+    
+    
+    <category term="1.算法相关" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/"/>
+    
+    <category term="2.推荐系统" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2-%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/"/>
+    
+    <category term="4.线性回归及其变形" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2-%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/4-%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E5%8F%8A%E5%85%B6%E5%8F%98%E5%BD%A2/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://sampsonguo.github.io/wiki/4.%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/4.%E6%97%A5%E5%B8%B8%E6%80%9D%E8%80%83/%E7%A7%AF%E5%88%86%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%80%9D%E8%80%83/"/>
+    <id>https://sampsonguo.github.io/wiki/4.%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/4.%E6%97%A5%E5%B8%B8%E6%80%9D%E8%80%83/%E7%A7%AF%E5%88%86%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%80%9D%E8%80%83/</id>
+    <published>2024-01-03T09:41:01.095Z</published>
+    <updated>2024-01-03T09:41:01.095Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="无处不在的积分系统"><a href="#无处不在的积分系统" class="headerlink" title="无处不在的积分系统"></a>无处不在的积分系统</h4><p>积分系统非常的常见，比如：</p><ol><li>基于1对1的对战打分：如围棋的对战评分，AlphaGo如何通过几场大战，排名世界第一，这个名次到底应该如何排？</li><li>基于group的对战打分：如codeforces中一场比赛，该场次排名为第x位，那么总积分应该是多少？</li></ol><h4 id="1V1，积分分值和概率转换"><a href="#1V1，积分分值和概率转换" class="headerlink" title="1V1，积分分值和概率转换"></a>1V1，积分分值和概率转换</h4><p>假如有A和B进行对战，A的积分为x，B的积分为y, 积分越高能力越强，能力越强赢得概率越大（不是绝对的赢或者输，否则就没有比赛的必要了），那么如何衡量A赢B的概率呢？</p><ol><li>x&#x3D;y: A和B的能力相等，赢的概率各50%</li><li>x&gt;y: A比B强，赢得概率比B大；x&lt;y则相反</li></ol><p>那么如何将x和y和概率值对接起来？<br><br>观察一下, x&#x3D;y -&gt; 0.5， 而且x和y比较才有意义，那么我们就取x-y，可以很容易想到sigmoid function，如下：<br>p(A赢B) &#x3D; sigmoid(k(x-y)), 其中k是参数，用于调节sigmoid function的形状。<br>其中, sigmoid(x) &#x3D; 1&#x2F;(1+e^x)</p><h4 id="1V1，获胜概率和分值更新"><a href="#1V1，获胜概率和分值更新" class="headerlink" title="1V1，获胜概率和分值更新"></a>1V1，获胜概率和分值更新</h4><p>如果A获胜，B失败，那么A的分值必定增加，B的分值必定减少。<br><br>x-y越大，A增加的越少，B减少的越小；<br><br>x-y越小，A增加的越大，B减少的越大。<br><br>参考Elo rating system，保持群体总分值不变（除非有个体加入），那么A的增加的分值，必定等于B的减少的分值。<br><br>x_new &#x3D; x_old + K * (1 - p)<br><br>y_new &#x3D; y_old + K * (0 - (1-p))<br><br>K表示步长，1表示获胜，p表示A赢B的概率，该公式将预估值往真实值移动。</p><h4 id="Group，Group-Ranking和Total-Ranking"><a href="#Group，Group-Ranking和Total-Ranking" class="headerlink" title="Group，Group Ranking和Total Ranking"></a>Group，Group Ranking和Total Ranking</h4><p>– 待思考补充</p><h4 id="冷启动"><a href="#冷启动" class="headerlink" title="冷启动"></a>冷启动</h4><p>各自设置启动分值即可，比如codeforces上的1500分</p><h4 id="不好的积分系统"><a href="#不好的积分系统" class="headerlink" title="不好的积分系统"></a>不好的积分系统</h4><p>王者荣耀的积分系统，是不好的。<br><br>积分分为几种：青铜，白银，黄金，铂金，钻石，王者。<br><br>这几种大的段位，每个段位里有N个小段位，满五颗星星晋级一段位，赢一场积攒1颗星。<br><br>但是王者有“经验机制”，即打满x盘之后，积累的经验，也可以获得一颗星。<br><br>所以其群体总积分是不断变大的，因此理论上，只要打的足够多，每个人都可以成为王者。<br><br>因此引入了赛季机制，新的赛季默认降低1-2个段位，即是在补“经验机制”的坑。<br><br>因此每到新赛季，连低端段位都很难打。<br><br>我猜测项目组这么做的意义在于，鼓励多打，多打游戏，技术一般也可以上王者。</p><p>参考资料<br><br><a href="http://codeforces.com/blog/entry/102">http://codeforces.com/blog/entry/102</a><br><br><a href="https://en.wikipedia.org/wiki/Elo_rating_system">https://en.wikipedia.org/wiki/Elo_rating_system</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h4 id=&quot;无处不在的积分系统&quot;&gt;&lt;a href=&quot;#无处不在的积分系统&quot; class=&quot;headerlink&quot; title=&quot;无处不在的积分系统&quot;&gt;&lt;/a&gt;无处不在的积分系统&lt;/h4&gt;&lt;p&gt;积分系统非常的常见，比如：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;基于1对1的对战打分：如围棋的</summary>
+      
+    
+    
+    
+    <category term="4.日常相关" scheme="https://sampsonguo.github.io/categories/4-%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/"/>
+    
+    <category term="4.日常思考" scheme="https://sampsonguo.github.io/categories/4-%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/4-%E6%97%A5%E5%B8%B8%E6%80%9D%E8%80%83/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/4.%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E5%8F%8A%E5%85%B6%E5%8F%98%E5%BD%A2/FM/"/>
+    <id>https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/4.%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E5%8F%8A%E5%85%B6%E5%8F%98%E5%BD%A2/FM/</id>
+    <published>2024-01-03T09:41:01.095Z</published>
+    <updated>2024-01-03T09:41:01.095Z</updated>
+    
+    <content type="html"><![CDATA[<h5 id="libFM-Factorization-Machine-Library"><a href="#libFM-Factorization-Machine-Library" class="headerlink" title="libFM: Factorization Machine Library"></a>libFM: Factorization Machine Library</h5><ul><li>SGD</li><li>ALS</li><li>MCMC</li></ul><h5 id=""><a href="#" class="headerlink" title=""></a></h5>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h5 id=&quot;libFM-Factorization-Machine-Library&quot;&gt;&lt;a href=&quot;#libFM-Factorization-Machine-Library&quot; class=&quot;headerlink&quot; title=&quot;libFM: Factorization M</summary>
+      
+    
+    
+    
+    <category term="1.算法相关" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/"/>
+    
+    <category term="2.推荐系统" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2-%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/"/>
+    
+    <category term="4.线性回归及其变形" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2-%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/4-%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E5%8F%8A%E5%85%B6%E5%8F%98%E5%BD%A2/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/6.%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/AUC%E7%9A%84%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/"/>
+    <id>https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/6.%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/AUC%E7%9A%84%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/</id>
+    <published>2024-01-03T09:41:01.095Z</published>
+    <updated>2024-01-03T09:41:01.095Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li><p><strong>ROC曲线和AUC</strong><br><br><img src="/../gitbook/images/AUC/4.png" alt="Local Image"><br></p></li><li><p><strong>计算方法</strong><br><br>auc计算部分，除了画出roc曲线，还可以直接计算：<br><br><img src="/../gitbook/images/AUC/2.png" alt="Local Image"><br><br>其中,</p><ul><li>M为正类样本的数目，N为负类样本的数目<br></li><li>rank是用的tiedrank</li></ul></li><li><p><strong>原理</strong><br><br>和Wilcoxon-Mann-Witney Test有关，即:<br><br>auc&#x3D;“测试任意给一个正类样本和一个负类样本，正类样本的score有多大的概率大于负类样本的score”，也即auc的物理意义。<br></p></li><li><p><strong>单机计算</strong><br><br>参考：<a href="https://github.com/liuzhiqiangruc/dml/blob/master/regr/auc.c">https://github.com/liuzhiqiangruc/dml/blob/master/regr/auc.c</a></p></li><li><p><strong>hive计算</strong><br><br>使用hivemall可以方便地计算auc, 如下图<br><br><img src="/../gitbook/images/AUC/5.png" alt="Local Image"><br></p></li><li><p><strong>spark计算</strong><br></p></li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">// Compute raw scores on the test set</span><br><span class="line">val predictionAndLabels = test.map &#123; case LabeledPoint(label, features) =&gt;</span><br><span class="line">  val prediction = model.predict(features)</span><br><span class="line">  (prediction, label)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// Instantiate metrics object</span><br><span class="line">val metrics = new BinaryClassificationMetrics(predictionAndLabels)</span><br><span class="line"></span><br><span class="line">// AUROC</span><br><span class="line">val auROC = metrics.areaUnderROC</span><br><span class="line">println(&quot;Area under ROC = &quot; + auROC)</span><br><span class="line"></span><br></pre></td></tr></table></figure><ul><li><p><strong>AUPR</strong><br></p><ul><li>AUPR：Area Under Precision Recall Curve<br><br><img src="/../gitbook/images/AUC/6.png" alt="Local Image"><br></li></ul></li><li><p><strong>AUC VS AUPR (1)</strong><br><br> <img src="/../gitbook/images/AUC/7.png" alt="Local Image"><br></p></li><li><p><strong>AUC VS AUPR (2)</strong><br><br><img src="/../gitbook/images/AUC/8.png" alt="Local Image"><br></p></li><li><p><strong>Ref:</strong><br></p></li></ul><ol><li><a href="http://taoo.iteye.com/blog/760589">http://taoo.iteye.com/blog/760589</a></li><li><a href="http://cn.mathworks.com/help/stats/tiedrank.html?requestedDomain=www.mathworks.com">http://cn.mathworks.com/help/stats/tiedrank.html?requestedDomain=www.mathworks.com</a></li><li><a href="https://github.com/liuzhiqiangruc/dml/blob/master/regr/auc.c">https://github.com/liuzhiqiangruc/dml/blob/master/regr/auc.c</a></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;ROC曲线和AUC&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;img src=&quot;/../gitbook/images/AUC/4.png&quot; alt=&quot;Local Image&quot;&gt;&lt;br&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;计算方法&lt;/</summary>
+      
+    
+    
+    
+    <category term="1.算法相关" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/"/>
+    
+    <category term="2.推荐系统" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2-%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/"/>
+    
+    <category term="6.评估指标" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2-%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/6-%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>hivemall</title>
+    <link href="https://sampsonguo.github.io/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/4.%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/hivemall/"/>
+    <id>https://sampsonguo.github.io/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/4.%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/hivemall/</id>
+    <published>2024-01-03T09:41:00.626Z</published>
+    <updated>2024-01-04T02:34:34.298Z</updated>
+    
+    <content type="html"><![CDATA[<h5 id="What-is-Hivemall"><a href="#What-is-Hivemall" class="headerlink" title="What is Hivemall?"></a>What is Hivemall?</h5><ul><li>Scalable Machine Learning</li><li>A collection of hive UDFs</li><li>ML on SQL</li></ul><h5 id="Why-Hivemall"><a href="#Why-Hivemall" class="headerlink" title="Why Hivemall?"></a>Why Hivemall?</h5><ul><li>Scalable (compare to scikit-learn)</li><li>Easy To Use (compare to scikit-learn)</li></ul><h5 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h5><p><a href="https://www.slideshare.net/myui/introduction-to-hivemall">https://www.slideshare.net/myui/introduction-to-hivemall</a></p><h5 id="Extended-top-open-sources-big-data-tools-2016"><a href="#Extended-top-open-sources-big-data-tools-2016" class="headerlink" title="Extended: top open sources big data tools 2016"></a>Extended: top open sources big data tools 2016</h5><ul><li>Spark</li><li>Beam</li><li>TensorFlow</li><li>Solr</li><li>ElasticSearch</li><li>SlamData</li><li>Impala</li><li>Kylin</li><li>Kafka</li><li>StreamSets</li><li>Titan</li><li>Zeppelin</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h5 id=&quot;What-is-Hivemall&quot;&gt;&lt;a href=&quot;#What-is-Hivemall&quot; class=&quot;headerlink&quot; title=&quot;What is Hivemall?&quot;&gt;&lt;/a&gt;What is Hivemall?&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;Scalab</summary>
+      
+    
+    
+    
+    <category term="2.数据相关" scheme="https://sampsonguo.github.io/categories/2-%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/"/>
+    
+    <category term="4.数据平台" scheme="https://sampsonguo.github.io/categories/2-%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/4-%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>storm</title>
+    <link href="https://sampsonguo.github.io/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/4.%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/storm/"/>
+    <id>https://sampsonguo.github.io/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/4.%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/storm/</id>
+    <published>2024-01-03T09:41:00.626Z</published>
+    <updated>2024-01-04T02:34:43.444Z</updated>
+    
+    
+    
+    
+    <category term="2.数据相关" scheme="https://sampsonguo.github.io/categories/2-%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/"/>
+    
+    <category term="4.数据平台" scheme="https://sampsonguo.github.io/categories/2-%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/4-%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>azkaban</title>
+    <link href="https://sampsonguo.github.io/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/4.%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/azkaban/"/>
+    <id>https://sampsonguo.github.io/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/4.%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/azkaban/</id>
+    <published>2024-01-03T09:41:00.625Z</published>
+    <updated>2024-01-04T02:34:18.430Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h4><p><a href="http://azkaban.github.io/azkaban/docs/latest/#solo-setup">文档</a></p><h5 id="Setup"><a href="#Setup" class="headerlink" title="Setup"></a>Setup</h5><ul><li>Setup the Database</li><li>JDBC Connector Jar</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h4 id=&quot;Install&quot;&gt;&lt;a href=&quot;#Install&quot; class=&quot;headerlink&quot; title=&quot;Install&quot;&gt;&lt;/a&gt;Install&lt;/h4&gt;&lt;p&gt;&lt;a href=&quot;http://azkaban.github.io/azkaban/docs/lat</summary>
+      
+    
+    
+    
+    <category term="2.数据相关" scheme="https://sampsonguo.github.io/categories/2-%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/"/>
+    
+    <category term="4.数据平台" scheme="https://sampsonguo.github.io/categories/2-%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/4-%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Elastic Search</title>
+    <link href="https://sampsonguo.github.io/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/4.%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/ElasticSearch/"/>
+    <id>https://sampsonguo.github.io/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/4.%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/ElasticSearch/</id>
+    <published>2024-01-03T09:41:00.624Z</published>
+    <updated>2024-01-04T02:34:02.144Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="Elastic-Search"><a href="#Elastic-Search" class="headerlink" title="Elastic Search"></a>Elastic Search</h4><h5 id="Define-Elasticsearch"><a href="#Define-Elasticsearch" class="headerlink" title="Define Elasticsearch"></a>Define Elasticsearch</h5><ul><li>distributed</li><li>JSON-based search</li><li>analytics engine</li></ul><h5 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h5><ul><li>Fast: BKD trees, column store</li><li>Scalability: 1 -&gt; 300 nodes</li><li>Highly Available: detects failures</li><li>Elasticsearch Plus Hadoop</li></ul><h5 id="Concepts"><a href="#Concepts" class="headerlink" title="Concepts"></a>Concepts</h5><ul><li>Near RealTime: Add doc, Index first, Then search</li><li>Cluster: a collection of one or more nodes</li><li>Node: UUID is assigned to the node</li><li>Index</li><li>Type</li><li>Documentation</li><li>Shards: distributed，parallelize operations</li><li>Replication: high availability</li></ul><h5 id="Health"><a href="#Health" class="headerlink" title="Health"></a>Health</h5><ul><li>Health: yellow-one node, so not high availability</li></ul><h5 id="Index"><a href="#Index" class="headerlink" title="Index"></a>Index</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">curl -XPOST &quot;http://localhost:9200/_search&quot; -d&#x27;</span><br><span class="line">&#123;</span><br><span class="line">    &quot;query&quot;: &#123;</span><br><span class="line">        &quot;query_string&quot;: &#123;</span><br><span class="line">            &quot;query&quot;: &quot;kill&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;&#x27;</span><br></pre></td></tr></table></figure><h5 id="Search"><a href="#Search" class="headerlink" title="Search"></a>Search</h5><ul><li>POST request</li><li>Query DSL<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">curl -XPOST &quot;http://localhost:9200/_search&quot; -d&#x27;</span><br><span class="line">&#123;</span><br><span class="line">    &quot;query&quot;: &#123;</span><br><span class="line">        &quot;filtered&quot;: &#123;</span><br><span class="line">            &quot;query&quot;: &#123;</span><br><span class="line">                &quot;query_string&quot;: &#123;</span><br><span class="line">                    &quot;query&quot;: &quot;drama&quot;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;filter&quot;: &#123;</span><br><span class="line">                &quot;term&quot;: &#123; &quot;year&quot;: 1962 &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ul><h5 id="Sense"><a href="#Sense" class="headerlink" title="Sense"></a>Sense</h5><ul><li>A chrome plugin</li></ul><h5 id="DEMO"><a href="#DEMO" class="headerlink" title="DEMO"></a>DEMO</h5><ul><li><a href="http://joelabrahamsson.com/elasticsearch-101/">http://joelabrahamsson.com/elasticsearch-101/</a></li></ul><hr><h4 id="Why-ElasticSearch"><a href="#Why-ElasticSearch" class="headerlink" title="Why ElasticSearch?"></a>Why ElasticSearch?</h4><h5 id="1-Full-text-Search-VS-Like"><a href="#1-Full-text-Search-VS-Like" class="headerlink" title="1. Full-text Search VS Like"></a>1. Full-text Search VS Like</h5><ul><li>Index<ul><li>Like: un-indexed column, so slow</li><li>Full-text Search: inverted index, so fast</li></ul></li><li>PR tradeoff<ul><li>Like: 100% precision</li><li>Full-text Search: flexibility to tune down PR</li></ul></li><li>Ranking<ul><li>Like: no similarity</li><li>Full-text Search: BM25, Various Distance</li></ul></li><li>morphological analysis<ul><li>treating “mice” and “mouse” as the same word</li></ul></li></ul><h5 id="2"><a href="#2" class="headerlink" title="2."></a>2.</h5>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h4 id=&quot;Elastic-Search&quot;&gt;&lt;a href=&quot;#Elastic-Search&quot; class=&quot;headerlink&quot; title=&quot;Elastic Search&quot;&gt;&lt;/a&gt;Elastic Search&lt;/h4&gt;&lt;h5 id=&quot;Define-Elasticsea</summary>
+      
+    
+    
+    
+    <category term="2.数据相关" scheme="https://sampsonguo.github.io/categories/2-%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/"/>
+    
+    <category term="4.数据平台" scheme="https://sampsonguo.github.io/categories/2-%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/4-%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://sampsonguo.github.io/wiki/4.%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/4.%E6%97%A5%E5%B8%B8%E6%80%9D%E8%80%83/%E4%BC%98%E6%83%A0%E5%88%B8%E4%B8%8E%E5%89%A9%E4%BD%99%E4%BB%B7%E5%80%BC/"/>
+    <id>https://sampsonguo.github.io/wiki/4.%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/4.%E6%97%A5%E5%B8%B8%E6%80%9D%E8%80%83/%E4%BC%98%E6%83%A0%E5%88%B8%E4%B8%8E%E5%89%A9%E4%BD%99%E4%BB%B7%E5%80%BC/</id>
+    <published>2024-01-03T09:40:59.549Z</published>
+    <updated>2024-01-03T09:40:59.549Z</updated>
+    
+    <content type="html"><![CDATA[<p>在运营策略中，优惠券是剥夺用户剩余价值的有效的手段。<br></p><ul><li><p>剩余价值曲线<br><br><img src="/../gitbook/images/%E5%89%A9%E4%BD%99%E4%BB%B7%E5%80%BC%E5%92%8C%E4%BC%98%E6%83%A0%E5%88%B8/%E5%89%A9%E4%BD%99%E4%BB%B7%E5%80%BC%E5%92%8C%E4%BC%98%E6%83%A0%E5%88%B81.png" alt="Local Image"><br><br>纵轴是价格，横轴是这个价格可接受的人数，BC是成本线，ABC的面积是剩余价值，如何最大程度的获取ABC的面积，是商家的考虑。</p></li><li><p>固定价格<br><br><img src="/../gitbook/images/%E5%89%A9%E4%BD%99%E4%BB%B7%E5%80%BC%E5%92%8C%E4%BC%98%E6%83%A0%E5%88%B8/%E5%89%A9%E4%BD%99%E4%BB%B7%E5%80%BC%E5%92%8C%E4%BC%98%E6%83%A0%E5%88%B84.png" alt="Local Image"><br><br>定价在DE线，那么DECF就是商家的利润了。<br></p></li><li><p>优惠券<br><br><img src="/../gitbook/images/%E5%89%A9%E4%BD%99%E4%BB%B7%E5%80%BC%E5%92%8C%E4%BC%98%E6%83%A0%E5%88%B8/%E5%89%A9%E4%BD%99%E4%BB%B7%E5%80%BC%E5%92%8C%E4%BC%98%E6%83%A0%E5%88%B85.png" alt="Local Image"><br><br>使用优惠券，原本价格太高的顾客，可以通过优惠券来达到理想价格；<br><br>原本就能接受定价的顾客，依然以定价来购买（可能觉得优惠券太麻烦了）；<br><br>从而实现价格歧视，提高商家利润。<br></p></li><li><p>打折<br><br>折扣等手段，只能降低定价，无法实现价格歧视，因此获取利润来说，是不如优惠券的。</p></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;在运营策略中，优惠券是剥夺用户剩余价值的有效的手段。&lt;br&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;剩余价值曲线&lt;br&gt;&lt;br&gt;&lt;img src=&quot;/../gitbook/images/%E5%89%A9%E4%BD%99%E4%BB%B7%E5%80%BC%E5%92%8C%E</summary>
+      
+    
+    
+    
+    <category term="4.日常相关" scheme="https://sampsonguo.github.io/categories/4-%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/"/>
+    
+    <category term="4.日常思考" scheme="https://sampsonguo.github.io/categories/4-%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/4-%E6%97%A5%E5%B8%B8%E6%80%9D%E8%80%83/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/5.%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/DensityPeaksClustering/"/>
+    <id>https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/5.%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/DensityPeaksClustering/</id>
+    <published>2024-01-03T09:40:59.545Z</published>
+    <updated>2024-01-03T09:40:59.545Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Clustering-by-fast-search-and-find-of-density-peaks"><a href="#Clustering-by-fast-search-and-find-of-density-peaks" class="headerlink" title="Clustering by fast search and find of density peaks"></a>Clustering by fast search and find of density peaks</h3><ul><li><p><strong>文章来源</strong><br><br>发表在science上<br><br>网址：<a href="http://www.sciencemag.org/content/344/6191/1492.short">http://www.sciencemag.org/content/344/6191/1492.short</a></p></li><li><p><strong>两个观点</strong><br></p><ul><li>密度观点：聚类中心点的密度比临近点密度都大</li><li>距离观点：聚类中心与比他们密度更大的点的距离都比较大</li></ul></li><li><p><strong>观点图示</strong><br></p><ul><li><p>Fig A：点的分布，并且已经按照密度排序。<br></p></li><li><p>Fig B：密度值和距离值的二维图<br></p><p><img src="/../gitbook/images/DensityPeaksClustering/%E5%9B%BE%E7%89%871.png" alt="Local Image"></p></li></ul></li><li><p><strong>召回方案</strong></p><ul><li>密度观点召回：召回了密度中心和靠近密度中心的点。</li><li>距离观点召回：召回了离群点和密度中心点。</li><li>密度召回∩距离召回：召回密度中心点</li></ul></li><li><p><strong>计算方法</strong></p><ul><li><p>密度值<br><br><img src="/../gitbook/images/DensityPeaksClustering/%E5%9B%BE%E7%89%872.png" alt="Local Image"></p></li><li><p>距离值<br><br><img src="/../gitbook/images/DensityPeaksClustering/%E5%9B%BE%E7%89%873.png" alt="Local Image"></p></li></ul></li><li><p><strong>综合指标</strong></p><ul><li>可以合并两个指标，作为最终指标</li><li>例如：𝛾&#x3D;𝜌*𝛿<br><br><img src="/../gitbook/images/DensityPeaksClustering/%E5%9B%BE%E7%89%874.png" alt="Local Image"></li></ul></li><li><p><strong>复杂度</strong></p><ul><li>时间复杂度：<br>O(m*n^2)</li><li>空间复杂度：<br>O(m*n^2)</li></ul></li><li><p><strong>一些聚类算法的比较</strong></p><ul><li>No Free Lunch: 没有最好的聚类方法，只有最合适的。<br><br> <img src="/../gitbook/images/DensityPeaksClustering/%E5%9B%BE%E7%89%875.png" alt="Local Image"></li></ul></li><li><p><strong>和dbscan比较</strong></p><ul><li>当有渐变噪声的时候，dbscan很难找到合适的密度，去聚出这两个类，但是本算法可以<br><br><img src="/../gitbook/images/DensityPeaksClustering/%E5%9B%BE%E7%89%876.png" alt="Local Image"></li></ul></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;Clustering-by-fast-search-and-find-of-density-peaks&quot;&gt;&lt;a href=&quot;#Clustering-by-fast-search-and-find-of-density-peaks&quot; class=&quot;headerlin</summary>
+      
+    
+    
+    
+    <category term="1.算法相关" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/"/>
+    
+    <category term="5.数据挖掘" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/5-%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/5.%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/LSH%E5%B0%8F%E7%BB%93/"/>
+    <id>https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/5.%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/LSH%E5%B0%8F%E7%BB%93/</id>
+    <published>2024-01-03T09:40:59.545Z</published>
+    <updated>2024-01-03T09:40:59.545Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="LSH"><a href="#LSH" class="headerlink" title="LSH"></a>LSH</h4><p>LSH主要有simhash和minhash</p><h5 id="simhash-Problem"><a href="#simhash-Problem" class="headerlink" title="simhash-Problem"></a>simhash-Problem</h5><p>有很多网页，需要做很多网页的比较工作，工作量很大，如何减少工作量？</p><h5 id="simhash-Try-to-solve"><a href="#simhash-Try-to-solve" class="headerlink" title="simhash-Try to solve"></a>simhash-Try to solve</h5><ul><li>方案一：将网页直接hash？<br><br>  能够比较两个网页是否完全相同，不能计算出相似程度。</li><li>方案二：计算cos距离？<br><br>  有N个网页，每个网页M个词语，复杂度为O(N<em>N</em>M)，计算量太大。</li></ul><h5 id="simhash-思路"><a href="#simhash-思路" class="headerlink" title="simhash-思路"></a>simhash-思路</h5><p>将网页hash成为一个K位的值，并且网页越相似，hash值越相似，即simhash。</p><h5 id="simhash-解决方案"><a href="#simhash-解决方案" class="headerlink" title="simhash-解决方案"></a>simhash-解决方案</h5><p><img src="/../gitbook/images/LSH/1.png" alt="Local Image"></p><h5 id="simhash-解决方案-1"><a href="#simhash-解决方案-1" class="headerlink" title="simhash-解决方案"></a>simhash-解决方案</h5><p><img src="/../gitbook/images/LSH/2.png" alt="Local Image"></p><h5 id="simhash-解决方案-2"><a href="#simhash-解决方案-2" class="headerlink" title="simhash-解决方案"></a>simhash-解决方案</h5><p><img src="/../gitbook/images/LSH/3.png" alt="Local Image"></p><h5 id="Why"><a href="#Why" class="headerlink" title="Why"></a>Why</h5><ul><li>试着做很小的修改？     很难影响fingerprint。</li><li>权重越大？       对fingerprint的影响越大。</li><li>尝试：让权重&#x3D;TF-IDF值</li></ul><h5 id="Simhash-替代-hash？"><a href="#Simhash-替代-hash？" class="headerlink" title="Simhash 替代 hash？"></a>Simhash 替代 hash？</h5><p>不可，破坏了hash要求的随机性。<br><br>签名：容易错误。</p><h5 id="Ref"><a href="#Ref" class="headerlink" title="Ref"></a>Ref<br></h5><ul><li><a href="http://blog.csdn.net/heiyeshuwu/article/details/44117473">http://blog.csdn.net/heiyeshuwu/article/details/44117473</a></li><li><a href="https://leons.im/posts/a-python-implementation-of-simhash-algorithm/">https://leons.im/posts/a-python-implementation-of-simhash-algorithm/</a></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h4 id=&quot;LSH&quot;&gt;&lt;a href=&quot;#LSH&quot; class=&quot;headerlink&quot; title=&quot;LSH&quot;&gt;&lt;/a&gt;LSH&lt;/h4&gt;&lt;p&gt;LSH主要有simhash和minhash&lt;/p&gt;
+&lt;h5 id=&quot;simhash-Problem&quot;&gt;&lt;a href=&quot;#simha</summary>
+      
+    
+    
+    
+    <category term="1.算法相关" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/"/>
+    
+    <category term="5.数据挖掘" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/5-%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/5.%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/%E5%BC%82%E5%B8%B8%E7%82%B9%E6%A3%80%E6%B5%8B%E7%AE%97%E6%B3%95/"/>
+    <id>https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/5.%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/%E5%BC%82%E5%B8%B8%E7%82%B9%E6%A3%80%E6%B5%8B%E7%AE%97%E6%B3%95/</id>
+    <published>2024-01-03T09:40:59.545Z</published>
+    <updated>2024-01-03T09:40:59.545Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="异常点算法检测"><a href="#异常点算法检测" class="headerlink" title="异常点算法检测"></a>异常点算法检测</h4><p><strong>(请再次刷新使公式显示正常！)</strong></p><h5 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h5><ul><li>图像：图像去噪</li><li>金融：反作弊</li><li>医疗：身体异常检测</li></ul><h5 id="大方向"><a href="#大方向" class="headerlink" title="大方向"></a>大方向</h5><ul><li>基于统计</li><li>基于距离</li><li>基于分类<ul><li>输出0&#x2F;1，是否是异常点</li><li>p, 属于异常点的概率</li></ul></li></ul><h5 id="基于统计"><a href="#基于统计" class="headerlink" title="基于统计"></a>基于统计</h5><ul><li>假设属于正态分布（中心极限定理）</li><li>计算均值和方差</li></ul><p>$$<br> \mu &#x3D; \frac{\sum_{i&#x3D;1}^n x_i}{n}<br>$$</p><p>$$<br> \sigma^2 &#x3D; \frac{\sum_{i&#x3D;1}^n (x_i-\mu)^2}{n}<br>$$</p><ul><li>选择值超出某个置信区间的数据，如99.7%的范围</li></ul><p>$$<br>\mu \pm 3\mu<br>$$</p><h5 id="多元变量"><a href="#多元变量" class="headerlink" title="多元变量"></a>多元变量</h5><ul><li>假设属于多元独立正态分布</li><li>计算每一个维度(m 维)的均值和方差</li></ul><p>$$<br> \mu_j &#x3D; \frac{\sum_{i&#x3D;1}^n x_{i,j}}{n}<br>$$</p><p>$$<br> \sigma_j^2 &#x3D; \frac{\sum_{i&#x3D;1}^n (x_{i,j}-\mu)^2}{n}<br>$$</p><ul><li>选择某个概率密度之内的数据<br>$$<br>p(\vec x)&#x3D; \prod_{j&#x3D;1}^mp(x_j;\mu_j,\sigma_j^2) &#x3D; \prod_{j&#x3D;1}^m\frac{1}{\sqrt{2\pi}\sigma_j}exp(-\frac{(x_j-\mu_j)^2}{2\sigma_j^2})<br>$$</li></ul><h5 id="变量相关"><a href="#变量相关" class="headerlink" title="变量相关"></a>变量相关</h5><ul><li>假设属于多元正态分布（中心极限定理）</li><li>计算每个维度（m维）的均值和协方差矩阵<br>$$<br>\mu&#x3D;(E(x_1),E(x_2),…,E(x_m))<br>$$<br>$$<br>\sum &#x3D; [Cov(x_i,x_j)], i,j\in{1,2,…,m}<br>$$</li><li>选择某个概率密度之内的数据<br>$$<br>p(\vec x)&#x3D;\frac{1}{(2\pi)^{\frac{n}{2}}|\sum|^\frac{1}{2}}exp(-\frac{1}{2}(\vec x - \vec \mu)^T \sum_{}^{-1}(\vec x - \vec \mu))<br>$$</li></ul><h5 id="其他分布"><a href="#其他分布" class="headerlink" title="其他分布"></a>其他分布</h5><p>如泊松分布，暂不讨论。</p><h5 id="不知道分布"><a href="#不知道分布" class="headerlink" title="不知道分布"></a>不知道分布</h5><p>用其他方案，如基于距离&#x2F;密度的离群点检测</p><h5 id="DBSCAN"><a href="#DBSCAN" class="headerlink" title="DBSCAN"></a>DBSCAN</h5><ul><li>使用dbscan中的噪声点概念</li><li>噪声点：半径r内不够minPts，又没有核心点</li></ul><h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a href="https://www.52ml.net/19790.html">https://www.52ml.net/19790.html</a><br>数据挖掘概念和技术 –Jiawei Han<br>Outlier Analysis –Charu C. Aggarwal</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h4 id=&quot;异常点算法检测&quot;&gt;&lt;a href=&quot;#异常点算法检测&quot; class=&quot;headerlink&quot; title=&quot;异常点算法检测&quot;&gt;&lt;/a&gt;异常点算法检测&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;(请再次刷新使公式显示正常！)&lt;/strong&gt;&lt;/p&gt;
+&lt;h5 id=&quot;应用&quot;&gt;&lt;</summary>
+      
+    
+    
+    
+    <category term="1.算法相关" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/"/>
+    
+    <category term="5.数据挖掘" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/5-%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>LDA原理和实践</title>
@@ -91,418 +510,6 @@
     <category term="2.推荐系统" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2-%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/"/>
     
     <category term="1.协同过滤类" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2-%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/1-%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>place holder</title>
-    <link href="https://sampsonguo.github.io/wiki/4.%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/place_holder/"/>
-    <id>https://sampsonguo.github.io/wiki/4.%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/place_holder/</id>
-    <published>2024-01-02T08:06:36.476Z</published>
-    <updated>2024-01-02T08:06:36.476Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
-      
-    
-    
-    
-    <category term="4.日常相关" scheme="https://sampsonguo.github.io/categories/4-%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>place holder</title>
-    <link href="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/place_holder/"/>
-    <id>https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/place_holder/</id>
-    <published>2024-01-02T08:06:36.476Z</published>
-    <updated>2024-01-02T08:06:36.476Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
-      
-    
-    
-    
-    <category term="1.算法相关" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/"/>
-    
-    <category term="1.特征工程" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1-%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>place holder</title>
-    <link href="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/4.%E7%94%A8%E6%88%B7%E5%A2%9E%E9%95%BF/%E6%96%B0%E5%A2%9E%E7%95%99%E5%AD%98%E4%BB%98%E8%B4%B9%E5%9B%9E%E6%B5%81/"/>
-    <id>https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/4.%E7%94%A8%E6%88%B7%E5%A2%9E%E9%95%BF/%E6%96%B0%E5%A2%9E%E7%95%99%E5%AD%98%E4%BB%98%E8%B4%B9%E5%9B%9E%E6%B5%81/</id>
-    <published>2024-01-02T08:06:36.476Z</published>
-    <updated>2024-01-02T08:06:36.476Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
-      
-    
-    
-    
-    <category term="1.算法相关" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/"/>
-    
-    <category term="4.用户增长" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/4-%E7%94%A8%E6%88%B7%E5%A2%9E%E9%95%BF/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>place holder</title>
-    <link href="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/5.%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/%E8%81%9A%E7%B1%BB%E8%AE%A8%E8%AE%BA%EF%BC%88dbscan%E7%AD%89%EF%BC%89/"/>
-    <id>https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/5.%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/%E8%81%9A%E7%B1%BB%E8%AE%A8%E8%AE%BA%EF%BC%88dbscan%E7%AD%89%EF%BC%89/</id>
-    <published>2024-01-02T08:06:36.476Z</published>
-    <updated>2024-01-02T08:06:36.476Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
-      
-    
-    
-    
-    <category term="1.算法相关" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/"/>
-    
-    <category term="5.数据挖掘" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/5-%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>place holder</title>
-    <link href="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/6.%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%89%8B%E5%86%99attention/"/>
-    <id>https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/6.%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%89%8B%E5%86%99attention/</id>
-    <published>2024-01-02T08:06:36.476Z</published>
-    <updated>2024-01-02T08:06:36.476Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
-      
-    
-    
-    
-    <category term="1.算法相关" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/"/>
-    
-    <category term="6.深度学习" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/6-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>place holder</title>
-    <link href="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/8.%E5%A4%A7%E6%A8%A1%E5%9E%8B/place_holder/"/>
-    <id>https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/8.%E5%A4%A7%E6%A8%A1%E5%9E%8B/place_holder/</id>
-    <published>2024-01-02T08:06:36.476Z</published>
-    <updated>2024-01-02T08:06:36.476Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
-      
-    
-    
-    
-    <category term="1.算法相关" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/"/>
-    
-    <category term="8.大模型" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/8-%E5%A4%A7%E6%A8%A1%E5%9E%8B/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>place holder</title>
-    <link href="https://sampsonguo.github.io/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/4.%E7%AE%97%E6%B3%95%E6%9C%8D%E5%8A%A1/place_holder/"/>
-    <id>https://sampsonguo.github.io/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/4.%E7%AE%97%E6%B3%95%E6%9C%8D%E5%8A%A1/place_holder/</id>
-    <published>2024-01-02T08:06:36.476Z</published>
-    <updated>2024-01-02T08:06:36.476Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
-      
-    
-    
-    
-    <category term="3.服务相关" scheme="https://sampsonguo.github.io/categories/3-%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/"/>
-    
-    <category term="4.算法服务" scheme="https://sampsonguo.github.io/categories/3-%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/4-%E7%AE%97%E6%B3%95%E6%9C%8D%E5%8A%A1/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>place holder</title>
-    <link href="https://sampsonguo.github.io/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/2.%E5%90%8E%E5%8F%B0%E5%BC%80%E5%8F%91/place_holder/"/>
-    <id>https://sampsonguo.github.io/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/2.%E5%90%8E%E5%8F%B0%E5%BC%80%E5%8F%91/place_holder/</id>
-    <published>2024-01-02T08:06:36.476Z</published>
-    <updated>2024-01-02T08:06:36.476Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
-      
-    
-    
-    
-    <category term="3.服务相关" scheme="https://sampsonguo.github.io/categories/3-%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/"/>
-    
-    <category term="2.后台开发" scheme="https://sampsonguo.github.io/categories/3-%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/2-%E5%90%8E%E5%8F%B0%E5%BC%80%E5%8F%91/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>place holder</title>
-    <link href="https://sampsonguo.github.io/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/1.%E5%B9%B3%E5%8F%B0%E5%B7%A5%E5%85%B7/place_holder/"/>
-    <id>https://sampsonguo.github.io/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/1.%E5%B9%B3%E5%8F%B0%E5%B7%A5%E5%85%B7/place_holder/</id>
-    <published>2024-01-02T08:06:36.476Z</published>
-    <updated>2024-01-02T08:06:36.476Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
-      
-    
-    
-    
-    <category term="3.服务相关" scheme="https://sampsonguo.github.io/categories/3-%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/"/>
-    
-    <category term="1.平台工具" scheme="https://sampsonguo.github.io/categories/3-%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/1-%E5%B9%B3%E5%8F%B0%E5%B7%A5%E5%85%B7/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>place holder</title>
-    <link href="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/7.%E6%9C%BA%E5%88%B6%E7%AD%96%E7%95%A5/place_holder/"/>
-    <id>https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/7.%E6%9C%BA%E5%88%B6%E7%AD%96%E7%95%A5/place_holder/</id>
-    <published>2024-01-02T08:06:36.476Z</published>
-    <updated>2024-01-02T08:06:36.476Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
-      
-    
-    
-    
-    <category term="1.算法相关" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/"/>
-    
-    <category term="7.机制策略" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/7-%E6%9C%BA%E5%88%B6%E7%AD%96%E7%95%A5/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>place holder</title>
-    <link href="https://sampsonguo.github.io/wiki/4.%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/1.%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/place_holder/"/>
-    <id>https://sampsonguo.github.io/wiki/4.%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/1.%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/place_holder/</id>
-    <published>2024-01-02T08:06:36.476Z</published>
-    <updated>2024-01-02T08:06:36.476Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
-      
-    
-    
-    
-    <category term="4.日常相关" scheme="https://sampsonguo.github.io/categories/4-%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/"/>
-    
-    <category term="1.数学知识" scheme="https://sampsonguo.github.io/categories/4-%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/1-%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>place holder</title>
-    <link href="https://sampsonguo.github.io/wiki/4.%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/2.%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/place_holder/"/>
-    <id>https://sampsonguo.github.io/wiki/4.%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/2.%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/place_holder/</id>
-    <published>2024-01-02T08:06:36.476Z</published>
-    <updated>2024-01-02T08:06:36.476Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
-      
-    
-    
-    
-    <category term="4.日常相关" scheme="https://sampsonguo.github.io/categories/4-%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/"/>
-    
-    <category term="2.算法竞赛" scheme="https://sampsonguo.github.io/categories/4-%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/2-%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>place holder</title>
-    <link href="https://sampsonguo.github.io/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/3.%E7%AE%97%E6%B3%95%E5%B9%B3%E5%8F%B0/place_holder/"/>
-    <id>https://sampsonguo.github.io/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/3.%E7%AE%97%E6%B3%95%E5%B9%B3%E5%8F%B0/place_holder/</id>
-    <published>2024-01-02T08:06:36.476Z</published>
-    <updated>2024-01-02T08:06:36.476Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
-      
-    
-    
-    
-    <category term="3.服务相关" scheme="https://sampsonguo.github.io/categories/3-%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/"/>
-    
-    <category term="3.算法平台" scheme="https://sampsonguo.github.io/categories/3-%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/3-%E7%AE%97%E6%B3%95%E5%B9%B3%E5%8F%B0/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>place holder</title>
-    <link href="https://sampsonguo.github.io/wiki/4.%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/3.%E6%95%99%E5%91%98%E5%8D%83%E5%8F%A4/place_holder/"/>
-    <id>https://sampsonguo.github.io/wiki/4.%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/3.%E6%95%99%E5%91%98%E5%8D%83%E5%8F%A4/place_holder/</id>
-    <published>2024-01-02T08:06:36.476Z</published>
-    <updated>2024-01-02T08:06:36.476Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
-      
-    
-    
-    
-    <category term="4.日常相关" scheme="https://sampsonguo.github.io/categories/4-%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/"/>
-    
-    <category term="3.教员千古" scheme="https://sampsonguo.github.io/categories/4-%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/3-%E6%95%99%E5%91%98%E5%8D%83%E5%8F%A4/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>place holder</title>
-    <link href="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/2.%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3%E7%B1%BB/place_holder/"/>
-    <id>https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/2.%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3%E7%B1%BB/place_holder/</id>
-    <published>2024-01-02T08:06:36.476Z</published>
-    <updated>2024-01-02T08:06:36.476Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
-      
-    
-    
-    
-    <category term="1.算法相关" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/"/>
-    
-    <category term="2.推荐系统" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2-%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/"/>
-    
-    <category term="2.矩阵分解类" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2-%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/2-%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3%E7%B1%BB/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>place holder</title>
-    <link href="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/4.%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%B1%BB/place_holder/"/>
-    <id>https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/4.%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%B1%BB/place_holder/</id>
-    <published>2024-01-02T08:06:36.476Z</published>
-    <updated>2024-01-02T08:06:36.476Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
-      
-    
-    
-    
-    <category term="1.算法相关" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/"/>
-    
-    <category term="2.推荐系统" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2-%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/"/>
-    
-    <category term="4.深度学习类" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2-%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/4-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%B1%BB/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>place holder</title>
-    <link href="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/3.%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E5%8F%8A%E5%85%B6%E5%8F%98%E5%BD%A2/place_holder/"/>
-    <id>https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/3.%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E5%8F%8A%E5%85%B6%E5%8F%98%E5%BD%A2/place_holder/</id>
-    <published>2024-01-02T08:06:36.476Z</published>
-    <updated>2024-01-02T08:06:36.476Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
-      
-    
-    
-    
-    <category term="1.算法相关" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/"/>
-    
-    <category term="2.推荐系统" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2-%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/"/>
-    
-    <category term="3.线性回归及其变形" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2-%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/3-%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E5%8F%8A%E5%85%B6%E5%8F%98%E5%BD%A2/"/>
     
     
   </entry>
