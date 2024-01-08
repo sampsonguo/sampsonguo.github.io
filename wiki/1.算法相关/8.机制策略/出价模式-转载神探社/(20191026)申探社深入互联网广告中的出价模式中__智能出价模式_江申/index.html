@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset="utf-8">
+    
+    <title>申探社：深入互联网广告中的出价模式（中） — 智能出价模式 | Wiki</title>
+    
+    
+        <meta name="keywords" content="申探社：深入互联网广告中的出价模式（中） — 智能出价模式" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="申探社：深入互联网广告中的出价模式（中） — 智能出价模式 Author: [江申]  Link: [https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;88522899] ​（上）篇回顾 在（上）篇中我们探讨了出价模式的“四点三率两控制一加强”分析模型中的“四点三率”。其中“四点”即竞价点，计费点，出价点，考核点。各种出价模式的差异，很大程度上就是因为这四点位置的不同而造成的。例如下图展示">
+<meta property="og:type" content="article">
+<meta property="og:title" content="申探社：深入互联网广告中的出价模式（中） — 智能出价模式">
+<meta property="og:url" content="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/8.%E6%9C%BA%E5%88%B6%E7%AD%96%E7%95%A5/%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F-%E8%BD%AC%E8%BD%BD%E7%A5%9E%E6%8E%A2%E7%A4%BE/(20191026)%E7%94%B3%E6%8E%A2%E7%A4%BE%E6%B7%B1%E5%85%A5%E4%BA%92%E8%81%94%E7%BD%91%E5%B9%BF%E5%91%8A%E4%B8%AD%E7%9A%84%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F%E4%B8%AD__%E6%99%BA%E8%83%BD%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F_%E6%B1%9F%E7%94%B3/index.html">
+<meta property="og:site_name" content="Wiki">
+<meta property="og:description" content="申探社：深入互联网广告中的出价模式（中） — 智能出价模式 Author: [江申]  Link: [https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;88522899] ​（上）篇回顾 在（上）篇中我们探讨了出价模式的“四点三率两控制一加强”分析模型中的“四点三率”。其中“四点”即竞价点，计费点，出价点，考核点。各种出价模式的差异，很大程度上就是因为这四点位置的不同而造成的。例如下图展示">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://sampsonguo.github.io/(20191026)%E7%94%B3%E6%8E%A2%E7%A4%BE%E6%B7%B1%E5%85%A5%E4%BA%92%E8%81%94%E7%BD%91%E5%B9%BF%E5%91%8A%E4%B8%AD%E7%9A%84%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F%E4%B8%AD__%E6%99%BA%E8%83%BD%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F_%E6%B1%9F%E7%94%B3/v2-387b7ad1ee079a82a48267ad9f5f06b5_r.jpg">
+<meta property="og:image" content="https://sampsonguo.github.io/(20191026)%E7%94%B3%E6%8E%A2%E7%A4%BE%E6%B7%B1%E5%85%A5%E4%BA%92%E8%81%94%E7%BD%91%E5%B9%BF%E5%91%8A%E4%B8%AD%E7%9A%84%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F%E4%B8%AD__%E6%99%BA%E8%83%BD%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F_%E6%B1%9F%E7%94%B3/v2-a0b7eebf4178fcb65dbe79485b3bf9d8_r.jpg">
+<meta property="og:image" content="https://sampsonguo.github.io/(20191026)%E7%94%B3%E6%8E%A2%E7%A4%BE%E6%B7%B1%E5%85%A5%E4%BA%92%E8%81%94%E7%BD%91%E5%B9%BF%E5%91%8A%E4%B8%AD%E7%9A%84%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F%E4%B8%AD__%E6%99%BA%E8%83%BD%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F_%E6%B1%9F%E7%94%B3/v2-182705e0711fbe2efba809be37bf3aa2_r.jpg">
+<meta property="og:image" content="https://sampsonguo.github.io/(20191026)%E7%94%B3%E6%8E%A2%E7%A4%BE%E6%B7%B1%E5%85%A5%E4%BA%92%E8%81%94%E7%BD%91%E5%B9%BF%E5%91%8A%E4%B8%AD%E7%9A%84%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F%E4%B8%AD__%E6%99%BA%E8%83%BD%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F_%E6%B1%9F%E7%94%B3/v2-459eb0b1f385d1298fd523ef52d6dfbd_r.jpg">
+<meta property="og:image" content="https://sampsonguo.github.io/(20191026)%E7%94%B3%E6%8E%A2%E7%A4%BE%E6%B7%B1%E5%85%A5%E4%BA%92%E8%81%94%E7%BD%91%E5%B9%BF%E5%91%8A%E4%B8%AD%E7%9A%84%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F%E4%B8%AD__%E6%99%BA%E8%83%BD%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F_%E6%B1%9F%E7%94%B3/v2-fc3e675721583e5c1d9b29c5b5bac819_r.jpg">
+<meta property="og:image" content="https://sampsonguo.github.io/(20191026)%E7%94%B3%E6%8E%A2%E7%A4%BE%E6%B7%B1%E5%85%A5%E4%BA%92%E8%81%94%E7%BD%91%E5%B9%BF%E5%91%8A%E4%B8%AD%E7%9A%84%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F%E4%B8%AD__%E6%99%BA%E8%83%BD%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F_%E6%B1%9F%E7%94%B3/v2-9b9a13e0f7d1ff12195f837f562ac3ac_r.jpg">
+<meta property="og:image" content="https://sampsonguo.github.io/(20191026)%E7%94%B3%E6%8E%A2%E7%A4%BE%E6%B7%B1%E5%85%A5%E4%BA%92%E8%81%94%E7%BD%91%E5%B9%BF%E5%91%8A%E4%B8%AD%E7%9A%84%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F%E4%B8%AD__%E6%99%BA%E8%83%BD%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F_%E6%B1%9F%E7%94%B3/v2-dcf1c426d5bd9895485a11bc1e4cd231_r.jpg">
+<meta property="og:image" content="https://sampsonguo.github.io/(20191026)%E7%94%B3%E6%8E%A2%E7%A4%BE%E6%B7%B1%E5%85%A5%E4%BA%92%E8%81%94%E7%BD%91%E5%B9%BF%E5%91%8A%E4%B8%AD%E7%9A%84%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F%E4%B8%AD__%E6%99%BA%E8%83%BD%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F_%E6%B1%9F%E7%94%B3/v2-11b8cb87bd4d7a32423a37f44bf7e018_r.jpg">
+<meta property="og:image" content="https://sampsonguo.github.io/(20191026)%E7%94%B3%E6%8E%A2%E7%A4%BE%E6%B7%B1%E5%85%A5%E4%BA%92%E8%81%94%E7%BD%91%E5%B9%BF%E5%91%8A%E4%B8%AD%E7%9A%84%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F%E4%B8%AD__%E6%99%BA%E8%83%BD%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F_%E6%B1%9F%E7%94%B3/v2-e6c17dffac61c722ab6fb91b152865be_r.jpg">
+<meta property="article:published_time" content="2024-01-08T08:34:29.222Z">
+<meta property="article:modified_time" content="2024-01-08T09:34:02.541Z">
+<meta property="article:author" content="sampsonguo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://sampsonguo.github.io/(20191026)%E7%94%B3%E6%8E%A2%E7%A4%BE%E6%B7%B1%E5%85%A5%E4%BA%92%E8%81%94%E7%BD%91%E5%B9%BF%E5%91%8A%E4%B8%AD%E7%9A%84%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F%E4%B8%AD__%E6%99%BA%E8%83%BD%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F_%E6%B1%9F%E7%94%B3/v2-387b7ad1ee079a82a48267ad9f5f06b5_r.jpg">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="Wiki" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/open-sans/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    
+<script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Wiki</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id='categories'>
+        <h3 class="widget-title">
+            <span>categories</span>
+            &nbsp;
+            <a id='allExpand' href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree" > 
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            1.算法相关
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            1.特征工程
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/%E8%81%8A%E8%81%8A%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/">聊聊特征工程</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/%E7%89%B9%E5%BE%81%E5%A5%BD%E5%9D%8F%E5%92%8C0-1%E6%A0%87%E7%AD%BE%E8%A6%86%E7%9B%96%E7%8E%87%E7%9A%84%E5%85%B3%E7%B3%BB%E6%8E%A2%E8%AE%A8/">特征好坏和0-1标签覆盖率的关系探讨</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/%E7%89%B9%E5%BE%81%E9%87%8D%E8%A6%81%E6%80%A7/">特征重要性</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/%E7%89%B9%E5%BE%81%E6%8A%BD%E5%8F%96/">特征抽取</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            2.搜广推
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            1.协同过滤类
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/">协同过滤之推荐系统中的相似性探讨</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E7%83%AD%E4%BC%A0%E5%AF%BC%E5%8E%9F%E7%90%86%E5%92%8C%E5%AE%9E%E8%B7%B5/">协同过滤之热传导原理和实践</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            2.矩阵分解类
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/2.%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3%E7%B1%BB/place_holder/">place holder</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            3.决策树类 
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/3.%E5%86%B3%E7%AD%96%E6%A0%91%E7%B1%BB%20/xgboost-n-spark/">xgboost-n-spark</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/3.%E5%86%B3%E7%AD%96%E6%A0%91%E7%B1%BB%20/%E4%BB%8Eadaboosting%E8%B0%88%E8%B5%B7/">从adaboosting谈起</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            4.线性回归及其变形
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/4.%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E5%8F%8A%E5%85%B6%E5%8F%98%E5%BD%A2/MLR/">MLR</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/4.%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E5%8F%8A%E5%85%B6%E5%8F%98%E5%BD%A2/FM/">FM</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/4.%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E5%8F%8A%E5%85%B6%E5%8F%98%E5%BD%A2/FTRL/">FTRL</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            5.深度学习类
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/5.%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%B1%BB/cnn/">cnn</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            6.其他类
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/6.%E5%85%B6%E4%BB%96%E7%B1%BB/bayes/">bayes</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            7.评估指标
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/7.%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/auc-n-logloss/">auc-n-logloss</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/7.%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87%E4%B9%8Bauc%E5%92%8Clogloss/">评估指标之auc和logloss</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/7.%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/AUC%E7%9A%84%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/">AUC的计算方法</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            8.query理解
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/8.query%E7%90%86%E8%A7%A3/search/">search</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/8.query%E7%90%86%E8%A7%A3/query-parse/">query_parse</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            9.推荐框架
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/9.%E6%8E%A8%E8%8D%90%E6%A1%86%E6%9E%B6/%E6%8E%A8%E8%8D%90%E6%A1%86%E6%9E%B6/">推荐框架</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            3.用户增长
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/3.%E7%94%A8%E6%88%B7%E5%A2%9E%E9%95%BF/%E6%96%B0%E5%A2%9E%E7%95%99%E5%AD%98%E4%BB%98%E8%B4%B9%E5%9B%9E%E6%B5%81/">place holder</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            4.数据挖掘
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/4.%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/LDA%E5%8E%9F%E7%90%86%E5%92%8C%E5%AE%9E%E8%B7%B5/">LDA原理和实践</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/4.%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/DensityPeaksClustering/">DensityPeaksClustering</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/4.%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/LSH%E5%B0%8F%E7%BB%93/">LSH小结</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/4.%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/%E5%BC%82%E5%B8%B8%E7%82%B9%E6%A3%80%E6%B5%8B%E7%AE%97%E6%B3%95/">异常点检测算法</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            5.机器学习
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/5.%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/logit-n-probit/">logit-n-probit</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/5.%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/MachineLearning-ZhouZhihua/">MachineLearning_ZhouZhihua</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/5.%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/word2vec/">word2vec</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/5.%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/dict-vs-bag-of-words/">dict-vs-bag_of_words</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/5.%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/meituan-ml/">meituan-ml</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            6.深度学习
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/6.%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/exploding-n-vanishing/">exploding_n_vanishing</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/6.%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/distributed-tf/">distributed_tf</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/6.%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/tf-wnd/">tf_wnd</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/6.%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/dnn-embedding/">dnn_embedding</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/6.%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/dssm/">dssm</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/6.%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/transformer/">transformer</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            7.强化学习
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/7.%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/ee-n-dqn/">ee-n-dqn</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            8.机制策略
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            出价模式-转载神探社
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/8.%E6%9C%BA%E5%88%B6%E7%AD%96%E7%95%A5/%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F-%E8%BD%AC%E8%BD%BD%E7%A5%9E%E6%8E%A2%E7%A4%BE/(20191020)%E7%94%B3%E6%8E%A2%E7%A4%BE%E6%B7%B1%E5%85%A5%E4%BA%92%E8%81%94%E7%BD%91%E5%B9%BF%E5%91%8A%E4%B8%AD%E7%9A%84%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F%E4%B8%8A_%E5%9F%BA%E7%A1%80%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F_%E6%B1%9F%E7%94%B3/">申探社：深入互联网广告中的出价模式（上）— 基础出价模式</a></li>  <li class="file active"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/8.%E6%9C%BA%E5%88%B6%E7%AD%96%E7%95%A5/%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F-%E8%BD%AC%E8%BD%BD%E7%A5%9E%E6%8E%A2%E7%A4%BE/(20191026)%E7%94%B3%E6%8E%A2%E7%A4%BE%E6%B7%B1%E5%85%A5%E4%BA%92%E8%81%94%E7%BD%91%E5%B9%BF%E5%91%8A%E4%B8%AD%E7%9A%84%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F%E4%B8%AD__%E6%99%BA%E8%83%BD%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F_%E6%B1%9F%E7%94%B3/">申探社：深入互联网广告中的出价模式（中） — 智能出价模式</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/8.%E6%9C%BA%E5%88%B6%E7%AD%96%E7%95%A5/%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F-%E8%BD%AC%E8%BD%BD%E7%A5%9E%E6%8E%A2%E7%A4%BE/(20200511)%E7%94%B3%E6%8E%A2%E7%A4%BE%E6%B7%B1%E5%85%A5%E4%BA%92%E8%81%94%E7%BD%91%E5%B9%BF%E5%91%8A%E4%B8%AD%E7%9A%84%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F%E4%B8%8B__%E8%81%94%E7%9B%9FRTB%E5%92%8CRTA_%E6%B1%9F%E7%94%B3/">申探社：深入互联网广告中的出价模式（下） — 联盟，RTB和RTA</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/8.%E6%9C%BA%E5%88%B6%E7%AD%96%E7%95%A5/ctr-smooth/">ctr_smooth</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/8.%E6%9C%BA%E5%88%B6%E7%AD%96%E7%95%A5/ctr-recalibration/">ctr_recalibration</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/8.%E6%9C%BA%E5%88%B6%E7%AD%96%E7%95%A5/ocpc/">ocpc</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/8.%E6%9C%BA%E5%88%B6%E7%AD%96%E7%95%A5/bandit%E7%AE%97%E6%B3%95%E6%94%B9%E8%BF%9B%E5%92%8C%E5%AE%9E%E8%B7%B5/">bandit算法改进和实践</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            9.大模型
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/9.%E5%A4%A7%E6%A8%A1%E5%9E%8B/RAG/">RAG</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/9.%E5%A4%A7%E6%A8%A1%E5%9E%8B/llm/">llm</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            2.数据相关
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            1.数据仓库
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            1.flink
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/1.%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/1.flink/place_holder/">place holder</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            2.hive
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/1.%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2.hive/hivemall/">hivemall</a></li>  <li class="file"><a href="/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/1.%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2.hive/hive-param-tune/">hive-param-tune</a></li>  <li class="file"><a href="/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/1.%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2.hive/data-warehouse/">data-warehouse</a></li>  <li class="file"><a href="/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/1.%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2.hive/place_holder/">place holder</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            3.spark
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/1.%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/3.spark/spark-streaming/">spark-streaming</a></li>  <li class="file"><a href="/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/1.%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/3.spark/tf-serving/">tf-serving</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            2.数据湖
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            1.iceberg
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/2.%E6%95%B0%E6%8D%AE%E6%B9%96/1.iceberg/place_holder/">place holder</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            2.impala
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/2.%E6%95%B0%E6%8D%AE%E6%B9%96/2.impala/place_holder/">place holder</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            3.BI
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/3.BI/place_holder/">place holder</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            4.数据平台
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/4.%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/elastic-search-md/">elastic-search.md</a></li>  <li class="file"><a href="/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/4.%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/ElasticSearch/">Elastic Search</a></li>  <li class="file"><a href="/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/4.%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/azkaban/">azkaban</a></li>  <li class="file"><a href="/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/4.%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/hivemall/">hivemall</a></li>  <li class="file"><a href="/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/4.%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/storm/">storm</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            3.服务相关
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            1.平台工具
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/1.%E5%B9%B3%E5%8F%B0%E5%B7%A5%E5%85%B7/%E7%89%B9%E5%BE%81%E5%B9%B3%E5%8F%B0/">特征平台</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            2.后台开发
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/2.%E5%90%8E%E5%8F%B0%E5%BC%80%E5%8F%91/kafka/">kafka</a></li>  <li class="file"><a href="/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/2.%E5%90%8E%E5%8F%B0%E5%BC%80%E5%8F%91/place_holder/">place holder</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            3.算法平台
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/3.%E7%AE%97%E6%B3%95%E5%B9%B3%E5%8F%B0/place_holder/">place holder</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            4.算法服务
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/4.%E7%AE%97%E6%B3%95%E6%9C%8D%E5%8A%A1/%E7%A6%BB%E7%BA%BF%E5%9C%A8%E7%BA%BF%E6%89%93%E9%80%9A%E6%96%B9%E6%A1%88%E5%88%86%E6%9E%90/">离线在线打通方案分析</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            5.EPC
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/5.EPC/place_holder/">place holder</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            4.日常相关
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            1.数学知识
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/4.%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/1.%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/place_holder/">place holder</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            2.算法竞赛
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/4.%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/2.%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/place_holder/">place holder</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            3.教员千古
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/4.%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/3.%E6%95%99%E5%91%98%E5%8D%83%E5%8F%A4/place_holder/">place holder</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            4.日常思考
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/4.%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/4.%E6%97%A5%E5%B8%B8%E6%80%9D%E8%80%83/pr/">pr</a></li>  <li class="file"><a href="/wiki/4.%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/4.%E6%97%A5%E5%B8%B8%E6%80%9D%E8%80%83/subway/">做地铁和囚徒困境</a></li>  <li class="file"><a href="/wiki/4.%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/4.%E6%97%A5%E5%B8%B8%E6%80%9D%E8%80%83/%E4%BC%98%E6%83%A0%E5%88%B8%E4%B8%8E%E5%89%A9%E4%BD%99%E4%BB%B7%E5%80%BC/">优惠券和剩余价值</a></li>  <li class="file"><a href="/wiki/4.%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/4.%E6%97%A5%E5%B8%B8%E6%80%9D%E8%80%83/%E7%A7%AF%E5%88%86%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%80%9D%E8%80%83/">积分系统的思考</a></li>  <li class="file"><a href="/wiki/4.%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/4.%E6%97%A5%E5%B8%B8%E6%80%9D%E8%80%83/%E7%A2%8E%E7%A2%8E%E5%BF%B5/">碎碎念.md</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            6.其他
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/4.%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/6.%E5%85%B6%E4%BB%96/interview-questions/">interview_questions</a></li>  <li class="file"><a href="/wiki/4.%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/6.%E5%85%B6%E4%BB%96/interview-q-a-md/">interview-q-a.md</a></li>  <li class="file"><a href="/wiki/4.%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/6.%E5%85%B6%E4%BB%96/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/">常用工具</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            数据挖掘
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/4.%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/lda/">lda</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-1.算法相关/8.机制策略/出价模式-转载神探社/(20191026)申探社深入互联网广告中的出价模式中__智能出价模式_江申" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/">1.算法相关</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/8-%E6%9C%BA%E5%88%B6%E7%AD%96%E7%95%A5/">8.机制策略</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/8-%E6%9C%BA%E5%88%B6%E7%AD%96%E7%95%A5/%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F-%E8%BD%AC%E8%BD%BD%E7%A5%9E%E6%8E%A2%E7%A4%BE/">出价模式-转载神探社</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/8.%E6%9C%BA%E5%88%B6%E7%AD%96%E7%95%A5/%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F-%E8%BD%AC%E8%BD%BD%E7%A5%9E%E6%8E%A2%E7%A4%BE/(20191026)%E7%94%B3%E6%8E%A2%E7%A4%BE%E6%B7%B1%E5%85%A5%E4%BA%92%E8%81%94%E7%BD%91%E5%B9%BF%E5%91%8A%E4%B8%AD%E7%9A%84%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F%E4%B8%AD__%E6%99%BA%E8%83%BD%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F_%E6%B1%9F%E7%94%B3/">
+            <time datetime="2024-01-08T08:34:29.222Z" itemprop="datePublished">2024-01-08</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            申探社：深入互联网广告中的出价模式（中） — 智能出价模式
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+        
+        
+            <h1 id="申探社：深入互联网广告中的出价模式（中）-—-智能出价模式"><a href="#申探社：深入互联网广告中的出价模式（中）-—-智能出价模式" class="headerlink" title="申探社：深入互联网广告中的出价模式（中） — 智能出价模式"></a>申探社：深入互联网广告中的出价模式（中） — 智能出价模式</h1><p> <strong>Author:</strong> [江申]</p>
+<p> <strong>Link:</strong> [<a href="https://zhuanlan.zhihu.com/p/88522899]">https://zhuanlan.zhihu.com/p/88522899]</a></p>
+<p><strong>​（上）篇回顾</strong></p>
+<p>在（上）篇中我们探讨了出价模式的“四点三率两控制一加强”分析模型中的“四点三率”。其中“四点”即竞价点，计费点，出价点，考核点。各种出价模式的差异，很大程度上就是因为这四点位置的不同而造成的。例如下图展示了CPM和CPC中四点的位置差异。</p>
+<p><img src="/(20191026)%E7%94%B3%E6%8E%A2%E7%A4%BE%E6%B7%B1%E5%85%A5%E4%BA%92%E8%81%94%E7%BD%91%E5%B9%BF%E5%91%8A%E4%B8%AD%E7%9A%84%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F%E4%B8%AD__%E6%99%BA%E8%83%BD%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F_%E6%B1%9F%E7%94%B3/v2-387b7ad1ee079a82a48267ad9f5f06b5_r.jpg"><br><img src="/(20191026)%E7%94%B3%E6%8E%A2%E7%A4%BE%E6%B7%B1%E5%85%A5%E4%BA%92%E8%81%94%E7%BD%91%E5%B9%BF%E5%91%8A%E4%B8%AD%E7%9A%84%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F%E4%B8%AD__%E6%99%BA%E8%83%BD%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F_%E6%B1%9F%E7%94%B3/v2-a0b7eebf4178fcb65dbe79485b3bf9d8_r.jpg"><br>而“三率”为四点之间的比率，即p(竞价点-&gt;计费点), p(计费点-&gt;出价点), p(出价点-&gt;考核点)。在（上）篇中，逐一分析了在大媒体平台下，“三率”真实值高低和预估值准确度对于媒体平台和广告主利益的影响，如下图所示。</p>
+<p><img src="/(20191026)%E7%94%B3%E6%8E%A2%E7%A4%BE%E6%B7%B1%E5%85%A5%E4%BA%92%E8%81%94%E7%BD%91%E5%B9%BF%E5%91%8A%E4%B8%AD%E7%9A%84%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F%E4%B8%AD__%E6%99%BA%E8%83%BD%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F_%E6%B1%9F%E7%94%B3/v2-182705e0711fbe2efba809be37bf3aa2_r.jpg"><br>在（上）篇的最后，我们还引出了oCPX出价模式。它和CPM&#x2F;CPC&#x2F;CPA等基础出价模式的差异在于它实现了计费点和出价点的分离，另外实现了连续竞价下的智能出价控制。在（中）篇中，我们就从智能出价控制即“两控制”谈起，再介绍“一加强”。然后我们就可以用完整的“四点三率两控制一加强”分析模型，对业界主流的oCPX, 双出价，AEO, VO等等智能出价模式进行解析。</p>
+<p><strong>（中）篇正文</strong>  </p>
+<p><strong>6.</strong> <strong>“两控制”：连续竞价下的智能出价控制</strong></p>
+<p>上面关于“四点三率”的讨论，都是基于单独看待每一次竞价而言的分析。在最常用的GSP竞价机制下，对于单次竞价，广告主只需要出自己能接受的最高价格就是利益最大化的。比如说广告主核算后发现最高可以承受800块1个付费用户，按照激活到付费的历史经验大约是0.1，那么激活出价就应该填写80元。</p>
+<p>但因为投放是一个连续的多次拍卖行为，一方面广告主给出的价格是多次竞价的平均价格，前期拍卖的结果会对广告主后续能接受的最高价格有影响（例如前期买便宜了，后面出价可以出高点）。另一方面，有的广告主也有预算限制。因为这两个原因，所以有必要根据过去拍卖的结果，对每次的出价进行调整。每个原因对应一种控制。</p>
+<p><strong>连续竞价下的成本控制：</strong>仍旧假设广告主激活出价为80元，如果早期通过投放购买到的100个激活只花了每个50元，那么其实可以在后面的出价出得更高一些，只要最后综合的成本不超过80元就可以，提高出价还可以买到更多的量。同理，如果之前投放的平均成本到达了120元，那么就需要限制出价，让最后的综合平均成本降到80元左右。oCPX通常就意味着媒体平台对出价点的出价进行连续竞价下的成本控制，让最后的平均成本接近广告主设定的值。</p>
+<p><strong>连续竞价下的预算控制：</strong>这种控制是针对广告主有单日或者周预算限制的情况。例如一天的预算为1万元，并且在上午就已经花掉了5000元。那么在后面的竞价里，就应该降低出价，防止预算太早花完。如果过早花完预算，那么晚些时候一些很便宜的流量就没有预算进行购买了，没有最小化平均成本。在有限预算下要降低每个行为的平均成本（例如激活的平均成本），就必须让预算以合理的节奏花掉。不是说绝对的平均花费（每个小时花1&#x2F;24），而是让花费和流量的分布差不多一致（例如晚上流量高的时候多买点）。想做得更好的话，可以在流量更便宜的时候多买一些，贵的时候少买一些。这就是体现技术实力的地方了。值得注意的是，在有些出价产品中，当设置了预算控制时，广告主无需在投放后台填写出价点的出价，而是完全由媒体平台根据预算来设定和调整。</p>
+<p><strong>这两个就是我们“四点三率两控制一加强”中的两控制。</strong></p>
+<p>现在基本上所有媒体平台的出价模式，只要带上“智能出价”（smart bidding）类似字眼的，就意味着至少有这两个控制中的一个。值得一吹的是，2014年笔者在一家创业公司做国内第一家移动DSP平台的时候，做了出价点和计费点分离，也创新地用PID控制实现了这两个智能出价控制功能，在出价产品上领先很多大公司（虽然这些产品没有被多少人用到过…)</p>
+<p>值得注意的一点是，在oCPC这个名字里，是看不出出价点在哪里的。因此不能唯一确认一个出价模式。在本文中，我们可以约定在最后加一个出价点的字母来唯一标示一个出价模式。例如oCPC-A, oCPM-I等等。不过为什么媒体平台都没有这么命名呢？因为媒体平台其实没有办法保证广告主回传的是a还是别的什么行为。假设媒体平台想用oCPC-A模式，但是广告主其实可以回传不是a而是付费p, 同时在出价里填上一个付费的出价就可以了（原本应该填一个激活的出价）。这个时候oCPC-A就变为oCPC-P了。</p>
+<p><strong>在oCPX出价模式中，广告主是否应该回传真实的行为数据？</strong></p>
+<p>按照上面的讨论，出价点的行为数据是广告主自己回传的，广告主可以有几种方式不按照媒体平台要求的回传所有的出价点数据，我们依次来讨论下对广告主是否有利。</p>
+<p>(1) 广告主只回传部分出价点的数据, 例如只回传50%</p>
+<p> 这种情况下，对于该广告主的p(计费点-&gt;出价点) 预估会偏小接近1半，导致广告主的出价偏低，拿不到量。要拿到一样的量，就得把出价提升为原来的2倍。这样一抵消，在计费点的出价是不变的，媒体的收入并没有降低，反倒是因为少了一半样本，p(计费点-&gt;出价点)的预估变得更不准了，损害了广告主自己的ROI。国内是由广告主自己归因，有些广告主以为归因媒体平台的时候尽量保守，对自己会有好处，其实是不对的。</p>
+<p>(2) 广告主回传更深度(或者更浅）的数据而不是出价点的数据，例如回传付费数据（或者下载），而不是原来约定的激活数据</p>
+<p> 这种情况下，广告主如果在出价里也填入的是付费出价（或者下载），那么对于这个广告主而言，oCPC-A就变成了oCPC-P或者oCPC-I。遗憾的是，如果其他大部分广告主还是回传的激活数，那么因为媒体平台在训练p(计费点-&gt;出价点）模型的时候，并不是只用该广告主自己的数据，而是也受到其他广告主数据的影响，那么这样做会因为训练目标的类型不一致，让这个广告主的p（计费点-&gt;出价点）的预估准确度受到负面影响，对广告主投放不利。</p>
+<p>所以在oCPX出价中，广告主按照约定，完整回传约定的行为数据，其实是对自身最有利的行为。</p>
+<p><strong>为什么国内的很多oCPX会有超成本赔付机制？</strong></p>
+<p>这个问题要从CPC vs oCPC的比较，我们用“四点三率”来对照他们的差异。</p>
+<p><img src="/(20191026)%E7%94%B3%E6%8E%A2%E7%A4%BE%E6%B7%B1%E5%85%A5%E4%BA%92%E8%81%94%E7%BD%91%E5%B9%BF%E5%91%8A%E4%B8%AD%E7%9A%84%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F%E4%B8%AD__%E6%99%BA%E8%83%BD%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F_%E6%B1%9F%E7%94%B3/v2-459eb0b1f385d1298fd523ef52d6dfbd_r.jpg"><br>对比CPC和oCPC, 我们只发现一个区别，就是谁来预估p(c-&gt;a)的区别。但是这也会带来一个很不一样的地方，就是在CPC中，p(c-&gt;a)由广告主预估，预估得偏高或者偏低广告主利益都受损。但是在oCPC中，p(c-&gt;a)由媒体平台预估，如果预估偏高，媒体平台的收入是增加的，偏低则媒体平台收入下降。那么理论上媒体平台就有动机在短期内故意预估偏高（不会长期偏高是因为广告ROI下降后，会减少投放，最终损害媒体平台利益），这也是（上）篇末尾抛出的问题。</p>
+<p> 因此在国内如某音，某手等广告平台在oCPC（或者oCPM，原理一样）都会有超成本赔付机制来自我制约，弥补这个机制上的问题。例如广告主用激活出价，80元一个转化，如果因为媒体平台故意短期内预估偏高，导致广告主激活成本超过80元，媒体平台都会进行赔付。而在国外，FB和Google的广告产品并没有这个赔付，笔者个人认为是因为国外的信任机制比较好，广告主相信大的媒体平台会考虑更长远的利益，即使偶尔会有超成本，但是也相信是技术上的原因，是投放成本的一部分。而国内因为历史原因，比较难建立这样的信任机制，所以需要媒体平台自缚双手，以示清白。</p>
+<p><strong>为什么国内的媒体平台，对oCPX的超成本赔付，要求广告积累的行为数(例如激活数）达到一定的数量才开始赔付?</strong></p>
+<p>某音的oCPM赔付要求该广告单元积累10个行为数（例如激活数），某手也是类似的要求。为什么不能只要超成本就赔付呢？</p>
+<p>有两个原因：</p>
+<p>第一个原因是如果没有行为数（以下以激活数为例）门槛，那么广告主有可能会隐藏激活数不上报，最后要求媒体平台进行全额赔付（因为一个激活都没有）。虽然因为广告主不上报激活数，媒体的模型会将这个广告单元的预估得越来越低，最终为0，也就是媒体平台给这个广告主的量越来越少，最终完全不给量。但是在早期，广告主仍旧能获得不少点击或者激活（但是没上报给媒体平台）。如果媒体平台不设置激活数门槛而全额赔付，就会一直被广告主薅羊毛。而一旦设置了激活数门槛，相当于广告主至少需要支付激活出价*激活数门槛的费用。因此只要媒体平台做完全停止给广告主量的时候，成本小于上述的广告主最小支付成本，那么媒体平台的利益就不会受到损伤。</p>
+<p>第二个原因是因为模型学习需要一定数量的样本，在没有积累到足够的激活数之前，模型预估偏高偏低都是很难避免的，这并不是媒体平台刻意为之的行为，不应该由媒体平台来单方面承担这部分成本。</p>
+<p><strong>为什么某条自有流量要从oCPC模式转为oCPM？</strong></p>
+<p>某条自有流量的售卖，一开始是oCPC模式，后来转为了只有oCPM。</p>
+<p>我们用“四点三率”的差异来看看oCPC vs oCPM有什么区别？</p>
+<p><img src="/(20191026)%E7%94%B3%E6%8E%A2%E7%A4%BE%E6%B7%B1%E5%85%A5%E4%BA%92%E8%81%94%E7%BD%91%E5%B9%BF%E5%91%8A%E4%B8%AD%E7%9A%84%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F%E4%B8%AD__%E6%99%BA%E8%83%BD%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F_%E6%B1%9F%E7%94%B3/v2-fc3e675721583e5c1d9b29c5b5bac819_r.jpg"><br>我们可以看到，从oCPC到oCPM，有两点变化:</p>
+<p> 第一个变化，在比率绝对值上，不求量广告主原来有动机不提高p（竞价点-&gt;计费点）的比率，在oCPM模式下两方动机一致了，是一个改进。</p>
+<p> 第二个变化，原来在oCPC模式下，原来媒体平台不管预估偏高偏低都会收入下降，但是在oCPM下，有动机预估偏高了，而且会损害广告主ROI，但是通过赔付机制可以弥补这个问题。</p>
+<p>所以综合来看，从oCPC过度到oCPM对广告主没有什么利益损伤，对媒体平台来说，可以避免不求量广告主主动降低p(竞价点-&gt;计费点）的问题（虽然这个问题在充分竞争的流量上影响很小）。这可能是某条从oCPC转向oCPM的其中一个原因。</p>
+<p>另外，某条的产品很多，有文字广告，图片广告，视频广告，所以转化链条也很多样，有的按点击收费，有的按播放3秒收费，有的按播放完收费，如果统一用m计费也有利于统一管理。但是FB和Google的广告产品还是可以让广告主自行选择oCPM还是oCPC，这两者的差异其实并不太大。</p>
+<p><strong>双出价是怎么样一种出价方式？</strong></p>
+<p><img src="/(20191026)%E7%94%B3%E6%8E%A2%E7%A4%BE%E6%B7%B1%E5%85%A5%E4%BA%92%E8%81%94%E7%BD%91%E5%B9%BF%E5%91%8A%E4%B8%AD%E7%9A%84%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F%E4%B8%AD__%E6%99%BA%E8%83%BD%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F_%E6%B1%9F%E7%94%B3/v2-9b9a13e0f7d1ff12195f837f562ac3ac_r.jpg"><br>如图，以激活付费双出价为例，该出价模式有两个不同的出价点，广告主把这两个行为数据都给媒体平台，让媒体平台提供免费的出价转化服务。最终转化到计费点的时候，也会有两个计费点价格。这两个价格是有冲突的，得从这两个价格合并得到一个最终的价格。具体实现就看各家媒体自己的设计了。</p>
+<p>不过可以确定的是，各家媒体平台都会力求保证激活和付费的成本都不超过设定的激活和付费出价。那么这种方式和单按付费出价并保付费成本（例如某条的“激活且付费”出价模式）有什么区别呢？我们来分析一下。</p>
+<ul>
+<li>如果一批流量，激活成本达标，付费成本也达标，那么这批流量双出价和单付费出价都能拿到。</li>
+<li>如果一批流量，激活成本达标，付费成本不达标。那么这批流量双出价和单付费出价都拿不到。</li>
+<li>如果一批流量，激活成本不达标，付费成本也不达标，那么这批流量双出价和单付费出价都拿不到。</li>
+<li><strong>如果一批流量，激活成本不达标，付费成本达标，那么这批流量双出价拿不到，而单付费出价能拿到。</strong></li>
+</ul>
+<p>所以激活付费双出价和单付费出价的差异就在于是否要“激活成本不达标，付费成本达标”这部分流量。</p>
+<p>广告主更在意的是付费成本，“激活成本不达标，付费成本达标”这部分流量广告主是需要的，那么为什么还需要有双出价？笔者认为，原因在于前期付费数据较少，付费成本在收敛到付费出价之前，会经历较大的波动，某个时刻甚至会远超付费出价，导致学习期失败或广告主受不了自己关停。<strong>而双出价，通过放弃了“激活成本不达标，付费成本达标”这部分流量</strong>（实际上是放弃了“激活成本不达标”的所有流量，因为早期无法把“激活成本不达标，付费成本达标”的流量从“激活成本不达标，付费成本也不达标”的流量中区分开来，只好一股脑全放弃了），<strong>来达到降低前期付费成本波动的效果，最后可能学习得更稳，成功率更高，全时间段的综合成本更低。</strong></p>
+<p>但是到了后期，付费数据已经积累够多，有能力把“激活成本不达标，付费成本达标”的流量和“激活成本不达标，付费成本也不达标”的流量区分开了。那么再放弃“激活成本不达标，付费成本达标”的流量就会限制广告主能买到的量了。<strong>因此对于已经积累到较多付费数据，和前期付费成本波动较小的广告，可能用单付费出价是更合适的选择。</strong></p>
+<p><strong>7. “一加强”</strong></p>
+<p> “四点三率两控制”都讨论完了，就剩下一个“一加强”。我们以Facebook的一个产品为例来介绍。</p>
+<p><img src="/(20191026)%E7%94%B3%E6%8E%A2%E7%A4%BE%E6%B7%B1%E5%85%A5%E4%BA%92%E8%81%94%E7%BD%91%E5%B9%BF%E5%91%8A%E4%B8%AD%E7%9A%84%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F%E4%B8%AD__%E6%99%BA%E8%83%BD%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F_%E6%B1%9F%E7%94%B3/v2-dcf1c426d5bd9895485a11bc1e4cd231_r.jpg"><br>在Facebook应用推广的投放设置页面，我们可以看到计费点可以选择为impression，出价点可以选择为转化（例如可以是激活a）, 还可以选择针对某个应用内事件优化（Optimiaztion for Ad Delivery App Events），这个优化可以是激活后的某个行为，例如付费p。那么投放系统会在oCPM-A的基础上，尽量优化获得更高的付费数。我们姑且把这个命名为oCPM-A-enhancedP模式。</p>
+<p><img src="/(20191026)%E7%94%B3%E6%8E%A2%E7%A4%BE%E6%B7%B1%E5%85%A5%E4%BA%92%E8%81%94%E7%BD%91%E5%B9%BF%E5%91%8A%E4%B8%AD%E7%9A%84%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F%E4%B8%AD__%E6%99%BA%E8%83%BD%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F_%E6%B1%9F%E7%94%B3/v2-11b8cb87bd4d7a32423a37f44bf7e018_r.jpg"><br>这么一来就在出价点和考核点之间加了一个新的点，加强点。假设出价点在a, 激活点在p。那么问题来了，为什么媒体平台不直接让广告主在更后端的加强点p出价，然后通过预估p(a-&gt;p)和其他几个率，把加强点p的价格换算成eCPM? 如果是这样，就相当于出价点在p, 没有加强点的情况。为什么不这么做呢？</p>
+<p>回顾一下前面的内容，出价点与计费点分离且更靠近链路后端能带来更好的效果，前提是媒体平台对p(计费点-&gt;出价点)要比广告主隐含地用固定值预估的p(计费点-&gt;出价点)要更准才行。但有时候，因为数据较少或者其他原因，对于p(a-&gt;p)这个比率，媒体平台用数据预估的比率，比广告主隐含地用固定值预估的值更加不准确。那么这一段就不能放到计费点-&gt;出价点了。这也就是为什么不能把出价点后移到加强点的原因。</p>
+<p>但是媒体平台的数据也不能浪费了，可以用来对广告主隐含地用固定值预估的值进行加强（enhance），即：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p_adj(出价点-&gt;加强点) = p_广告主预估(出价点-&gt;加强点) * adj(x) ---（式1）</span><br></pre></td></tr></table></figure>
+<p>其中x为广告的特征向量。</p>
+<p>直观理解，媒体平台根据数据，判断该广告的p(出价点-&gt;加强点)较一般广告高，就把出价再调高一些，如果p(出价点-&gt;加强点)较一般广告低一些，就把出价再调低一些。这个价格的再次调整通常会有个范围，例如某条的“自动优化”在公开文档上写明是控制在-30%到+30%之间，即adj(x)的范围在0.7到1.3之间。只要p_adj(出价点-&gt;加强点)的准确率大于p_广告主预估(出价点-&gt;加强点)，那么添加这个加强点就有收益。</p>
+<p>媒体平台是无法直接获得p_广告主预估(出价点-&gt;加强点)这个值的，因为这个值是隐含到出价里的。不过还好也没有必要，我们把针对加强点调整后的ecpm记为ecpm_adj，则有</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ecpm_adj= p(竞价点-&gt;出价点)*p_adj(出价点-&gt;加强点)*加强点出价</span><br></pre></td></tr></table></figure>
+<p>将（式1）和</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">加强点出价=出价点出价/ p_广告主预估(出价点-&gt;加强点)</span><br></pre></td></tr></table></figure>
+<p>代入上面ecpm_adj的式子，则有</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ecpm_adj= p(竞价点-&gt;出价点)* p_广告主预估(出价点-&gt;加强点) </span><br><span class="line">          *adj(x) *(出价点出价/ p_广告主预估(出价点-&gt;加强点))</span><br></pre></td></tr></table></figure>
+<p>约去后有</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ecpm_adj= p(竞价点-&gt;出价点)*adj(x)*出价点出价</span><br></pre></td></tr></table></figure>
+<p>用这个值作为竞价点排序的ecpm就可以了。</p>
+<p>从这里我们也知道为什么（式1）中是把adj(x)简单地乘到p_广告主预估(出价点-&gt;加强点)上了，因为如果是更复杂的函数，上面的推导就不一定成立了。</p>
+<p>除了Facebook，Google的enhanced CPC从文档描述上看也是这类产品，另外某条的“自动优化”功能也是将付费作为了加强点的产品。</p>
+<p><strong>8.“四点三率两控制一加强”总结</strong></p>
+<p>经过分析会发现，绝大多数出价模式都由“四点三率两控制一加强”这几个部分组成，当遇到一个新的出价策略，我们可以将他们按这几个部分的不同进行拆分，方便理解。我们通过分析几个市面上主流公司的出价模式，来进行总结。因为考核点对于每个广告主来说不一样，和投放平台关系不大，没有列出。（下表信息均来源于公开的各投放平台后台或者帮助文档中）</p>
+<p><img src="/(20191026)%E7%94%B3%E6%8E%A2%E7%A4%BE%E6%B7%B1%E5%85%A5%E4%BA%92%E8%81%94%E7%BD%91%E5%B9%BF%E5%91%8A%E4%B8%AD%E7%9A%84%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F%E4%B8%AD__%E6%99%BA%E8%83%BD%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F_%E6%B1%9F%E7%94%B3/v2-e6c17dffac61c722ab6fb91b152865be_r.jpg"><br>表中，app events可以是下载，安装，激活，付费等各种app事件但不能是回收金额。Facebook的计费点中的v表示视频观看完10s或者看完。另外在Facebook的产品中，当app events选择不同行为时，计费点，加强点的选择是有限制的，不是都可以选择。Google计费点的m&#x2F;c这个并没有实锤，是我猜测的。腾讯用oCPA来表示出价点在a，计费点在m或c的出价模式，命名方式不一样，和其他公司的模式容易混淆起来，注意区分。</p>
+<p>另外，表中所有有预算控制的出价模式，广告主都无需在投放后台填写出价点的出价，而是完全由媒体平台根据预算来设定和调整。在尽量花完预算的同时，最小化出价点的成本。</p>
+<p>在各家的产品中，每个模式还可以配搭几种不同的消耗速度，例如某条有（均衡投放、优先跑量、优先低成本），每家的具体策略不一样，我猜测是在成本控制和预算控制的具体实现上，匹配了不同的pacing策略和参数。Facebook，Google也有两档的消耗速度可以选（standard和accelerated)，快手有两档（标准投放，均衡投放），腾讯两档（标准投放，加速投放），百度有三档（标准，匀速，加速）。</p>
+<p>表中回收金额表示某段时间内（例如一周）通过内购或广告的形式产生的广告主收入。当出价点为回收金额时，表示每回收1元钱，所需要出的价格，也就是ROI出价。例如广告主可以对一周内的1元回收金额出价为0.4元，则对应的ROI目标就是0.4。Facebook中的ROI优化产品就是大家了解的VO（value optimization）, 根据成本&#x2F;预算控制的区别，对应两个出价模式：Value optimisation with min. ROAS和highest value。优化app events的产品就是AEO（appevents optimization），根据成本&#x2F;预算控制的区别，对应两个出价模式：lowest cost（其实还有一个target cost，控制上稍微有些不一样）和cost cap。</p>
+<p><strong>尾声</strong></p>
+<p>本文介绍了在“四点三率两控制一加强”中的“两控制一加强”。然后详细分析了大媒体平台中，oCPX, 双出价，激活且付费，AEO，VO等等各种智能竞价模式。至此大媒体平台的出价模式分析就结束了。在（下）篇中，我们将目光转移到联盟广告和RTB广告，去看看在联盟广告和RTB广告中，随着利益绑定关系的变化，三方的博弈又发生了怎样的改变。</p>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/8.%E6%9C%BA%E5%88%B6%E7%AD%96%E7%95%A5/%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F-%E8%BD%AC%E8%BD%BD%E7%A5%9E%E6%8E%A2%E7%A4%BE/(20200511)%E7%94%B3%E6%8E%A2%E7%A4%BE%E6%B7%B1%E5%85%A5%E4%BA%92%E8%81%94%E7%BD%91%E5%B9%BF%E5%91%8A%E4%B8%AD%E7%9A%84%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F%E4%B8%8B__%E8%81%94%E7%9B%9FRTB%E5%92%8CRTA_%E6%B1%9F%E7%94%B3/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    申探社：深入互联网广告中的出价模式（下） — 联盟，RTB和RTA
+                
+            </div>
+        </a>
+    
+    
+        <a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/8.%E6%9C%BA%E5%88%B6%E7%AD%96%E7%95%A5/%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F-%E8%BD%AC%E8%BD%BD%E7%A5%9E%E6%8E%A2%E7%A4%BE/(20191020)%E7%94%B3%E6%8E%A2%E7%A4%BE%E6%B7%B1%E5%85%A5%E4%BA%92%E8%81%94%E7%BD%91%E5%B9%BF%E5%91%8A%E4%B8%AD%E7%9A%84%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F%E4%B8%8A_%E5%9F%BA%E7%A1%80%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F_%E6%B1%9F%E7%94%B3/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">申探社：深入互联网广告中的出价模式（上）— 基础出价模式</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            sampsonguo &copy; 2024 
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+    </div>
+</body>
+</html>
