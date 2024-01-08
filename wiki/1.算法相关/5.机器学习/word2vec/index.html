@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset="utf-8">
+    
+    <title>word2vec | Wiki</title>
+    
+    
+        <meta name="keywords" content="word2vec" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="起源和工具包word2vec是google在2013年的模型，可以有效的将词映射到某个向量空间，经典的demo是：vector(‘Paris’) - vector(‘France’) + vector(‘Italy’) &#x3D; vector(‘Rome’)其开源地址是：https:&#x2F;&#x2F;code.google.com&#x2F;archive&#x2F;p&#x2F;word2vec&#x2F;此工具简单好用，在很多项目上起到了很好">
+<meta property="og:type" content="article">
+<meta property="og:title" content="word2vec">
+<meta property="og:url" content="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/5.%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/word2vec/index.html">
+<meta property="og:site_name" content="Wiki">
+<meta property="og:description" content="起源和工具包word2vec是google在2013年的模型，可以有效的将词映射到某个向量空间，经典的demo是：vector(‘Paris’) - vector(‘France’) + vector(‘Italy’) &#x3D; vector(‘Rome’)其开源地址是：https:&#x2F;&#x2F;code.google.com&#x2F;archive&#x2F;p&#x2F;word2vec&#x2F;此工具简单好用，在很多项目上起到了很好">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/5.%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/word2vec/tfboard.png">
+<meta property="og:image" content="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/5.%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/word2vec/cbow-1.png">
+<meta property="og:image" content="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/5.%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/word2vec/cbow-hs.png">
+<meta property="og:image" content="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/5.%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/word2vec/cbow-hs-hand.png">
+<meta property="og:image" content="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/5.%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/word2vec/cbow-hs-2.png">
+<meta property="article:published_time" content="2018-06-13T14:34:28.000Z">
+<meta property="article:modified_time" content="2024-01-01T08:31:16.524Z">
+<meta property="article:author" content="sampsonguo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/5.%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/word2vec/tfboard.png">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="Wiki" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/open-sans/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    
+<script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Wiki</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id='categories'>
+        <h3 class="widget-title">
+            <span>categories</span>
+            &nbsp;
+            <a id='allExpand' href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree" > 
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            1.算法相关
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            1.特征工程
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/%E7%89%B9%E5%BE%81%E5%A5%BD%E5%9D%8F%E5%92%8C0-1%E6%A0%87%E7%AD%BE%E8%A6%86%E7%9B%96%E7%8E%87%E7%9A%84%E5%85%B3%E7%B3%BB%E6%8E%A2%E8%AE%A8/">特征好坏和0-1标签覆盖率的关系探讨</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/%E7%89%B9%E5%BE%81%E9%87%8D%E8%A6%81%E6%80%A7/">特征重要性</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            2.搜广推
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            1.协同过滤类
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%8E%A2%E8%AE%A8/">协同过滤之推荐系统中的相似性探讨</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/1.%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E7%B1%BB/%E5%8D%8F%E5%90%8C%E8%BF%87%E6%BB%A4%E4%B9%8B%E7%83%AD%E4%BC%A0%E5%AF%BC%E5%8E%9F%E7%90%86%E5%92%8C%E5%AE%9E%E8%B7%B5/">协同过滤之热传导原理和实践</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            2.矩阵分解类
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/2.%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3%E7%B1%BB/place_holder/">place holder</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            3.决策树类 
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/3.%E5%86%B3%E7%AD%96%E6%A0%91%E7%B1%BB%20/xgboost-n-spark/">xgboost-n-spark</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/3.%E5%86%B3%E7%AD%96%E6%A0%91%E7%B1%BB%20/%E4%BB%8Eadaboosting%E8%B0%88%E8%B5%B7/">从adaboosting谈起</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            4.线性回归及其变形
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/4.%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E5%8F%8A%E5%85%B6%E5%8F%98%E5%BD%A2/MLR/">MLR</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/4.%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E5%8F%8A%E5%85%B6%E5%8F%98%E5%BD%A2/FM/">FM</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/4.%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E5%8F%8A%E5%85%B6%E5%8F%98%E5%BD%A2/FTRL/">FTRL</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            5.深度学习类
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/5.%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%B1%BB/cnn/">cnn</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            6.其他类
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/6.%E5%85%B6%E4%BB%96%E7%B1%BB/bayes/">bayes</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            7.评估指标
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/7.%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/auc-n-logloss/">auc-n-logloss</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/7.%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87%E4%B9%8Bauc%E5%92%8Clogloss/">评估指标之auc和logloss</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/7.%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/AUC%E7%9A%84%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/">AUC的计算方法</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            8.query理解
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/8.query%E7%90%86%E8%A7%A3/search/">search</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/8.query%E7%90%86%E8%A7%A3/query-parse/">query_parse</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            3.用户增长
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/3.%E7%94%A8%E6%88%B7%E5%A2%9E%E9%95%BF/%E6%96%B0%E5%A2%9E%E7%95%99%E5%AD%98%E4%BB%98%E8%B4%B9%E5%9B%9E%E6%B5%81/">place holder</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            4.数据挖掘
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/4.%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/LDA%E5%8E%9F%E7%90%86%E5%92%8C%E5%AE%9E%E8%B7%B5/">LDA原理和实践</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/4.%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/DensityPeaksClustering/">DensityPeaksClustering</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/4.%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/LSH%E5%B0%8F%E7%BB%93/">LSH小结</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/4.%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/%E5%BC%82%E5%B8%B8%E7%82%B9%E6%A3%80%E6%B5%8B%E7%AE%97%E6%B3%95/">异常点检测算法</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            5.机器学习
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/5.%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/logit-n-probit/">logit-n-probit</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/5.%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/MachineLearning-ZhouZhihua/">MachineLearning_ZhouZhihua</a></li>  <li class="file active"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/5.%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/word2vec/">word2vec</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/5.%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/dict-vs-bag-of-words/">dict-vs-bag_of_words</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/5.%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/meituan-ml/">meituan-ml</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            6.深度学习
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/6.%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/exploding-n-vanishing/">exploding_n_vanishing</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/6.%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/distributed-tf/">distributed_tf</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/6.%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/tf-wnd/">tf_wnd</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/6.%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/dnn-embedding/">dnn_embedding</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/6.%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/dssm/">dssm</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/6.%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/transformer/">transformer</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            7.强化学习
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/7.%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/ee-n-dqn/">ee-n-dqn</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            8.机制策略
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/8.%E6%9C%BA%E5%88%B6%E7%AD%96%E7%95%A5/ctr-smooth/">ctr_smooth</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/8.%E6%9C%BA%E5%88%B6%E7%AD%96%E7%95%A5/ctr-recalibration/">ctr_recalibration</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/8.%E6%9C%BA%E5%88%B6%E7%AD%96%E7%95%A5/ocpc/">ocpc</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/8.%E6%9C%BA%E5%88%B6%E7%AD%96%E7%95%A5/%E5%87%BA%E4%BB%B7%E7%82%B9%E3%80%81%E7%AB%9E%E4%BB%B7%E7%82%B9/">place holder</a></li>  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/8.%E6%9C%BA%E5%88%B6%E7%AD%96%E7%95%A5/bandit%E7%AE%97%E6%B3%95%E6%94%B9%E8%BF%9B%E5%92%8C%E5%AE%9E%E8%B7%B5/">bandit算法改进和实践</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            9.大模型
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/9.%E5%A4%A7%E6%A8%A1%E5%9E%8B/RAG/">RAG</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            2.数据相关
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            1.数据仓库
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            1.flink
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/1.%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/1.flink/place_holder/">place holder</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            2.hive
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/1.%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2.hive/hivemall/">hivemall</a></li>  <li class="file"><a href="/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/1.%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2.hive/hive-param-tune/">hive-param-tune</a></li>  <li class="file"><a href="/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/1.%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2.hive/data-warehouse/">data-warehouse</a></li>  <li class="file"><a href="/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/1.%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2.hive/place_holder/">place holder</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            3.spark
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/1.%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/3.spark/spark-streaming/">spark-streaming</a></li>  <li class="file"><a href="/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/1.%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/3.spark/tf-serving/">tf-serving</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            2.数据湖
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            1.iceberg
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/2.%E6%95%B0%E6%8D%AE%E6%B9%96/1.iceberg/place_holder/">place holder</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            2.impala
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/2.%E6%95%B0%E6%8D%AE%E6%B9%96/2.impala/place_holder/">place holder</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            3.BI
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/3.BI/place_holder/">place holder</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            4.数据平台
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/4.%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/elastic-search-md/">elastic-search.md</a></li>  <li class="file"><a href="/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/4.%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/ElasticSearch/">Elastic Search</a></li>  <li class="file"><a href="/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/4.%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/azkaban/">azkaban</a></li>  <li class="file"><a href="/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/4.%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/hivemall/">hivemall</a></li>  <li class="file"><a href="/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/4.%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/storm/">storm</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            3.服务相关
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            1.平台工具
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/1.%E5%B9%B3%E5%8F%B0%E5%B7%A5%E5%85%B7/%E7%89%B9%E5%BE%81%E5%B9%B3%E5%8F%B0/">特征平台</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            2.后台开发
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/2.%E5%90%8E%E5%8F%B0%E5%BC%80%E5%8F%91/kafka/">kafka</a></li>  <li class="file"><a href="/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/2.%E5%90%8E%E5%8F%B0%E5%BC%80%E5%8F%91/place_holder/">place holder</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            3.算法平台
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/3.%E7%AE%97%E6%B3%95%E5%B9%B3%E5%8F%B0/place_holder/">place holder</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            4.算法服务
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/4.%E7%AE%97%E6%B3%95%E6%9C%8D%E5%8A%A1/%E7%A6%BB%E7%BA%BF%E5%9C%A8%E7%BA%BF%E6%89%93%E9%80%9A%E6%96%B9%E6%A1%88%E5%88%86%E6%9E%90/">离线在线打通方案分析</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            5.EPC
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/5.EPC/place_holder/">place holder</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            4.日常相关
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            1.数学知识
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/4.%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/1.%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/place_holder/">place holder</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            2.算法竞赛
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/4.%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/2.%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/place_holder/">place holder</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            3.教员千古
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/4.%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/3.%E6%95%99%E5%91%98%E5%8D%83%E5%8F%A4/place_holder/">place holder</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            4.日常思考
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/4.%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/4.%E6%97%A5%E5%B8%B8%E6%80%9D%E8%80%83/pr/">pr</a></li>  <li class="file"><a href="/wiki/4.%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/4.%E6%97%A5%E5%B8%B8%E6%80%9D%E8%80%83/subway/">做地铁和囚徒困境</a></li>  <li class="file"><a href="/wiki/4.%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/4.%E6%97%A5%E5%B8%B8%E6%80%9D%E8%80%83/%E4%BC%98%E6%83%A0%E5%88%B8%E4%B8%8E%E5%89%A9%E4%BD%99%E4%BB%B7%E5%80%BC/">优惠券和剩余价值</a></li>  <li class="file"><a href="/wiki/4.%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/4.%E6%97%A5%E5%B8%B8%E6%80%9D%E8%80%83/%E7%A7%AF%E5%88%86%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%80%9D%E8%80%83/">积分系统的思考</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            6.其他
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/4.%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/6.%E5%85%B6%E4%BB%96/interview-questions/">interview_questions</a></li>  <li class="file"><a href="/wiki/4.%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/6.%E5%85%B6%E4%BB%96/interview-q-a-md/">interview-q-a.md</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            数据挖掘
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/4.%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/lda/">lda</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            机器学习
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/feature-engineer/">聊聊特征工程</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-1.算法相关/5.机器学习/word2vec" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/">1.算法相关</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/5-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">5.机器学习</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/5.%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/word2vec/">
+            <time datetime="2018-06-13T14:34:28.000Z" itemprop="datePublished">2018-06-13</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            word2vec
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+        
+        
+            <h5 id="起源和工具包"><a href="#起源和工具包" class="headerlink" title="起源和工具包"></a>起源和工具包</h5><p>word2vec是google在2013年的模型，可以有效的将词映射到某个向量空间，经典的demo是：<br>vector(‘Paris’) - vector(‘France’) + vector(‘Italy’) &#x3D; vector(‘Rome’)<br>其开源地址是：<a href="https://code.google.com/archive/p/word2vec/">https://code.google.com/archive/p/word2vec/</a><br>此工具简单好用，在很多项目上起到了很好的效果</p>
+<h5 id="word-embedding的各种姿势"><a href="#word-embedding的各种姿势" class="headerlink" title="word embedding的各种姿势"></a>word embedding的各种姿势</h5><ul>
+<li>Topic Model：词袋模型，不分先后顺序，代表是LDA模型</li>
+<li>Word2vec：等价于三层神经网络，能捕捉时序信息</li>
+<li>FM：通过FM的weight矩阵将原始向量做变换</li>
+<li>DSSM：通过点击数据把user和item的分别作Deep模型，取出来最顶层的做word representation</li>
+</ul>
+<p>另外NLP领域最新的模型是LSTM和Attention，能否利用其模型做embedding还需调研下</p>
+<ul>
+<li>LSTM：能更好的捕捉时序信息，解决long dependence的问题</li>
+<li>Attention：通过注意力机制</li>
+</ul>
+<h5 id="word2vec的各种包"><a href="#word2vec的各种包" class="headerlink" title="word2vec的各种包"></a>word2vec的各种包</h5><ul>
+<li>google word2vec：效果非常好，单机</li>
+<li>gensim：经典的自然语言处理包，用的人很多，单机</li>
+<li>spark mllib：不确定效果如何，分布式</li>
+<li>tensorflow：未尝试，分布式<br>（因为各种姿势都可以通过tensorflow来实现，包括FM，Word2Vec，以及各种矩阵分解，因此tf是很值得学习的工具。）</li>
+</ul>
+<h5 id="Why-word-embedding？"><a href="#Why-word-embedding？" class="headerlink" title="Why word embedding？"></a>Why word embedding？</h5><ul>
+<li>降维：原始ID维度的特征太大了，需要过多的训练数据，word embedding之后不需要那么多数据，而且防止过拟合</li>
+</ul>
+<h5 id="embedding的两类方法"><a href="#embedding的两类方法" class="headerlink" title="embedding的两类方法"></a>embedding的两类方法</h5><ul>
+<li>count-based：lsa系列，通过矩阵分解来做embedding</li>
+<li>predictive-based：通过预测词可能出现的词来做embedding，如word2vec</li>
+</ul>
+<h5 id="gensim建模-tensorboard可视化"><a href="#gensim建模-tensorboard可视化" class="headerlink" title="gensim建模+tensorboard可视化"></a>gensim建模+tensorboard可视化</h5><ul>
+<li><p>生成gensim训练数据，每行一个doc，空格分隔</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">select list</span><br><span class="line">from</span><br><span class="line">(</span><br><span class="line">    select user_id, concat_ws(&#x27; &#x27;, collect_set(item_id)) as list</span><br><span class="line">    from dm_music_prd.t_7d_imusic_iting_user_item_action</span><br><span class="line">    where ds&gt;=20180520 and action=1 and item_id != -1 and extend&gt;1000*90</span><br><span class="line">    group by user_id</span><br><span class="line">) t1</span><br><span class="line">join</span><br><span class="line">(</span><br><span class="line">    select user_id</span><br><span class="line">    from</span><br><span class="line">    (</span><br><span class="line">        select user_id, count(distinct item_id) as cnt</span><br><span class="line">        from dm_music_prd.t_7d_imusic_iting_user_item_action</span><br><span class="line">        where ds&gt;=20180520 and action=1 and item_id != -1 and extend&gt;1000*90</span><br><span class="line">        group by user_id</span><br><span class="line">    ) f</span><br><span class="line">    where cnt &gt;= 5 and cnt &lt;= 50</span><br><span class="line">) t2 on t1.user_id=t2.user_id</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>gensim训练word2vec模型</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">/root/xpguo/anaconda3/bin/python w2v_v2.py user_songlist.v2 ./model_v2/w2v20180625 song_vector_v2</span><br><span class="line"></span><br><span class="line">#!/usr/bin/env python</span><br><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line"></span><br><span class="line">import logging</span><br><span class="line">import os</span><br><span class="line">import sys</span><br><span class="line">import multiprocessing</span><br><span class="line"></span><br><span class="line">from gensim.models import Word2Vec</span><br><span class="line">from gensim.models.word2vec import LineSentence</span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    program = os.path.basename(sys.argv[0])</span><br><span class="line">    logger = logging.getLogger(program)</span><br><span class="line"></span><br><span class="line">    logging.basicConfig(format=&#x27;%(asctime)s: %(levelname)s: %(message)s&#x27;)</span><br><span class="line">    logging.root.setLevel(level=logging.INFO)</span><br><span class="line">    logger.info(&quot;running %s&quot; % &#x27; &#x27;.join(sys.argv))</span><br><span class="line"></span><br><span class="line">    # check and process input arguments</span><br><span class="line">    if len(sys.argv) &lt; 4:</span><br><span class="line">        print(globals()[&#x27;__doc__&#x27;] % locals())</span><br><span class="line">        sys.exit(1)</span><br><span class="line">    inp, outp1, outp2 = sys.argv[1:4]</span><br><span class="line"></span><br><span class="line">    model = Word2Vec(LineSentence(inp), size=400, window=5, min_count=5,</span><br><span class="line">                     workers=multiprocessing.cpu_count())</span><br><span class="line"></span><br><span class="line">    # trim unneeded model memory = use(much) less RAM</span><br><span class="line">    # model.init_sims(replace=True)</span><br><span class="line">    # w2v model</span><br><span class="line">    model.save(outp1)</span><br><span class="line">    # word vectors</span><br><span class="line">    model.wv.save_word2vec_format(outp2, binary=False)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Tensorboard 可视化</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line">1.	拉取id2name</span><br><span class="line">mysql -h10.20.125.43 -umyshuju_r -p3KAjvBHaDB&#123;gLE9H -e &quot;select third_id, name from music.t_song_info where third_id is not null and name is not null and length(third_id)&gt;0 and length(name)&gt;0&quot; &gt; t_song_info</span><br><span class="line"></span><br><span class="line">2.	写tensorboard模型</span><br><span class="line">import sys, os</span><br><span class="line">from gensim.models import Word2Vec</span><br><span class="line">import tensorflow as tf</span><br><span class="line">import numpy as np</span><br><span class="line">from tensorflow.contrib.tensorboard.plugins import projector</span><br><span class="line"></span><br><span class="line">id2name = &#123;&#125;</span><br><span class="line"></span><br><span class="line">## 可视化函数</span><br><span class="line">## model: gensim模型地址</span><br><span class="line">## output_path: tf board转换模型地址</span><br><span class="line">def visualize(model, output_path):</span><br><span class="line">    ## tf board转换模型名称，自定义</span><br><span class="line">    meta_file = &quot;w2x_metadata.tsv&quot;</span><br><span class="line"></span><br><span class="line">    ## 词向量个数*词向量维数</span><br><span class="line">    placeholder = np.zeros((len(model.wv.index2word), 400))</span><br><span class="line"></span><br><span class="line">    ## 读取ID2name文件</span><br><span class="line">    inFp = open(&quot;./t_song_info&quot;, &#x27;r&#x27;)</span><br><span class="line">    while True:</span><br><span class="line">        line = inFp.readline()</span><br><span class="line">        if not line:</span><br><span class="line">            break</span><br><span class="line">        items = line.strip().split(&#x27;\t&#x27;)</span><br><span class="line">        if len(items) != 2:</span><br><span class="line">            continue</span><br><span class="line">        id2name[items[0]] = items[1]</span><br><span class="line">    inFp.close()</span><br><span class="line"></span><br><span class="line">    ## 地址+名称拼接</span><br><span class="line">    with open(os.path.join(output_path,meta_file), &#x27;wb&#x27;) as file_metadata:</span><br><span class="line"></span><br><span class="line">        ## 对于每个词向量，写文件</span><br><span class="line">        for i, word in enumerate(model.wv.index2word):</span><br><span class="line">            placeholder[i] = model[word]</span><br><span class="line">            # temporary solution for https://github.com/tensorflow/tensorflow/issues/9094</span><br><span class="line">            if word == &#x27;&#x27;:</span><br><span class="line">                print(&quot;Emply Line, should replecaed by any thing else, or will cause a bug of tensorboard&quot;)</span><br><span class="line">                file_metadata.write(&quot;&#123;0&#125;&quot;.format(&#x27;&lt;Empty Line&gt;&#x27;).encode(&#x27;utf-8&#x27;) + b&#x27;\n&#x27;)</span><br><span class="line">            else:</span><br><span class="line">#                file_metadata.write(&quot;&#123;0&#125;&quot;.format(word).encode(&#x27;utf-8&#x27;) + b&#x27;\n&#x27;)</span><br><span class="line">                file_metadata.write(&quot;&#123;0&#125;&quot;.format(id2name.get(word, &#x27;null&#x27;)).encode(&#x27;utf-8&#x27;) + b&#x27;\n&#x27;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    # define the model without training</span><br><span class="line">    sess = tf.InteractiveSession()</span><br><span class="line"></span><br><span class="line">    embedding = tf.Variable(placeholder, trainable = False, name = &#x27;w2x_metadata&#x27;)</span><br><span class="line">    tf.global_variables_initializer().run()</span><br><span class="line"></span><br><span class="line">    saver = tf.train.Saver()</span><br><span class="line">    writer = tf.summary.FileWriter(output_path, sess.graph)</span><br><span class="line"></span><br><span class="line">    # adding into projector</span><br><span class="line">    config = projector.ProjectorConfig()</span><br><span class="line">    embed = config.embeddings.add()</span><br><span class="line">    embed.tensor_name = &#x27;w2x_metadata&#x27;</span><br><span class="line">    embed.metadata_path = meta_file</span><br><span class="line"></span><br><span class="line">    # Specify the width and height of a single thumbnail.</span><br><span class="line">    projector.visualize_embeddings(writer, config)</span><br><span class="line">    saver.save(sess, os.path.join(output_path,&#x27;w2x_metadata.ckpt&#x27;))</span><br><span class="line">    print(&#x27;Run `tensorboard --logdir=&#123;0&#125;` to run visualize result on tensorboard&#x27;.format(output_path))</span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    model = Word2Vec.load(&quot;/home/xpguo/gensim/word2vec/song_vector_v1/a&quot;)</span><br><span class="line">visualize(model,&quot;/home/xpguo/gensim/word2vec/song_vector_v1_tf_board&quot;)</span><br><span class="line"></span><br><span class="line">3.	tensorboard可视化</span><br><span class="line">tensorboard --logdir=/home/xpguo/gensim/word2vec/song_vector_v2_tf_board --port=6607</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Tensorboard 可视化效果</p>
+<img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/5.%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/word2vec/tfboard.png" class="" title="[tf-board]"></li>
+</ul>
+<h5 id="word2vec源码"><a href="#word2vec源码" class="headerlink" title="word2vec源码"></a>word2vec源码</h5><p>*　cbow-框架图</p>
+<img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/5.%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/word2vec/cbow-1.png" class="" title="[cbow-1]">
+
+<ul>
+<li><p>cbow-Hierarchical softmax</p>
+<img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/5.%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/word2vec/cbow-hs.png" class="" title="[cbow-hs]">
+</li>
+<li><p>cbow-hs-hand</p>
+<img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/5.%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/word2vec/cbow-hs-hand.png" class="" title="[cbow-hs-hand.png]"></li>
+</ul>
+<h5 id="word2vec源码细节"><a href="#word2vec源码细节" class="headerlink" title="word2vec源码细节"></a>word2vec源码细节</h5><ul>
+<li>预计算sigmoid(x)，将[-6, 6]的区间划分成1000份来计算。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#define EXP_TABLE_SIZE 1000</span><br><span class="line">#define MAX_EXP 6</span><br><span class="line">expTable = (real *)malloc((EXP_TABLE_SIZE + 1) * sizeof(real));</span><br><span class="line">for (i = 0; i &lt; EXP_TABLE_SIZE; i++) &#123;</span><br><span class="line">  expTable[i] = exp((i / (real)EXP_TABLE_SIZE * 2 - 1) * MAX_EXP); // Precompute the exp() table</span><br><span class="line">  expTable[i] = expTable[i] / (expTable[i] + 1);                   // Precompute f(x) = x / (x + 1)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>hash函数，每个char+原hash值*257，很常见的做法<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// Returns hash value of a word</span><br><span class="line">int GetWordHash(char *word) &#123;</span><br><span class="line">  unsigned long long a, hash = 0;</span><br><span class="line">  for (a = 0; a &lt; strlen(word); a++) hash = hash * 257 + word[a];</span><br><span class="line">  hash = hash % vocab_hash_size;</span><br><span class="line">  return hash;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>线性探测法，hash后线性地去找词，要么找到返回词的位置，要么找到-1<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// Returns position of a word in the vocabulary; if the word is not found, returns -1</span><br><span class="line">int SearchVocab(char *word) &#123;</span><br><span class="line">  unsigned int hash = GetWordHash(word);</span><br><span class="line">  while (1) &#123;</span><br><span class="line">    if (vocab_hash[hash] == -1) return -1;</span><br><span class="line">    if (!strcmp(word, vocab[vocab_hash[hash]].word)) return vocab_hash[hash];</span><br><span class="line">    hash = (hash + 1) % vocab_hash_size;</span><br><span class="line">  &#125;</span><br><span class="line">  return -1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>将词添加到词典中， 有两个地方要加，第一是hash映射表，第二是词对应的count表<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">// Adds a word to the vocabulary</span><br><span class="line">int AddWordToVocab(char *word) &#123;</span><br><span class="line">  unsigned int hash, length = strlen(word) + 1;</span><br><span class="line">  if (length &gt; MAX_STRING) length = MAX_STRING;</span><br><span class="line">  vocab[vocab_size].word = (char *)calloc(length, sizeof(char));</span><br><span class="line">  strcpy(vocab[vocab_size].word, word);</span><br><span class="line">  vocab[vocab_size].cn = 0;</span><br><span class="line">  vocab_size++;</span><br><span class="line">  // Reallocate memory if needed</span><br><span class="line">  if (vocab_size + 2 &gt;= vocab_max_size) &#123;</span><br><span class="line">    vocab_max_size += 1000;</span><br><span class="line">    vocab = (struct vocab_word *)realloc(vocab, vocab_max_size * sizeof(struct vocab_word));</span><br><span class="line">  &#125;</span><br><span class="line">  hash = GetWordHash(word);</span><br><span class="line">  while (vocab_hash[hash] != -1) hash = (hash + 1) % vocab_hash_size;</span><br><span class="line">  vocab_hash[hash] = vocab_size - 1;</span><br><span class="line">  return vocab_size - 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>将词典排序，目的是为了建立哈弗曼树，有几个地方要注意：一是出现频率比较低的词，会被过滤掉；二是过滤掉之后需要讲hashtable重新hash，因为去掉了一些词，table不能用了。感慨一下，c语言要自己实现hash_dict，真心麻烦。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">// Sorts the vocabulary by frequency using word counts</span><br><span class="line">void SortVocab() &#123;</span><br><span class="line">  int a, size;</span><br><span class="line">  unsigned int hash;</span><br><span class="line">  // Sort the vocabulary and keep &lt;/s&gt; at the first position</span><br><span class="line">  qsort(&amp;vocab[1], vocab_size - 1, sizeof(struct vocab_word), VocabCompare);</span><br><span class="line">  for (a = 0; a &lt; vocab_hash_size; a++) vocab_hash[a] = -1;</span><br><span class="line">  size = vocab_size;</span><br><span class="line">  train_words = 0;</span><br><span class="line">  for (a = 0; a &lt; size; a++) &#123;</span><br><span class="line">    // Words occuring less than min_count times will be discarded from the vocab</span><br><span class="line">    if ((vocab[a].cn &lt; min_count) &amp;&amp; (a != 0)) &#123;</span><br><span class="line">      vocab_size--;</span><br><span class="line">      free(vocab[a].word);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      // Hash will be re-computed, as after the sorting it is not actual</span><br><span class="line">      hash=GetWordHash(vocab[a].word);</span><br><span class="line">      while (vocab_hash[hash] != -1) hash = (hash + 1) % vocab_hash_size;</span><br><span class="line">      vocab_hash[hash] = a;</span><br><span class="line">      train_words += vocab[a].cn;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  vocab = (struct vocab_word *)realloc(vocab, (vocab_size + 1) * sizeof(struct vocab_word));</span><br><span class="line">  // Allocate memory for the binary tree construction</span><br><span class="line">  for (a = 0; a &lt; vocab_size; a++) &#123;</span><br><span class="line">    vocab[a].code = (char *)calloc(MAX_CODE_LENGTH, sizeof(char));</span><br><span class="line">    vocab[a].point = (int *)calloc(MAX_CODE_LENGTH, sizeof(int));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>初始化网络参数，首先要搞清楚网络是什么样子的：<ul>
+<li>syn0: e(w), 向量映射表，最终看的结果</li>
+<li>syn1: theta(w, j), 存放hs的每个节点的参数</li>
+<li>syn1neg: theta for negtive sampling, 存放theta(u)</li>
+<li>vocab_size:词典大小。</li>
+<li>layer1_size:第一层大小，即向量映射的维度</li>
+<li>末尾还会创建一棵哈弗曼树</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">void InitNet() &#123;</span><br><span class="line">  long long a, b;</span><br><span class="line">  unsigned long long next_random = 1;</span><br><span class="line">  a = posix_memalign((void **)&amp;syn0, 128, (long long)vocab_size * layer1_size * sizeof(real));</span><br><span class="line">  if (syn0 == NULL) &#123;printf(&quot;Memory allocation failed\n&quot;); exit(1);&#125;</span><br><span class="line">  if (hs) &#123;</span><br><span class="line">    a = posix_memalign((void **)&amp;syn1, 128, (long long)vocab_size * layer1_size * sizeof(real));</span><br><span class="line">    if (syn1 == NULL) &#123;printf(&quot;Memory allocation failed\n&quot;); exit(1);&#125;</span><br><span class="line">    for (a = 0; a &lt; vocab_size; a++) for (b = 0; b &lt; layer1_size; b++)</span><br><span class="line">     syn1[a * layer1_size + b] = 0;</span><br><span class="line">  &#125;</span><br><span class="line">  if (negative&gt;0) &#123;</span><br><span class="line">    a = posix_memalign((void **)&amp;syn1neg, 128, (long long)vocab_size * layer1_size * sizeof(real));</span><br><span class="line">    if (syn1neg == NULL) &#123;printf(&quot;Memory allocation failed\n&quot;); exit(1);&#125;</span><br><span class="line">    for (a = 0; a &lt; vocab_size; a++) for (b = 0; b &lt; layer1_size; b++)</span><br><span class="line">     syn1neg[a * layer1_size + b] = 0;</span><br><span class="line">  &#125;</span><br><span class="line">  for (a = 0; a &lt; vocab_size; a++) for (b = 0; b &lt; layer1_size; b++) &#123;</span><br><span class="line">    next_random = next_random * (unsigned long long)25214903917 + 11;</span><br><span class="line">    syn0[a * layer1_size + b] = (((next_random &amp; 0xFFFF) / (real)65536) - 0.5) / layer1_size;</span><br><span class="line">  &#125;</span><br><span class="line">  CreateBinaryTree();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>初始化采样表，注意不是直接用次数，而是用pow(次数, 0.75)来做，降低一下高频词的采到的概率。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">void InitUnigramTable() &#123;</span><br><span class="line">  int a, i;</span><br><span class="line">  double train_words_pow = 0;</span><br><span class="line">  double d1, power = 0.75;</span><br><span class="line">  table = (int *)malloc(table_size * sizeof(int));</span><br><span class="line">  for (a = 0; a &lt; vocab_size; a++) train_words_pow += pow(vocab[a].cn, power);</span><br><span class="line">  i = 0;</span><br><span class="line">  d1 = pow(vocab[i].cn, power) / train_words_pow;</span><br><span class="line">  for (a = 0; a &lt; table_size; a++) &#123;</span><br><span class="line">    table[a] = i;</span><br><span class="line">    if (a / (double)table_size &gt; d1) &#123;</span><br><span class="line">      i++;</span><br><span class="line">      d1 += pow(vocab[i].cn, power) / train_words_pow;</span><br><span class="line">    &#125;</span><br><span class="line">    if (i &gt;= vocab_size) i = vocab_size - 1;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>构建哈弗曼树，自底向上构建，code指的是huffman tree的编码，point指向对应词在词典中的位置<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">// Create binary Huffman tree using the word counts</span><br><span class="line">// Frequent words will have short uniqe binary codes</span><br><span class="line">void CreateBinaryTree() &#123;</span><br><span class="line">  long long a, b, i, min1i, min2i, pos1, pos2, point[MAX_CODE_LENGTH];</span><br><span class="line">  char code[MAX_CODE_LENGTH];</span><br><span class="line">  long long *count = (long long *)calloc(vocab_size * 2 + 1, sizeof(long long));</span><br><span class="line">  long long *binary = (long long *)calloc(vocab_size * 2 + 1, sizeof(long long));</span><br><span class="line">  long long *parent_node = (long long *)calloc(vocab_size * 2 + 1, sizeof(long long));</span><br><span class="line">  for (a = 0; a &lt; vocab_size; a++) count[a] = vocab[a].cn;</span><br><span class="line">  for (a = vocab_size; a &lt; vocab_size * 2; a++) count[a] = 1e15;</span><br><span class="line">  pos1 = vocab_size - 1;</span><br><span class="line">  pos2 = vocab_size;</span><br><span class="line">  // Following algorithm constructs the Huffman tree by adding one node at a time</span><br><span class="line">  for (a = 0; a &lt; vocab_size - 1; a++) &#123;</span><br><span class="line">    // First, find two smallest nodes &#x27;min1, min2&#x27;</span><br><span class="line">    if (pos1 &gt;= 0) &#123;</span><br><span class="line">      if (count[pos1] &lt; count[pos2]) &#123;</span><br><span class="line">        min1i = pos1;</span><br><span class="line">        pos1--;</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        min1i = pos2;</span><br><span class="line">        pos2++;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      min1i = pos2;</span><br><span class="line">      pos2++;</span><br><span class="line">    &#125;</span><br><span class="line">    if (pos1 &gt;= 0) &#123;</span><br><span class="line">      if (count[pos1] &lt; count[pos2]) &#123;</span><br><span class="line">        min2i = pos1;</span><br><span class="line">        pos1--;</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        min2i = pos2;</span><br><span class="line">        pos2++;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      min2i = pos2;</span><br><span class="line">      pos2++;</span><br><span class="line">    &#125;</span><br><span class="line">    count[vocab_size + a] = count[min1i] + count[min2i];</span><br><span class="line">    parent_node[min1i] = vocab_size + a;</span><br><span class="line">    parent_node[min2i] = vocab_size + a;</span><br><span class="line">    binary[min2i] = 1;</span><br><span class="line">  &#125;</span><br><span class="line">  // Now assign binary code to each vocabulary word</span><br><span class="line">  for (a = 0; a &lt; vocab_size; a++) &#123;</span><br><span class="line">    b = a;</span><br><span class="line">    i = 0;</span><br><span class="line">    while (1) &#123;</span><br><span class="line">      code[i] = binary[b];</span><br><span class="line">      point[i] = b;</span><br><span class="line">      i++;</span><br><span class="line">      b = parent_node[b];</span><br><span class="line">      if (b == vocab_size * 2 - 2) break;</span><br><span class="line">    &#125;</span><br><span class="line">    vocab[a].codelen = i;</span><br><span class="line">    vocab[a].point[0] = vocab_size - 2;</span><br><span class="line">    for (b = 0; b &lt; i; b++) &#123;</span><br><span class="line">      vocab[a].code[i - b - 1] = code[b];</span><br><span class="line">      vocab[a].point[i - b] = point[b] - vocab_size;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  free(count);</span><br><span class="line">  free(binary);</span><br><span class="line">  free(parent_node);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>训练模型<img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/5.%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/word2vec/cbow-hs-2.png" class="" title="[cbow-hs-2]"></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">if (cw) &#123;</span><br><span class="line">        for (c = 0; c &lt; layer1_size; c++) neu1[c] /= cw;</span><br><span class="line">        // 如果分层softmax, theta(j: 2-&gt;l, w)作为tree的路径参数</span><br><span class="line">        if (hs) for (d = 0; d &lt; vocab[word].codelen; d++) &#123;</span><br><span class="line">          f = 0;</span><br><span class="line">          l2 = vocab[word].point[d] * layer1_size;</span><br><span class="line">          // Propagate hidden -&gt; output</span><br><span class="line">          // 3.1 查表计算sigma(x(w)*theta)</span><br><span class="line">          for (c = 0; c &lt; layer1_size; c++) f += neu1[c] * syn1[c + l2];</span><br><span class="line">          if (f &lt;= -MAX_EXP) continue;</span><br><span class="line">          else if (f &gt;= MAX_EXP) continue;</span><br><span class="line">          else f = expTable[(int)((f + MAX_EXP) * (EXP_TABLE_SIZE / MAX_EXP / 2))];</span><br><span class="line">          // &#x27;g&#x27; is the gradient multiplied by the learning rate: 3.2 g = (1-dj-q) * eta</span><br><span class="line">          g = (1 - vocab[word].code[d] - f) * alpha;</span><br><span class="line">          // Propagate errors output -&gt; hidden : 3.3 v = v + g*theta</span><br><span class="line">          for (c = 0; c &lt; layer1_size; c++) neu1e[c] += g * syn1[c + l2];</span><br><span class="line">          // Learn weights hidden -&gt; output: 3.4 theta = theta + g*x(w)</span><br><span class="line">          for (c = 0; c &lt; layer1_size; c++) syn1[c + l2] += g * neu1[c];</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/1.%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2.hive/hive-param-tune/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    hive-param-tune
+                
+            </div>
+        </a>
+    
+    
+        <a href="/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/4.%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/elastic-search-md/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">elastic-search.md</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            sampsonguo &copy; 2024 
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+    </div>
+</body>
+</html>
