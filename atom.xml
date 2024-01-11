@@ -6,7 +6,7 @@
   <link href="https://sampsonguo.github.io/atom.xml" rel="self"/>
   
   <link href="https://sampsonguo.github.io/"/>
-  <updated>2024-01-08T09:39:10.489Z</updated>
+  <updated>2024-01-11T07:41:24.868Z</updated>
   <id>https://sampsonguo.github.io/</id>
   
   <author>
@@ -15,6 +15,86 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>BI理论</title>
+    <link href="https://sampsonguo.github.io/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/3.BI/BI%E7%90%86%E8%AE%BA/"/>
+    <id>https://sampsonguo.github.io/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/3.BI/BI%E7%90%86%E8%AE%BA/</id>
+    <published>2024-01-11T07:32:25.000Z</published>
+    <updated>2024-01-11T07:41:24.868Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="BI理论"><a href="#BI理论" class="headerlink" title="BI理论"></a>BI理论</h3><p>1、如何呈现<br></p><ul><li>理想状况下的产品用户流量流转</li><li>实际状况下的产品用户流量流转</li></ul><p>同时满足:</p><ul><li>ABTest</li><li>实时</li><li>自动化 </li><li>前后打通（可能不需要？）</li></ul><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><blockquote><ul><li><a href=""></a></li></ul></blockquote>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;BI理论&quot;&gt;&lt;a href=&quot;#BI理论&quot; class=&quot;headerlink&quot; title=&quot;BI理论&quot;&gt;&lt;/a&gt;BI理论&lt;/h3&gt;&lt;p&gt;1、如何呈现&lt;br&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;理想状况下的产品用户流量流转&lt;/li&gt;
+&lt;li&gt;实际状况下的产品用户流量流转</summary>
+      
+    
+    
+    
+    <category term="2.数据相关" scheme="https://sampsonguo.github.io/categories/2-%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/"/>
+    
+    <category term="3.BI" scheme="https://sampsonguo.github.io/categories/2-%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/3-BI/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>maven</title>
+    <link href="https://sampsonguo.github.io/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/1.%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/3.spark/maven/"/>
+    <id>https://sampsonguo.github.io/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/1.%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/3.spark/maven/</id>
+    <published>2024-01-10T05:10:14.000Z</published>
+    <updated>2024-01-10T05:11:03.141Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Settings配置"><a href="#Settings配置" class="headerlink" title="Settings配置"></a>Settings配置</h3><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><blockquote><ul><li><a href=""></a></li><li><a href=""></a></li></ul></blockquote>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;Settings配置&quot;&gt;&lt;a href=&quot;#Settings配置&quot; class=&quot;headerlink&quot; title=&quot;Settings配置&quot;&gt;&lt;/a&gt;Settings配置&lt;/h3&gt;&lt;h2 id=&quot;参考资料&quot;&gt;&lt;a href=&quot;#参考资料&quot; class=&quot;head</summary>
+      
+    
+    
+    
+    <category term="2.数据相关" scheme="https://sampsonguo.github.io/categories/2-%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/"/>
+    
+    <category term="1.数据仓库" scheme="https://sampsonguo.github.io/categories/2-%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/1-%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/"/>
+    
+    <category term="3.spark" scheme="https://sampsonguo.github.io/categories/2-%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/1-%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/3-spark/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>特征拼接</title>
+    <link href="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/%E7%89%B9%E5%BE%81%E6%8B%BC%E6%8E%A5/"/>
+    <id>https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/%E7%89%B9%E5%BE%81%E6%8B%BC%E6%8E%A5/</id>
+    <published>2024-01-10T05:08:45.000Z</published>
+    <updated>2024-01-10T05:10:02.710Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><blockquote><ul><li><a href=""></a></li><li><a href=""></a></li></ul></blockquote>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;参考资料&quot;&gt;&lt;a href=&quot;#参考资料&quot; class=&quot;headerlink&quot; title=&quot;参考资料&quot;&gt;&lt;/a&gt;参考资料&lt;/h2&gt;&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/l</summary>
+      
+    
+    
+    
+    <category term="1.算法相关" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/"/>
+    
+    <category term="1.特征工程" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1-%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>推荐框架</title>
@@ -304,32 +384,6 @@
   </entry>
   
   <entry>
-    <title>离线在线打通方案分析</title>
-    <link href="https://sampsonguo.github.io/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/4.%E7%AE%97%E6%B3%95%E6%9C%8D%E5%8A%A1/%E7%A6%BB%E7%BA%BF%E5%9C%A8%E7%BA%BF%E6%89%93%E9%80%9A%E6%96%B9%E6%A1%88%E5%88%86%E6%9E%90/"/>
-    <id>https://sampsonguo.github.io/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/4.%E7%AE%97%E6%B3%95%E6%9C%8D%E5%8A%A1/%E7%A6%BB%E7%BA%BF%E5%9C%A8%E7%BA%BF%E6%89%93%E9%80%9A%E6%96%B9%E6%A1%88%E5%88%86%E6%9E%90/</id>
-    <published>2024-01-03T09:41:01.806Z</published>
-    <updated>2024-01-04T04:51:14.830Z</updated>
-    
-    <content type="html"><![CDATA[<p>离线在线打通，有如下几种方案</p><h5 id="方案一：结果传递"><a href="#方案一：结果传递" class="headerlink" title="方案一：结果传递"></a>方案一：结果传递</h5><ul><li><p>方案<br><br>典型的Item-cf离线推荐，即是离线挖掘的结果，完整写入Cache中提供给在线服务使用，算法在离线侧，算法结果在在线侧，整个算法对在线完全透明。</p></li><li><p>痛点<br></p><ul><li>不可以实时化（模型实时化，特征实时化均不可）</li><li>通常是天级别（最快小时级别）更新的</li><li>覆盖率痛点，无法覆盖全量用户（尤其是新用户）</li></ul></li></ul><h5 id="方案二：枚举传递"><a href="#方案二：枚举传递" class="headerlink" title="方案二：枚举传递"></a>方案二：枚举传递<br></h5><p>第一期的时候，为了实现快速迭代，采用了简单的枚举的方案。枚举的字段是，场景＋用户性别分段＋用户年龄分段。<br></p><ul><li><p>例子<br></p><ul><li>场景1，男性，18-25岁：微信，陌陌，微博，今日头条等<br></li><li>场景2，女性，&lt;18岁：天天爱消除，贪吃蛇大作战，王者荣耀等<br></li><li>场景有x个，场景1，场景2，场景3等<br></li><li>性别有3种：男，女，未知<br></li><li>年龄有6种：&lt;18, 18-25, 26-35, 36-45, 45以上<br></li><li>枚举的行数有3<em>6</em>4&#x3D;72个<br></li><li>将72个枚举导入Dcache进行在线的服务即可。<br></li></ul></li><li><p>痛点<br>随着场景的增加特征的增加，逐渐的枚举量太大了，Dcache的容量有限。例如加入了30个软件类型0&#x2F;1特征，2^30很容易撑爆Dcache.</p></li></ul><h5 id="参数打通"><a href="#参数打通" class="headerlink" title="参数打通"></a>参数打通</h5><ul><li><p>方案<br></p><ul><li>为了解决枚举过多的痛点，可以将参数放到线上，每次线上实时去计算推荐列表。第一期采用LR的模型，把LR的权重参数传递到mysql中，如下图展示了top10权重的特征<br><img src="/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/4.%E7%AE%97%E6%B3%95%E6%9C%8D%E5%8A%A1/%E7%A6%BB%E7%BA%BF%E5%9C%A8%E7%BA%BF%E6%89%93%E9%80%9A%E6%96%B9%E6%A1%88%E5%88%86%E6%9E%90/1.png" class="" title="[1.png]"></li><li>并且把app特征也放到mysql db中。</li><li>在离线和在线定义同一套app feature和user feature交叉的特征工程方法，实现线上排序</li></ul></li><li><p>痛点<br><br>当尝试更多的模型的时候（如GBDT, GBDT+LR等），模型过于复杂，通过暴露参数的方法已经不能在线上实现模型了。</p></li></ul><h5 id="原始特征-模型打通"><a href="#原始特征-模型打通" class="headerlink" title="原始特征+模型打通"></a>原始特征+模型打通</h5><ul><li>方案<br><ol><li>训练feature传递，单值返回<br><img src="/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/4.%E7%AE%97%E6%B3%95%E6%9C%8D%E5%8A%A1/%E7%A6%BB%E7%BA%BF%E5%9C%A8%E7%BA%BF%E6%89%93%E9%80%9A%E6%96%B9%E6%A1%88%E5%88%86%E6%9E%90/2.png" class="" title="[2.png]">  <strong>痛点:</strong><br><br>  离线侧和在线侧要实现两套同样的特征工程逻辑，每次都要对齐比较繁琐，是可以优化的点。</li><li>原始feature传递，单值返回<br><img src="/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/4.%E7%AE%97%E6%B3%95%E6%9C%8D%E5%8A%A1/%E7%A6%BB%E7%BA%BF%E5%9C%A8%E7%BA%BF%E6%89%93%E9%80%9A%E6%96%B9%E6%A1%88%E5%88%86%E6%9E%90/3.png" class="" title="[3.png]">  <strong>痛点</strong><br><br>  app推荐的多样性和新颖性非常的重要，往往在最顶层需要对多样性和新颖性进行排序，让列表更加整体，更新信息更丰富。</li><li>原始feature传递，列表返回<br><img src="/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/4.%E7%AE%97%E6%B3%95%E6%9C%8D%E5%8A%A1/%E7%A6%BB%E7%BA%BF%E5%9C%A8%E7%BA%BF%E6%89%93%E9%80%9A%E6%96%B9%E6%A1%88%E5%88%86%E6%9E%90/4.png" class="" title="[4.png]"></li></ol></li></ul><h5 id="特征实时化"><a href="#特征实时化" class="headerlink" title="特征实时化"></a>特征实时化</h5><p>实时特征的获取，对用户的场景把控更准确。</p><h5 id="模型实时化"><a href="#模型实时化" class="headerlink" title="模型实时化"></a>模型实时化</h5><p>在线训练，更快捕捉模型的变化</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;离线在线打通，有如下几种方案&lt;/p&gt;
-&lt;h5 id=&quot;方案一：结果传递&quot;&gt;&lt;a href=&quot;#方案一：结果传递&quot; class=&quot;headerlink&quot; title=&quot;方案一：结果传递&quot;&gt;&lt;/a&gt;方案一：结果传递&lt;/h5&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;方案&lt;br&gt;&lt;br&gt;典型的It</summary>
-      
-    
-    
-    
-    <category term="3.服务相关" scheme="https://sampsonguo.github.io/categories/3-%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/"/>
-    
-    <category term="4.算法服务" scheme="https://sampsonguo.github.io/categories/3-%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/4-%E7%AE%97%E6%B3%95%E6%9C%8D%E5%8A%A1/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>bandit算法改进和实践</title>
     <link href="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/8.%E6%9C%BA%E5%88%B6%E7%AD%96%E7%95%A5/bandit%E7%AE%97%E6%B3%95%E6%94%B9%E8%BF%9B%E5%92%8C%E5%AE%9E%E8%B7%B5/"/>
     <id>https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/8.%E6%9C%BA%E5%88%B6%E7%AD%96%E7%95%A5/bandit%E7%AE%97%E6%B3%95%E6%94%B9%E8%BF%9B%E5%92%8C%E5%AE%9E%E8%B7%B5/</id>
@@ -357,6 +411,32 @@
     <category term="1.算法相关" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/"/>
     
     <category term="8.机制策略" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/8-%E6%9C%BA%E5%88%B6%E7%AD%96%E7%95%A5/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>离线在线打通方案分析</title>
+    <link href="https://sampsonguo.github.io/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/4.%E7%AE%97%E6%B3%95%E6%9C%8D%E5%8A%A1/%E7%A6%BB%E7%BA%BF%E5%9C%A8%E7%BA%BF%E6%89%93%E9%80%9A%E6%96%B9%E6%A1%88%E5%88%86%E6%9E%90/"/>
+    <id>https://sampsonguo.github.io/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/4.%E7%AE%97%E6%B3%95%E6%9C%8D%E5%8A%A1/%E7%A6%BB%E7%BA%BF%E5%9C%A8%E7%BA%BF%E6%89%93%E9%80%9A%E6%96%B9%E6%A1%88%E5%88%86%E6%9E%90/</id>
+    <published>2024-01-03T09:41:01.806Z</published>
+    <updated>2024-01-04T04:51:14.830Z</updated>
+    
+    <content type="html"><![CDATA[<p>离线在线打通，有如下几种方案</p><h5 id="方案一：结果传递"><a href="#方案一：结果传递" class="headerlink" title="方案一：结果传递"></a>方案一：结果传递</h5><ul><li><p>方案<br><br>典型的Item-cf离线推荐，即是离线挖掘的结果，完整写入Cache中提供给在线服务使用，算法在离线侧，算法结果在在线侧，整个算法对在线完全透明。</p></li><li><p>痛点<br></p><ul><li>不可以实时化（模型实时化，特征实时化均不可）</li><li>通常是天级别（最快小时级别）更新的</li><li>覆盖率痛点，无法覆盖全量用户（尤其是新用户）</li></ul></li></ul><h5 id="方案二：枚举传递"><a href="#方案二：枚举传递" class="headerlink" title="方案二：枚举传递"></a>方案二：枚举传递<br></h5><p>第一期的时候，为了实现快速迭代，采用了简单的枚举的方案。枚举的字段是，场景＋用户性别分段＋用户年龄分段。<br></p><ul><li><p>例子<br></p><ul><li>场景1，男性，18-25岁：微信，陌陌，微博，今日头条等<br></li><li>场景2，女性，&lt;18岁：天天爱消除，贪吃蛇大作战，王者荣耀等<br></li><li>场景有x个，场景1，场景2，场景3等<br></li><li>性别有3种：男，女，未知<br></li><li>年龄有6种：&lt;18, 18-25, 26-35, 36-45, 45以上<br></li><li>枚举的行数有3<em>6</em>4&#x3D;72个<br></li><li>将72个枚举导入Dcache进行在线的服务即可。<br></li></ul></li><li><p>痛点<br>随着场景的增加特征的增加，逐渐的枚举量太大了，Dcache的容量有限。例如加入了30个软件类型0&#x2F;1特征，2^30很容易撑爆Dcache.</p></li></ul><h5 id="参数打通"><a href="#参数打通" class="headerlink" title="参数打通"></a>参数打通</h5><ul><li><p>方案<br></p><ul><li>为了解决枚举过多的痛点，可以将参数放到线上，每次线上实时去计算推荐列表。第一期采用LR的模型，把LR的权重参数传递到mysql中，如下图展示了top10权重的特征<br><img src="/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/4.%E7%AE%97%E6%B3%95%E6%9C%8D%E5%8A%A1/%E7%A6%BB%E7%BA%BF%E5%9C%A8%E7%BA%BF%E6%89%93%E9%80%9A%E6%96%B9%E6%A1%88%E5%88%86%E6%9E%90/1.png" class="" title="[1.png]"></li><li>并且把app特征也放到mysql db中。</li><li>在离线和在线定义同一套app feature和user feature交叉的特征工程方法，实现线上排序</li></ul></li><li><p>痛点<br><br>当尝试更多的模型的时候（如GBDT, GBDT+LR等），模型过于复杂，通过暴露参数的方法已经不能在线上实现模型了。</p></li></ul><h5 id="原始特征-模型打通"><a href="#原始特征-模型打通" class="headerlink" title="原始特征+模型打通"></a>原始特征+模型打通</h5><ul><li>方案<br><ol><li>训练feature传递，单值返回<br><img src="/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/4.%E7%AE%97%E6%B3%95%E6%9C%8D%E5%8A%A1/%E7%A6%BB%E7%BA%BF%E5%9C%A8%E7%BA%BF%E6%89%93%E9%80%9A%E6%96%B9%E6%A1%88%E5%88%86%E6%9E%90/2.png" class="" title="[2.png]">  <strong>痛点:</strong><br><br>  离线侧和在线侧要实现两套同样的特征工程逻辑，每次都要对齐比较繁琐，是可以优化的点。</li><li>原始feature传递，单值返回<br><img src="/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/4.%E7%AE%97%E6%B3%95%E6%9C%8D%E5%8A%A1/%E7%A6%BB%E7%BA%BF%E5%9C%A8%E7%BA%BF%E6%89%93%E9%80%9A%E6%96%B9%E6%A1%88%E5%88%86%E6%9E%90/3.png" class="" title="[3.png]">  <strong>痛点</strong><br><br>  app推荐的多样性和新颖性非常的重要，往往在最顶层需要对多样性和新颖性进行排序，让列表更加整体，更新信息更丰富。</li><li>原始feature传递，列表返回<br><img src="/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/4.%E7%AE%97%E6%B3%95%E6%9C%8D%E5%8A%A1/%E7%A6%BB%E7%BA%BF%E5%9C%A8%E7%BA%BF%E6%89%93%E9%80%9A%E6%96%B9%E6%A1%88%E5%88%86%E6%9E%90/4.png" class="" title="[4.png]"></li></ol></li></ul><h5 id="特征实时化"><a href="#特征实时化" class="headerlink" title="特征实时化"></a>特征实时化</h5><p>实时特征的获取，对用户的场景把控更准确。</p><h5 id="模型实时化"><a href="#模型实时化" class="headerlink" title="模型实时化"></a>模型实时化</h5><p>在线训练，更快捕捉模型的变化</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;离线在线打通，有如下几种方案&lt;/p&gt;
+&lt;h5 id=&quot;方案一：结果传递&quot;&gt;&lt;a href=&quot;#方案一：结果传递&quot; class=&quot;headerlink&quot; title=&quot;方案一：结果传递&quot;&gt;&lt;/a&gt;方案一：结果传递&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;方案&lt;br&gt;&lt;br&gt;典型的It</summary>
+      
+    
+    
+    
+    <category term="3.服务相关" scheme="https://sampsonguo.github.io/categories/3-%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/"/>
+    
+    <category term="4.算法服务" scheme="https://sampsonguo.github.io/categories/3-%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/4-%E7%AE%97%E6%B3%95%E6%9C%8D%E5%8A%A1/"/>
     
     
   </entry>
@@ -462,85 +542,6 @@
     <category term="4.日常相关" scheme="https://sampsonguo.github.io/categories/4-%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/"/>
     
     <category term="4.日常思考" scheme="https://sampsonguo.github.io/categories/4-%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/4-%E6%97%A5%E5%B8%B8%E6%80%9D%E8%80%83/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>FM</title>
-    <link href="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/4.%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E5%8F%8A%E5%85%B6%E5%8F%98%E5%BD%A2/FM/"/>
-    <id>https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/4.%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E5%8F%8A%E5%85%B6%E5%8F%98%E5%BD%A2/FM/</id>
-    <published>2024-01-03T09:41:01.095Z</published>
-    <updated>2024-01-04T06:49:04.012Z</updated>
-    
-    <content type="html"><![CDATA[<h5 id="libFM-Factorization-Machine-Library"><a href="#libFM-Factorization-Machine-Library" class="headerlink" title="libFM: Factorization Machine Library"></a>libFM: Factorization Machine Library</h5><ul><li>SGD</li><li>ALS</li><li>MCMC</li></ul><h5 id=""><a href="#" class="headerlink" title=""></a></h5>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h5 id=&quot;libFM-Factorization-Machine-Library&quot;&gt;&lt;a href=&quot;#libFM-Factorization-Machine-Library&quot; class=&quot;headerlink&quot; title=&quot;libFM: Factorization M</summary>
-      
-    
-    
-    
-    <category term="1.算法相关" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/"/>
-    
-    <category term="2.搜广推" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2-%E6%90%9C%E5%B9%BF%E6%8E%A8/"/>
-    
-    <category term="4.线性回归及其变形" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2-%E6%90%9C%E5%B9%BF%E6%8E%A8/4-%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E5%8F%8A%E5%85%B6%E5%8F%98%E5%BD%A2/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>AUC的计算方法</title>
-    <link href="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/7.%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/AUC%E7%9A%84%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/"/>
-    <id>https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/7.%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/AUC%E7%9A%84%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/</id>
-    <published>2024-01-03T09:41:01.095Z</published>
-    <updated>2024-01-04T06:48:31.131Z</updated>
-    
-    <content type="html"><![CDATA[<ul><li><p><strong>ROC曲线和AUC</strong><br></p> <img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/7.%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/AUC%E7%9A%84%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/4.png" class="" title="[4.png]"></li><li><p><strong>计算方法</strong><br><br>auc计算部分，除了画出roc曲线，还可以直接计算：<br></p><img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/7.%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/AUC%E7%9A%84%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/2.png" class="" title="[2.png]"><p>其中,</p><ul><li>M为正类样本的数目，N为负类样本的数目<br></li><li>rank是用的tiedrank</li></ul></li><li><p><strong>原理</strong><br><br>和Wilcoxon-Mann-Witney Test有关，即:<br><br>auc&#x3D;“测试任意给一个正类样本和一个负类样本，正类样本的score有多大的概率大于负类样本的score”，也即auc的物理意义。<br></p></li><li><p><strong>单机计算</strong><br><br>参考：<a href="https://github.com/liuzhiqiangruc/dml/blob/master/regr/auc.c">https://github.com/liuzhiqiangruc/dml/blob/master/regr/auc.c</a></p></li><li><p><strong>hive计算</strong><br><br>使用hivemall可以方便地计算auc, 如下图<br></p><img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/7.%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/AUC%E7%9A%84%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/5.png" class="" title="[5.png]"></li><li><p><strong>spark计算</strong><br></p></li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">// Compute raw scores on the test set</span><br><span class="line">val predictionAndLabels = test.map &#123; case LabeledPoint(label, features) =&gt;</span><br><span class="line">  val prediction = model.predict(features)</span><br><span class="line">  (prediction, label)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// Instantiate metrics object</span><br><span class="line">val metrics = new BinaryClassificationMetrics(predictionAndLabels)</span><br><span class="line"></span><br><span class="line">// AUROC</span><br><span class="line">val auROC = metrics.areaUnderROC</span><br><span class="line">println(&quot;Area under ROC = &quot; + auROC)</span><br><span class="line"></span><br></pre></td></tr></table></figure><ul><li><p><strong>AUPR</strong><br></p><ul><li>AUPR：Area Under Precision Recall Curve<br><img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/7.%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/AUC%E7%9A%84%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/6.png" class="" title="[6.png]"></li></ul></li><li><p><strong>AUC VS AUPR (1)</strong><br></p><img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/7.%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/AUC%E7%9A%84%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/7.png" class="" title="[7.png]"></li><li><p><strong>AUC VS AUPR (2)</strong><br></p><img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/7.%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/AUC%E7%9A%84%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/8.png" class="" title="[8.png]"></li><li><p><strong>Ref:</strong><br></p></li></ul><ol><li><a href="http://taoo.iteye.com/blog/760589">http://taoo.iteye.com/blog/760589</a></li><li><a href="http://cn.mathworks.com/help/stats/tiedrank.html?requestedDomain=www.mathworks.com">http://cn.mathworks.com/help/stats/tiedrank.html?requestedDomain=www.mathworks.com</a></li><li><a href="https://github.com/liuzhiqiangruc/dml/blob/master/regr/auc.c">https://github.com/liuzhiqiangruc/dml/blob/master/regr/auc.c</a></li></ol>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;ROC曲线和AUC&lt;/strong&gt;&lt;br&gt;&lt;/p&gt;
- &lt;img src=&quot;/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/7.%E8%A</summary>
-      
-    
-    
-    
-    <category term="1.算法相关" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/"/>
-    
-    <category term="2.搜广推" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2-%E6%90%9C%E5%B9%BF%E6%8E%A8/"/>
-    
-    <category term="7.评估指标" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2-%E6%90%9C%E5%B9%BF%E6%8E%A8/7-%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>hivemall</title>
-    <link href="https://sampsonguo.github.io/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/4.%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/hivemall/"/>
-    <id>https://sampsonguo.github.io/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/4.%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/hivemall/</id>
-    <published>2024-01-03T09:41:00.626Z</published>
-    <updated>2024-01-04T02:34:34.298Z</updated>
-    
-    <content type="html"><![CDATA[<h5 id="What-is-Hivemall"><a href="#What-is-Hivemall" class="headerlink" title="What is Hivemall?"></a>What is Hivemall?</h5><ul><li>Scalable Machine Learning</li><li>A collection of hive UDFs</li><li>ML on SQL</li></ul><h5 id="Why-Hivemall"><a href="#Why-Hivemall" class="headerlink" title="Why Hivemall?"></a>Why Hivemall?</h5><ul><li>Scalable (compare to scikit-learn)</li><li>Easy To Use (compare to scikit-learn)</li></ul><h5 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h5><p><a href="https://www.slideshare.net/myui/introduction-to-hivemall">https://www.slideshare.net/myui/introduction-to-hivemall</a></p><h5 id="Extended-top-open-sources-big-data-tools-2016"><a href="#Extended-top-open-sources-big-data-tools-2016" class="headerlink" title="Extended: top open sources big data tools 2016"></a>Extended: top open sources big data tools 2016</h5><ul><li>Spark</li><li>Beam</li><li>TensorFlow</li><li>Solr</li><li>ElasticSearch</li><li>SlamData</li><li>Impala</li><li>Kylin</li><li>Kafka</li><li>StreamSets</li><li>Titan</li><li>Zeppelin</li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h5 id=&quot;What-is-Hivemall&quot;&gt;&lt;a href=&quot;#What-is-Hivemall&quot; class=&quot;headerlink&quot; title=&quot;What is Hivemall?&quot;&gt;&lt;/a&gt;What is Hivemall?&lt;/h5&gt;&lt;ul&gt;
-&lt;li&gt;Scalab</summary>
-      
-    
-    
-    
-    <category term="2.数据相关" scheme="https://sampsonguo.github.io/categories/2-%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/"/>
-    
-    <category term="4.数据平台" scheme="https://sampsonguo.github.io/categories/2-%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/4-%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/"/>
     
     
   </entry>
