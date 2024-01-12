@@ -6,7 +6,7 @@
   <link href="https://sampsonguo.github.io/atom.xml" rel="self"/>
   
   <link href="https://sampsonguo.github.io/"/>
-  <updated>2024-01-11T07:41:24.868Z</updated>
+  <updated>2024-01-12T02:39:53.284Z</updated>
   <id>https://sampsonguo.github.io/</id>
   
   <author>
@@ -15,6 +15,63 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>mlops</title>
+    <link href="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/5.%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/mlops/"/>
+    <id>https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/5.%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/mlops/</id>
+    <published>2024-01-12T02:39:11.000Z</published>
+    <updated>2024-01-12T02:39:53.284Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li>feature ops</li><li>model ops</li><li>server ops</li><li>abTest ops</li></ul><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><blockquote><ul><li><a href=""></a></li><li><a href=""></a></li></ul></blockquote>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;feature ops&lt;/li&gt;
+&lt;li&gt;model ops&lt;/li&gt;
+&lt;li&gt;server ops&lt;/li&gt;
+&lt;li&gt;abTest ops&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;参考资料&quot;&gt;&lt;a href=&quot;#参考资料&quot; class=&quot;headerlink&quot; </summary>
+      
+    
+    
+    
+    <category term="1.算法相关" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/"/>
+    
+    <category term="5.机器学习" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/5-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://sampsonguo.github.io/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/1.%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/3.spark/spark/"/>
+    <id>https://sampsonguo.github.io/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/1.%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/3.spark/spark/</id>
+    <published>2024-01-11T08:59:55.169Z</published>
+    <updated>2024-01-11T09:00:10.495Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="spark"><a href="#spark" class="headerlink" title="spark"></a>spark</h3><ul><li>Spark runs on Java 8&#x2F;11&#x2F;17, Scala 2.12&#x2F;2.13, Python 3.8+, and R 3.5+.</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;spark&quot;&gt;&lt;a href=&quot;#spark&quot; class=&quot;headerlink&quot; title=&quot;spark&quot;&gt;&lt;/a&gt;spark&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Spark runs on Java 8&amp;#x2F;11&amp;#x2F;17, Scala 2.12&amp;#x2</summary>
+      
+    
+    
+    
+    <category term="2.数据相关" scheme="https://sampsonguo.github.io/categories/2-%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/"/>
+    
+    <category term="1.数据仓库" scheme="https://sampsonguo.github.io/categories/2-%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/1-%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/"/>
+    
+    <category term="3.spark" scheme="https://sampsonguo.github.io/categories/2-%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/1-%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/3-spark/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>BI理论</title>
@@ -48,14 +105,16 @@
     <link href="https://sampsonguo.github.io/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/1.%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/3.spark/maven/"/>
     <id>https://sampsonguo.github.io/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/1.%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/3.spark/maven/</id>
     <published>2024-01-10T05:10:14.000Z</published>
-    <updated>2024-01-10T05:11:03.141Z</updated>
+    <updated>2024-01-11T08:17:59.832Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="Settings配置"><a href="#Settings配置" class="headerlink" title="Settings配置"></a>Settings配置</h3><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><blockquote><ul><li><a href=""></a></li><li><a href=""></a></li></ul></blockquote>]]></content>
+    <content type="html"><![CDATA[<h3 id="Settings配置"><a href="#Settings配置" class="headerlink" title="Settings配置"></a>Settings配置</h3><ul><li>通过添加Profile配置项来增加来源</li><li>通过Profile中的release和snapshots的配置项来指定来源的类型</li></ul><h3 id="maven相关"><a href="#maven相关" class="headerlink" title="maven相关"></a>maven相关</h3><ul><li>maven install 发布到本地maven仓库</li></ul><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><blockquote><ul><li><a href=""></a></li><li><a href=""></a></li></ul></blockquote>]]></content>
     
     
       
       
-    <summary type="html">&lt;h3 id=&quot;Settings配置&quot;&gt;&lt;a href=&quot;#Settings配置&quot; class=&quot;headerlink&quot; title=&quot;Settings配置&quot;&gt;&lt;/a&gt;Settings配置&lt;/h3&gt;&lt;h2 id=&quot;参考资料&quot;&gt;&lt;a href=&quot;#参考资料&quot; class=&quot;head</summary>
+    <summary type="html">&lt;h3 id=&quot;Settings配置&quot;&gt;&lt;a href=&quot;#Settings配置&quot; class=&quot;headerlink&quot; title=&quot;Settings配置&quot;&gt;&lt;/a&gt;Settings配置&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;通过添加Profile配置项来增加来源&lt;/li&gt;
+&lt;li&gt;通过P</summary>
       
     
     
@@ -74,7 +133,7 @@
     <link href="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/%E7%89%B9%E5%BE%81%E6%8B%BC%E6%8E%A5/"/>
     <id>https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/1.%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/%E7%89%B9%E5%BE%81%E6%8B%BC%E6%8E%A5/</id>
     <published>2024-01-10T05:08:45.000Z</published>
-    <updated>2024-01-10T05:10:02.710Z</updated>
+    <updated>2024-01-11T09:00:00.038Z</updated>
     
     <content type="html"><![CDATA[<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><blockquote><ul><li><a href=""></a></li><li><a href=""></a></li></ul></blockquote>]]></content>
     
@@ -469,32 +528,6 @@
   </entry>
   
   <entry>
-    <title>从adaboosting谈起</title>
-    <link href="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/3.%E5%86%B3%E7%AD%96%E6%A0%91%E7%B1%BB%20/%E4%BB%8Eadaboosting%E8%B0%88%E8%B5%B7/"/>
-    <id>https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/3.%E5%86%B3%E7%AD%96%E6%A0%91%E7%B1%BB%20/%E4%BB%8Eadaboosting%E8%B0%88%E8%B5%B7/</id>
-    <published>2024-01-03T09:41:01.096Z</published>
-    <updated>2024-01-05T01:31:41.235Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="从adaboosting到bias的重要性和非线性能力的实现"><a href="#从adaboosting到bias的重要性和非线性能力的实现" class="headerlink" title="从adaboosting到bias的重要性和非线性能力的实现"></a>从adaboosting到bias的重要性和非线性能力的实现</h3><p>精准推荐是商业化的重要能力，而分类能力是精准推荐的基础。</p><h4 id="集成学习"><a href="#集成学习" class="headerlink" title="集成学习"></a>集成学习</h4><p>集成学习有两种方法，bagging, boosting和stacking。<br><br>adaboosting全称adaptive boosting（自适应调节的boosting，属于十大机器学习算法之一）</p><p>集成学习：集成学习就是一堆弱分类器一起共同努力，拼凑成一个强分类器，团结的力量就是大。<br><br>（有理论证明弱学习算法（正确率超过50%即可）可以组合提升为强学习算法（多棵决策树有用的原因：一棵准确率0.6，三棵准确率0.6^3+0.6^2<em>0.4</em>3&#x3D;0.648…  ）<br>   既然一堆分类器想要集成，那么就有投票权力的分配问题了。</p><h4 id="投票方法"><a href="#投票方法" class="headerlink" title="投票方法"></a>投票方法</h4><p>一人一票制度：一堆分类器一人一票制度投票，来决定分类结果。如bagging和random forest的方法。</p><p>一人多票制度：一堆分类器，根据分类器的好坏，好分类器多分给他几票，差分类器少分给他几票。如boosting的方法。</p><h4 id="抽样方法"><a href="#抽样方法" class="headerlink" title="抽样方法"></a>抽样方法</h4><p>样本等概率    VS    样本不等概率<br><br>全部样本  VS 部分样本<br><br>重复抽样 VS 不重复抽样<br></p><h4 id="adaboosting"><a href="#adaboosting" class="headerlink" title="adaboosting"></a>adaboosting</h4><p>adaboosting在里面的位置，属于：一人多票制度+样本不等概率+全部样本+不重复抽样</p><h4 id="弱分类器"><a href="#弱分类器" class="headerlink" title="弱分类器"></a>弱分类器</h4><p>adaboosting对其弱分类器的要求不高，所以我们采用最简单的decision stump的方法，即只有一层的决策树。</p><h4 id="训练流程"><a href="#训练流程" class="headerlink" title="训练流程"></a>训练流程</h4><img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/3.%E5%86%B3%E7%AD%96%E6%A0%91%E7%B1%BB%20/%E4%BB%8Eadaboosting%E8%B0%88%E8%B5%B7/1.png" class="" title="[1.png]"><h4 id="demo实现"><a href="#demo实现" class="headerlink" title="demo实现"></a>demo实现</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br></pre></td><td class="code"><pre><span class="line">import math</span><br><span class="line"></span><br><span class="line">class sample(object):</span><br><span class="line">    def __init__(self, feature, label, weight):</span><br><span class="line">        self.feature = feature</span><br><span class="line">        self.label = label</span><br><span class="line">        self.weight = weight</span><br><span class="line"></span><br><span class="line">class stump(object):</span><br><span class="line">    def __init__(self, dimension, sample_L):</span><br><span class="line">        self.dimension = dimension</span><br><span class="line">        self.threshold = None</span><br><span class="line">        self.leftLabel = None</span><br><span class="line">        self.rightLabel = None</span><br><span class="line">        self.error_rate = None</span><br><span class="line">        self.weight = None</span><br><span class="line">        self.leftLabel_x = None</span><br><span class="line">        self.rightLabel_x = None</span><br><span class="line">        self.sample_L = sample_L</span><br><span class="line">        self.total_error = sum([sample_x.weight for sample_x in sample_L])</span><br><span class="line"></span><br><span class="line">        ## get the best threshold ##</span><br><span class="line">        for sample_x in sample_L:</span><br><span class="line">            threshold_x = sample_x.feature[self.dimension]</span><br><span class="line">            error_rate_x = self.getErrorRate(threshold_x)</span><br><span class="line">            if self.error_rate is None or self.error_rate &gt; error_rate_x:</span><br><span class="line">                self.threshold = threshold_x</span><br><span class="line">                self.leftLabel = self.leftLabel_x</span><br><span class="line">                self.rightLabel = self.rightLabel_x</span><br><span class="line">                self.error_rate = error_rate_x</span><br><span class="line">        self.weight = self.getWeight()</span><br><span class="line"></span><br><span class="line">    def getWeight(self):</span><br><span class="line">        return 0.5*math.log((1-self.error_rate)/max(self.error_rate, 0.0001))</span><br><span class="line"></span><br><span class="line">    def getErrorRate(self, threshold_x):</span><br><span class="line">        left_1_error = 0.0</span><br><span class="line">        left_0_error = 0.0</span><br><span class="line">        right_1_error = 0.0</span><br><span class="line">        right_0_error = 0.0</span><br><span class="line">        ## get left errors ##</span><br><span class="line">        for sample_y in self.sample_L:</span><br><span class="line">            if sample_y.feature[self.dimension] &lt;= threshold_x:</span><br><span class="line">                if sample_y.label == -1:</span><br><span class="line">                    left_1_error += sample_y.weight</span><br><span class="line">                else:</span><br><span class="line">                    left_0_error += sample_y.weight</span><br><span class="line">            else:</span><br><span class="line">                if sample_y.label == -1:</span><br><span class="line">                    right_1_error += sample_y.weight</span><br><span class="line">                else:</span><br><span class="line">                    right_0_error += sample_y.weight</span><br><span class="line">        ## get error and labels ##</span><br><span class="line">        if left_1_error &lt; left_0_error:</span><br><span class="line">            self.leftLabel_x = 1</span><br><span class="line">        else:</span><br><span class="line">            self.leftLabel_x = -1</span><br><span class="line">        if right_1_error &lt; right_0_error:</span><br><span class="line">            self.rightLabel_x = 1</span><br><span class="line">        else:</span><br><span class="line">            self.rightLabel_x = -1</span><br><span class="line">        return (min(left_1_error, left_0_error) + min(right_1_error, right_0_error))/self.total_error</span><br><span class="line"></span><br><span class="line">    def reWeightSample(self):</span><br><span class="line">        for i in range(len(self.sample_L)):</span><br><span class="line">            if (self.sample_L[i].feature[self.dimension] &lt;= self.threshold and self.leftLabel == self.sample_L[i].label) \</span><br><span class="line">                or (self.sample_L[i].feature[self.dimension] &gt; self.threshold and self.rightLabel == self.sample_L[i].label):</span><br><span class="line">                self.sample_L[i].weight *= math.sqrt(self.error_rate/max(1-self.error_rate, 0.0001))</span><br><span class="line">            else:</span><br><span class="line">                self.sample_L[i].weight *= math.sqrt((1-self.error_rate)/max(self.error_rate, 0.0001))</span><br><span class="line"></span><br><span class="line">    def predict(self, sample_x):</span><br><span class="line">        if sample_x.feature[self.dimension] &lt;= self.threshold:</span><br><span class="line">            return self.leftLabel</span><br><span class="line">        else: return self.rightLabel</span><br><span class="line"></span><br><span class="line">nWeak = 3</span><br><span class="line">nSample = -1</span><br><span class="line">sample_L = []</span><br><span class="line">stump_L = []</span><br><span class="line"></span><br><span class="line">def run():</span><br><span class="line">    ## input data ##</span><br><span class="line">    inFp = open(&quot;sample&quot;, &#x27;r&#x27;)</span><br><span class="line">    nSample = int(inFp.readline().strip())</span><br><span class="line">    while True:</span><br><span class="line">        line = inFp.readline()</span><br><span class="line">        if not line:</span><br><span class="line">            break</span><br><span class="line">        item = map(int, line.strip().split(&quot;\t&quot;))</span><br><span class="line">        sample_x = sample(item[1:], item[0], 1.0/nSample)</span><br><span class="line">        sample_L.append(sample_x)</span><br><span class="line">    inFp.close()</span><br><span class="line"></span><br><span class="line">    ## train weak classfier ##</span><br><span class="line">    for t in range(nWeak):</span><br><span class="line">        dimension = t % 2</span><br><span class="line">        stump_x = stump(dimension, sample_L)</span><br><span class="line">        stump_x.reWeightSample()</span><br><span class="line">        print &quot;....&quot;</span><br><span class="line">        print &quot;the dimension is %d&quot;%stump_x.dimension</span><br><span class="line">        print &quot;the threshold is %.9f&quot;%stump_x.threshold</span><br><span class="line">        print &quot;the leftLabel is %d&quot;%stump_x.leftLabel</span><br><span class="line">        print &quot;the rightLabel is %d&quot;%stump_x.rightLabel</span><br><span class="line">        print &quot;the error_rate is %.9f&quot;%stump_x.error_rate</span><br><span class="line">        print &quot;the weight is %.9f&quot;%stump_x.weight</span><br><span class="line">        print [sample_x.weight for sample_x in sample_L]</span><br><span class="line">        stump_L.append(stump_x)</span><br><span class="line"></span><br><span class="line">    ## predict ##</span><br><span class="line">    for sample_x in sample_L:</span><br><span class="line">        predict_one = 0</span><br><span class="line">        for stump_x in stump_L:</span><br><span class="line">            predict_one += stump_x.weight*stump_x.predict(sample_x)</span><br><span class="line">        if predict_one &gt; 0:</span><br><span class="line">            print &quot;predict is 1&quot;</span><br><span class="line">        else:</span><br><span class="line">            print &quot;predict is -1&quot;</span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    run()</span><br></pre></td></tr></table></figure><p>测试样例<br></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">10</span><br><span class="line">1       1       3</span><br><span class="line">1       2       2</span><br><span class="line">-1      3       2</span><br><span class="line">-1      4       3</span><br><span class="line">1       5       4</span><br><span class="line">1       6       6</span><br><span class="line">-1      6       3</span><br><span class="line">1       7       4</span><br><span class="line">-1      8       2</span><br><span class="line">-1      8       5</span><br></pre></td></tr></table></figure><p>输出</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">the dimension is 0</span><br><span class="line">the threshold is 2.000000000</span><br><span class="line">the leftLabel is 1</span><br><span class="line">the rightLabel is -1</span><br><span class="line">the error_rate is 0.300000000</span><br><span class="line">the weight is 0.423648930</span><br><span class="line">[0.06546536707079773, 0.06546536707079773, 0.06546536707079773, 0.06546536707079773, 0.15275252316519466, 0.15275252316519466, 0.06546536707079773, 0.15275252316519466, 0.06546536707079773, 0.06546536707079773]</span><br><span class="line">....</span><br><span class="line">the dimension is 1</span><br><span class="line">the threshold is 3.000000000</span><br><span class="line">the leftLabel is -1</span><br><span class="line">the rightLabel is 1</span><br><span class="line">the error_rate is 0.214285714</span><br><span class="line">the weight is 0.649641492</span><br><span class="line">[0.12535663410560177, 0.12535663410560177, 0.03418817293789139, 0.03418817293789139, 0.07977240352174655, 0.07977240352174655, 0.03418817293789139, 0.07977240352174655, 0.03418817293789139, 0.12535663410560177]</span><br><span class="line">....</span><br><span class="line">the dimension is 0</span><br><span class="line">the threshold is 7.000000000</span><br><span class="line">the leftLabel is 1</span><br><span class="line">the rightLabel is -1</span><br><span class="line">the error_rate is 0.136363636</span><br><span class="line">the weight is 0.922913345</span><br><span class="line">[0.049811675413689895, 0.049811675413689895, 0.08603834844182799, 0.08603834844182799, 0.031698338899620836, 0.031698338899620836, 0.08603834844182799, 0.031698338899620836, 0.01358500238555179, 0.049811675413689895]</span><br><span class="line">predict is 1</span><br><span class="line">predict is 1</span><br><span class="line">predict is -1</span><br><span class="line">predict is -1</span><br><span class="line">predict is 1</span><br><span class="line">predict is 1</span><br><span class="line">predict is -1</span><br><span class="line">predict is 1</span><br><span class="line">predict is -1</span><br><span class="line">predict is -1</span><br></pre></td></tr></table></figure><h4 id="示意图"><a href="#示意图" class="headerlink" title="示意图"></a>示意图</h4><img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/3.%E5%86%B3%E7%AD%96%E6%A0%91%E7%B1%BB%20/%E4%BB%8Eadaboosting%E8%B0%88%E8%B5%B7/4.png" class="" title="[4.png]"><img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/3.%E5%86%B3%E7%AD%96%E6%A0%91%E7%B1%BB%20/%E4%BB%8Eadaboosting%E8%B0%88%E8%B5%B7/3.png" class="" title="[3.png]"><img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/3.%E5%86%B3%E7%AD%96%E6%A0%91%E7%B1%BB%20/%E4%BB%8Eadaboosting%E8%B0%88%E8%B5%B7/5.png" class="" title="[5.png]"><h4 id="一个特殊的训练样本"><a href="#一个特殊的训练样本" class="headerlink" title="一个特殊的训练样本"></a>一个特殊的训练样本</h4><img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/3.%E5%86%B3%E7%AD%96%E6%A0%91%E7%B1%BB%20/%E4%BB%8Eadaboosting%E8%B0%88%E8%B5%B7/6.png" class="" title="[6.png]"><h4 id="一些特殊的decision-stump"><a href="#一些特殊的decision-stump" class="headerlink" title="一些特殊的decision stump"></a>一些特殊的decision stump<br></h4><p>选择三颗树（上文中的代码需要五棵树，因为其交叉选取xy作为decision stump的threshold）就能训练出来，如图所示：<br></p><img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/3.%E5%86%B3%E7%AD%96%E6%A0%91%E7%B1%BB%20/%E4%BB%8Eadaboosting%E8%B0%88%E8%B5%B7/7.png" class="" title="[7.png]"><p>树A：左侧红（-1分），右侧蓝（+1分）</p><p>树B：左侧红（-1分），右侧红（-1分）</p><p>树C：左侧蓝（+1分），右侧红（-1分）</p><p>最后得到，</p><p>A左侧：-1-1+1&#x3D;-1（红）</p><p>A~B:+1-1+1&#x3D;1 （蓝）</p><p>B~C: +1-1+1&#x3D;1（蓝）</p><p>C右侧：+1-1-1&#x3D;-1（红）</p><p>即正确的分类，其中有一棵树比较奇怪，即树B的右侧和左侧同时判断为红色。看起来没有什么用处，但正是这个bias的特点，保证了在这个训练集的非线性能力的实现。</p><h4 id="bias"><a href="#bias" class="headerlink" title="bias"></a>bias</h4><p>我的理解是，bias叫偏好，或者截距（类似于y&#x3D;kx+b里的b）</p><h4 id="神经网络的非线性能力和bias"><a href="#神经网络的非线性能力和bias" class="headerlink" title="神经网络的非线性能力和bias"></a>神经网络的非线性能力和bias</h4><p>神经网络的基本能力是其逻辑运算的能力，即“与”、“或”、”非“的能力。</p><img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/3.%E5%86%B3%E7%AD%96%E6%A0%91%E7%B1%BB%20/%E4%BB%8Eadaboosting%E8%B0%88%E8%B5%B7/8.png" class="" title="[8.png]"><img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/3.%E5%86%B3%E7%AD%96%E6%A0%91%E7%B1%BB%20/%E4%BB%8Eadaboosting%E8%B0%88%E8%B5%B7/9.png" class="" title="[9.png]"><img src="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/3.%E5%86%B3%E7%AD%96%E6%A0%91%E7%B1%BB%20/%E4%BB%8Eadaboosting%E8%B0%88%E8%B5%B7/10.png" class="" title="[10.png]"><p>异或运算&#x3D;(!a&amp;b)||(a&amp;!b)</p><p>即借助bias和sigmoid函数，求内积也可以具有逻辑运算能力，那就赋予了其解决非线性问题的能力。</p><p>svm的非线性能力和kernal</p><p>svm的解决非线性问题是kernel的方法。</p><p>LR的非线性能力和画段</p><p>LR解决非线性问题可以依靠对feature的画段的feature engineer.</p><p>最后，希望在手管的商业化进程中，数据挖掘能力能够协助手管做出一些对手管有益处，用户又不反感的手术刀般精准的商业变现能力。</p><p>能力有限，如有错误，欢迎和各位探讨.</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;从adaboosting到bias的重要性和非线性能力的实现&quot;&gt;&lt;a href=&quot;#从adaboosting到bias的重要性和非线性能力的实现&quot; class=&quot;headerlink&quot; title=&quot;从adaboosting到bias的重要性和非线性能力的实现&quot;&gt;</summary>
-      
-    
-    
-    
-    <category term="1.算法相关" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/"/>
-    
-    <category term="2.搜广推" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2-%E6%90%9C%E5%B9%BF%E6%8E%A8/"/>
-    
-    <category term="3.决策树类 " scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2-%E6%90%9C%E5%B9%BF%E6%8E%A8/3-%E5%86%B3%E7%AD%96%E6%A0%91%E7%B1%BB/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>FTRL</title>
     <link href="https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/4.%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E5%8F%8A%E5%85%B6%E5%8F%98%E5%BD%A2/FTRL/"/>
     <id>https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/4.%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E5%8F%8A%E5%85%B6%E5%8F%98%E5%BD%A2/FTRL/</id>
@@ -516,32 +549,6 @@
     <category term="2.搜广推" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2-%E6%90%9C%E5%B9%BF%E6%8E%A8/"/>
     
     <category term="4.线性回归及其变形" scheme="https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2-%E6%90%9C%E5%B9%BF%E6%8E%A8/4-%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E5%8F%8A%E5%85%B6%E5%8F%98%E5%BD%A2/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>积分系统的思考</title>
-    <link href="https://sampsonguo.github.io/wiki/4.%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/4.%E6%97%A5%E5%B8%B8%E6%80%9D%E8%80%83/%E7%A7%AF%E5%88%86%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%80%9D%E8%80%83/"/>
-    <id>https://sampsonguo.github.io/wiki/4.%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/4.%E6%97%A5%E5%B8%B8%E6%80%9D%E8%80%83/%E7%A7%AF%E5%88%86%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%80%9D%E8%80%83/</id>
-    <published>2024-01-03T09:41:01.095Z</published>
-    <updated>2024-01-04T03:52:25.620Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="无处不在的积分系统"><a href="#无处不在的积分系统" class="headerlink" title="无处不在的积分系统"></a>无处不在的积分系统</h4><p>积分系统非常的常见，比如：</p><ol><li>基于1对1的对战打分：如围棋的对战评分，AlphaGo如何通过几场大战，排名世界第一，这个名次到底应该如何排？</li><li>基于group的对战打分：如codeforces中一场比赛，该场次排名为第x位，那么总积分应该是多少？</li></ol><h4 id="1V1，积分分值和概率转换"><a href="#1V1，积分分值和概率转换" class="headerlink" title="1V1，积分分值和概率转换"></a>1V1，积分分值和概率转换</h4><p>假如有A和B进行对战，A的积分为x，B的积分为y, 积分越高能力越强，能力越强赢得概率越大（不是绝对的赢或者输，否则就没有比赛的必要了），那么如何衡量A赢B的概率呢？</p><ol><li>x&#x3D;y: A和B的能力相等，赢的概率各50%</li><li>x&gt;y: A比B强，赢得概率比B大；x&lt;y则相反</li></ol><p>那么如何将x和y和概率值对接起来？<br><br>观察一下, x&#x3D;y -&gt; 0.5， 而且x和y比较才有意义，那么我们就取x-y，可以很容易想到sigmoid function，如下：<br>p(A赢B) &#x3D; sigmoid(k(x-y)), 其中k是参数，用于调节sigmoid function的形状。<br>其中, sigmoid(x) &#x3D; 1&#x2F;(1+e^x)</p><h4 id="1V1，获胜概率和分值更新"><a href="#1V1，获胜概率和分值更新" class="headerlink" title="1V1，获胜概率和分值更新"></a>1V1，获胜概率和分值更新</h4><p>如果A获胜，B失败，那么A的分值必定增加，B的分值必定减少。<br><br>x-y越大，A增加的越少，B减少的越小；<br><br>x-y越小，A增加的越大，B减少的越大。<br><br>参考Elo rating system，保持群体总分值不变（除非有个体加入），那么A的增加的分值，必定等于B的减少的分值。<br><br>x_new &#x3D; x_old + K * (1 - p)<br><br>y_new &#x3D; y_old + K * (0 - (1-p))<br><br>K表示步长，1表示获胜，p表示A赢B的概率，该公式将预估值往真实值移动。</p><h4 id="Group，Group-Ranking和Total-Ranking"><a href="#Group，Group-Ranking和Total-Ranking" class="headerlink" title="Group，Group Ranking和Total Ranking"></a>Group，Group Ranking和Total Ranking</h4><p>– 待思考补充</p><h4 id="冷启动"><a href="#冷启动" class="headerlink" title="冷启动"></a>冷启动</h4><p>各自设置启动分值即可，比如codeforces上的1500分</p><h4 id="不好的积分系统"><a href="#不好的积分系统" class="headerlink" title="不好的积分系统"></a>不好的积分系统</h4><p>王者荣耀的积分系统，是不好的。<br><br>积分分为几种：青铜，白银，黄金，铂金，钻石，王者。<br><br>这几种大的段位，每个段位里有N个小段位，满五颗星星晋级一段位，赢一场积攒1颗星。<br><br>但是王者有“经验机制”，即打满x盘之后，积累的经验，也可以获得一颗星。<br><br>所以其群体总积分是不断变大的，因此理论上，只要打的足够多，每个人都可以成为王者。<br><br>因此引入了赛季机制，新的赛季默认降低1-2个段位，即是在补“经验机制”的坑。<br><br>因此每到新赛季，连低端段位都很难打。<br><br>我猜测项目组这么做的意义在于，鼓励多打，多打游戏，技术一般也可以上王者。</p><p>参考资料<br><br><a href="http://codeforces.com/blog/entry/102">http://codeforces.com/blog/entry/102</a><br><br><a href="https://en.wikipedia.org/wiki/Elo_rating_system">https://en.wikipedia.org/wiki/Elo_rating_system</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h4 id=&quot;无处不在的积分系统&quot;&gt;&lt;a href=&quot;#无处不在的积分系统&quot; class=&quot;headerlink&quot; title=&quot;无处不在的积分系统&quot;&gt;&lt;/a&gt;无处不在的积分系统&lt;/h4&gt;&lt;p&gt;积分系统非常的常见，比如：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;基于1对1的对战打分：如围棋的</summary>
-      
-    
-    
-    
-    <category term="4.日常相关" scheme="https://sampsonguo.github.io/categories/4-%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/"/>
-    
-    <category term="4.日常思考" scheme="https://sampsonguo.github.io/categories/4-%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/4-%E6%97%A5%E5%B8%B8%E6%80%9D%E8%80%83/"/>
     
     
   </entry>
