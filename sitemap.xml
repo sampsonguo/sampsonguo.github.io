@@ -416,15 +416,6 @@
   </url>
   
   <url>
-    <loc>https://sampsonguo.github.io/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/3.%E7%AE%97%E6%B3%95%E5%B9%B3%E5%8F%B0/place_holder/</loc>
-    
-    <lastmod>2024-01-02</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://sampsonguo.github.io/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/2.%E5%90%8E%E5%8F%B0%E5%BC%80%E5%8F%91/place_holder/</loc>
     
     <lastmod>2024-01-02</lastmod>
@@ -452,7 +443,7 @@
   </url>
   
   <url>
-    <loc>https://sampsonguo.github.io/wiki/4.%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/3.%E6%95%99%E5%91%98%E5%8D%83%E5%8F%A4/place_holder/</loc>
+    <loc>https://sampsonguo.github.io/wiki/3.%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/3.%E7%AE%97%E6%B3%95%E5%B9%B3%E5%8F%B0/place_holder/</loc>
     
     <lastmod>2024-01-02</lastmod>
     
@@ -470,34 +461,16 @@
   </url>
   
   <url>
+    <loc>https://sampsonguo.github.io/wiki/4.%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/3.%E6%95%99%E5%91%98%E5%8D%83%E5%8F%A4/place_holder/</loc>
+    
+    <lastmod>2024-01-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/2.%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3%E7%B1%BB/place_holder/</loc>
-    
-    <lastmod>2024-01-02</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://sampsonguo.github.io/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/1.%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/1.flink/place_holder/</loc>
-    
-    <lastmod>2024-01-02</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://sampsonguo.github.io/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/1.%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2.hive/place_holder/</loc>
-    
-    <lastmod>2024-01-02</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://sampsonguo.github.io/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/2.%E6%95%B0%E6%8D%AE%E6%B9%96/2.impala/place_holder/</loc>
     
     <lastmod>2024-01-02</lastmod>
     
@@ -515,7 +488,34 @@
   </url>
   
   <url>
-    <loc>https://sampsonguo.github.io/tags/index.html</loc>
+    <loc>https://sampsonguo.github.io/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/1.%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2.hive/place_holder/</loc>
+    
+    <lastmod>2024-01-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://sampsonguo.github.io/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/1.%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/1.flink/place_holder/</loc>
+    
+    <lastmod>2024-01-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://sampsonguo.github.io/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/2.%E6%95%B0%E6%8D%AE%E6%B9%96/2.impala/place_holder/</loc>
+    
+    <lastmod>2024-01-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://sampsonguo.github.io/categories/index.html</loc>
     
     <lastmod>2024-01-01</lastmod>
     
@@ -524,7 +524,7 @@
   </url>
   
   <url>
-    <loc>https://sampsonguo.github.io/categories/index.html</loc>
+    <loc>https://sampsonguo.github.io/tags/index.html</loc>
     
     <lastmod>2024-01-01</lastmod>
     
@@ -542,7 +542,7 @@
   </url>
   
   <url>
-    <loc>https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/5.%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/word2vec/</loc>
+    <loc>https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/6.%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/tf-wnd/</loc>
     
     <lastmod>2024-01-01</lastmod>
     
@@ -551,7 +551,7 @@
   </url>
   
   <url>
-    <loc>https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/6.%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/tf-wnd/</loc>
+    <loc>https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/5.%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/word2vec/</loc>
     
     <lastmod>2024-01-01</lastmod>
     
@@ -668,7 +668,7 @@
   </url>
   
   <url>
-    <loc>https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/6.%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/exploding-n-vanishing/</loc>
+    <loc>https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/6.%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/dssm/</loc>
     
     <lastmod>2024-01-01</lastmod>
     
@@ -677,7 +677,7 @@
   </url>
   
   <url>
-    <loc>https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/6.%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/dssm/</loc>
+    <loc>https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/6.%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/exploding-n-vanishing/</loc>
     
     <lastmod>2024-01-01</lastmod>
     
@@ -704,15 +704,6 @@
   </url>
   
   <url>
-    <loc>https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/5.%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/dict-vs-bag-of-words/</loc>
-    
-    <lastmod>2024-01-01</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/6.%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/distributed-tf/</loc>
     
     <lastmod>2024-01-01</lastmod>
@@ -723,6 +714,15 @@
   
   <url>
     <loc>https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/6.%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/dnn-embedding/</loc>
+    
+    <lastmod>2024-01-01</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://sampsonguo.github.io/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/5.%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/dict-vs-bag-of-words/</loc>
     
     <lastmod>2024-01-01</lastmod>
     
@@ -847,7 +847,7 @@
   </url>
   
   <url>
-    <loc>https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/5-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
+    <loc>https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/3-%E7%94%A8%E6%88%B7%E5%A2%9E%E9%95%BF/</loc>
     <lastmod>2024-01-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -868,7 +868,7 @@
   </url>
   
   <url>
-    <loc>https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/3-%E7%94%A8%E6%88%B7%E5%A2%9E%E9%95%BF/</loc>
+    <loc>https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/5-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2024-01-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -917,6 +917,13 @@
   </url>
   
   <url>
+    <loc>https://sampsonguo.github.io/categories/2-%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/2-%E6%95%B0%E6%8D%AE%E6%B9%96/</loc>
+    <lastmod>2024-01-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://sampsonguo.github.io/categories/2-%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/1-%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/</loc>
     <lastmod>2024-01-18</lastmod>
     <changefreq>weekly</changefreq>
@@ -925,13 +932,6 @@
   
   <url>
     <loc>https://sampsonguo.github.io/categories/3-%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/2-%E5%90%8E%E5%8F%B0%E5%BC%80%E5%8F%91/</loc>
-    <lastmod>2024-01-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://sampsonguo.github.io/categories/3-%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/3-%E7%AE%97%E6%B3%95%E5%B9%B3%E5%8F%B0/</loc>
     <lastmod>2024-01-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -952,7 +952,7 @@
   </url>
   
   <url>
-    <loc>https://sampsonguo.github.io/categories/4-%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/3-%E6%95%99%E5%91%98%E5%8D%83%E5%8F%A4/</loc>
+    <loc>https://sampsonguo.github.io/categories/3-%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/3-%E7%AE%97%E6%B3%95%E5%B9%B3%E5%8F%B0/</loc>
     <lastmod>2024-01-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -960,6 +960,13 @@
   
   <url>
     <loc>https://sampsonguo.github.io/categories/4-%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/2-%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/</loc>
+    <lastmod>2024-01-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://sampsonguo.github.io/categories/4-%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/3-%E6%95%99%E5%91%98%E5%8D%83%E5%8F%A4/</loc>
     <lastmod>2024-01-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -987,14 +994,14 @@
   </url>
   
   <url>
-    <loc>https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2-%E6%90%9C%E5%B9%BF%E6%8E%A8/4-%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E5%8F%8A%E5%85%B6%E5%8F%98%E5%BD%A2/</loc>
+    <loc>https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2-%E6%90%9C%E5%B9%BF%E6%8E%A8/3-%E5%86%B3%E7%AD%96%E6%A0%91%E7%B1%BB/</loc>
     <lastmod>2024-01-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2-%E6%90%9C%E5%B9%BF%E6%8E%A8/3-%E5%86%B3%E7%AD%96%E6%A0%91%E7%B1%BB/</loc>
+    <loc>https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2-%E6%90%9C%E5%B9%BF%E6%8E%A8/4-%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E5%8F%8A%E5%85%B6%E5%8F%98%E5%BD%A2/</loc>
     <lastmod>2024-01-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1015,7 +1022,7 @@
   </url>
   
   <url>
-    <loc>https://sampsonguo.github.io/categories/2-%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/1-%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/1-flink/</loc>
+    <loc>https://sampsonguo.github.io/categories/2-%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/2-%E6%95%B0%E6%8D%AE%E6%B9%96/1-iceberg/</loc>
     <lastmod>2024-01-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1036,7 +1043,7 @@
   </url>
   
   <url>
-    <loc>https://sampsonguo.github.io/categories/2-%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/2-%E6%95%B0%E6%8D%AE%E6%B9%96/</loc>
+    <loc>https://sampsonguo.github.io/categories/2-%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/1-%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/1-flink/</loc>
     <lastmod>2024-01-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1044,13 +1051,6 @@
   
   <url>
     <loc>https://sampsonguo.github.io/categories/2-%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/2-%E6%95%B0%E6%8D%AE%E6%B9%96/2-impala/</loc>
-    <lastmod>2024-01-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://sampsonguo.github.io/categories/2-%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/2-%E6%95%B0%E6%8D%AE%E6%B9%96/1-iceberg/</loc>
     <lastmod>2024-01-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1078,14 +1078,14 @@
   </url>
   
   <url>
-    <loc>https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2-%E6%90%9C%E5%B9%BF%E6%8E%A8/9-%E6%8E%A8%E8%8D%90%E6%A1%86%E6%9E%B6/</loc>
+    <loc>https://sampsonguo.github.io/categories/3-%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/1-%E5%B9%B3%E5%8F%B0%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2024-01-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://sampsonguo.github.io/categories/3-%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3/1-%E5%B9%B3%E5%8F%B0%E5%B7%A5%E5%85%B7/</loc>
+    <loc>https://sampsonguo.github.io/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2-%E6%90%9C%E5%B9%BF%E6%8E%A8/9-%E6%8E%A8%E8%8D%90%E6%A1%86%E6%9E%B6/</loc>
     <lastmod>2024-01-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
