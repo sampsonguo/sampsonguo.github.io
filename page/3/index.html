@@ -441,6 +441,15 @@
                         </a>
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/4.%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/elastic-search-md/">elastic-search.md</a></li>  <li class="file"><a href="/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/4.%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/ElasticSearch/">Elastic Search</a></li>  <li class="file"><a href="/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/4.%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/azkaban/">azkaban</a></li>  <li class="file"><a href="/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/4.%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/hivemall/">hivemall</a></li>  <li class="file"><a href="/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/4.%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/storm/">storm</a></li>  </ul> 
                     </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            5.LLM+数据
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/2.%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/5.LLM+%E6%95%B0%E6%8D%AE/vanna/">vanna</a></li>  </ul> 
+                    </li> 
                      </ul> 
                     </li> 
                     
@@ -623,6 +632,95 @@
 </aside>
             
             <section id="main">
+        <article id="post-1.算法相关/2.搜广推/3.决策树类 /从adaboosting谈起" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/">1.算法相关</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2-%E6%90%9C%E5%B9%BF%E6%8E%A8/">2.搜广推</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2-%E6%90%9C%E5%B9%BF%E6%8E%A8/3-%E5%86%B3%E7%AD%96%E6%A0%91%E7%B1%BB/">3.决策树类 </a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/3.%E5%86%B3%E7%AD%96%E6%A0%91%E7%B1%BB%20/%E4%BB%8Eadaboosting%E8%B0%88%E8%B5%B7/">
+            <time datetime="2024-01-03T09:41:01.096Z" itemprop="datePublished">2024-01-03</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/3.%E5%86%B3%E7%AD%96%E6%A0%91%E7%B1%BB%20/%E4%BB%8Eadaboosting%E8%B0%88%E8%B5%B7/">从adaboosting谈起</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h3 id="从adaboosting到bias的重要性和非线性能力的实现"><a href="#从adaboosting到bias的重要性和非线性能力的实现" class="headerlink" title="从adaboosting到bias的重要性和非线性能力的实现"></a>从adaboosting到bias的重要性和非线性能力的实现</h3><p>精准推荐是商业化的重要能力，而分类能力是精准推荐的基础。</p>
+<h4 id="集成学习"><a href="#集成学习" class="headerlink" title="集成学习"></a>集成学习</h4><p>集成学习有两种方法，bagging, boosting和stacking。<br><br>adaboosting全称adaptive boosting（自适应调节的boosting，属于十大机器学习算法之一）</p>
+<p>集成学习：集成学习就是一堆弱分类器一起共同努力，拼凑成一个强分类器，团结的力量就是大。<br><br>（有理论证明弱学习算法（正确率超过50%即可）可以组合提升为强学习算法（多棵决策树有用的原因：一棵准确率0.6，三棵准确率0.6^3+0.6^2<em>0.4</em>3&#x3D;0.648…  ）<br>   既然一堆分类器想要集成，那么就有投票权力的分配问题了。</p>
+<h4 id="投票方法"><a href="#投票方法" class="headerlink" title="投票方法"></a>投票方法</h4><p>一人一票制度：一堆分类器一人一票制度投票，来决定分类结果。如bagging和random forest的方法。</p>
+<p>一人多票制度：一堆分类器，根据分类器的好坏，好分类器多分给他几票，差分类器少分给他几票。如boosting的方法。</p>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/2.%E6%90%9C%E5%B9%BF%E6%8E%A8/3.%E5%86%B3%E7%AD%96%E6%A0%91%E7%B1%BB%20/%E4%BB%8Eadaboosting%E8%B0%88%E8%B5%B7/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-1.算法相关/2.搜广推/4.线性回归及其变形/FTRL" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1365,95 +1463,6 @@
             </div>   
             <div class="article-more-link">
                 <a href="/wiki/4.%E6%97%A5%E5%B8%B8%E7%9B%B8%E5%85%B3/4.%E6%97%A5%E5%B8%B8%E6%80%9D%E8%80%83/%E4%BC%98%E6%83%A0%E5%88%B8%E4%B8%8E%E5%89%A9%E4%BD%99%E4%BB%B7%E5%80%BC/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-1.算法相关/4.数据挖掘/DensityPeaksClustering" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/">1.算法相关</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/1-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/4-%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/">4.数据挖掘</a>
-    </div>
-
-                        
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/4.%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/DensityPeaksClustering/">
-            <time datetime="2024-01-03T09:40:59.545Z" itemprop="datePublished">2024-01-03</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/4.%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/DensityPeaksClustering/">DensityPeaksClustering</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><h3 id="Clustering-by-fast-search-and-find-of-density-peaks"><a href="#Clustering-by-fast-search-and-find-of-density-peaks" class="headerlink" title="Clustering by fast search and find of density peaks"></a>Clustering by fast search and find of density peaks</h3><ul>
-<li><p><strong>文章来源</strong><br><br>发表在science上<br><br>网址：<a href="http://www.sciencemag.org/content/344/6191/1492.short">http://www.sciencemag.org/content/344/6191/1492.short</a></p>
-</li>
-<li><p><strong>两个观点</strong><br></p>
-<ul>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/wiki/1.%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/4.%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/DensityPeaksClustering/#more">Read More</a>
             </div>
         
         <footer class="article-footer">
