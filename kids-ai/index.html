@@ -790,7 +790,7 @@ body{touch-action:manipulation}
 <!-- 底部UI -->
 <div id="ui">
   <span id="pager">1 / 27</span>
-  <span id="hint">← → 翻页 · 点卡片揭晓答案 · N 讲稿备注 · F 全屏</span>
+  <span id="hint">← → 或 点空白处翻页 · 点卡片揭晓答案 · N 讲稿备注 · F 全屏</span>
   <div class="navbtns"><button id="prevBtn" title="上一页">‹</button><button id="nextBtn" title="下一页">›</button></div>
   <div id="progress"><div id="bar"></div></div>
 </div>
@@ -841,11 +841,11 @@ document.addEventListener('keydown',e=>{
     if(notesOn){const n=slides[cur].getAttribute('data-note')||'';noteBox.innerHTML='<b>讲稿备注：</b>'+n}
   }
 });
-/* 屏幕左右边缘点击翻页（中间区域留给卡片互动） */
+/* 点击空白处翻页：点任意空白 → 下一页；点屏幕左边缘 → 上一页（卡片、按钮等互动元素不翻页） */
 deck.addEventListener('click',e=>{
   const r=deck.getBoundingClientRect();
   const x=(e.clientX-r.left)/r.width;
-  if(x>0.93){next()}else if(x<0.07){prev()}
+  if(x<0.07){prev()}else{next()}
 });
 /* 触屏滑动翻页（手机/平板：左右滑动） */
 let tsX=0,tsY=0;
