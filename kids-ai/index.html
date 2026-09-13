@@ -155,8 +155,32 @@ h1.title{font-size:60px;line-height:1.2;font-weight:900;color:#26305B;margin:8px
 #pager{font-size:18px;font-weight:800;color:#8A97C8;background:rgba(255,255,255,.85);padding:4px 14px;border-radius:999px;pointer-events:auto}
 #hint{font-size:16px;color:#9AA6CE;font-weight:600}
 .navbtns{margin-left:auto;display:flex;gap:10px;pointer-events:auto}
-.navbtns button{width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.92);color:#4C63D2;font-size:26px;font-weight:900;cursor:pointer;box-shadow:0 6px 16px rgba(63,84,150,.2);font-family:inherit}
+.navbtns button{width:54px;height:54px;border-radius:50%;border:0;background:rgba(255,255,255,.92);color:#4C63D2;font-size:30px;font-weight:900;cursor:pointer;box-shadow:0 6px 16px rgba(63,84,150,.2);font-family:inherit;-webkit-tap-highlight-color:transparent}
 .navbtns button:hover{background:#4C7DFF;color:#fff}
+/* ============ 触屏翻页（手机/平板） ============ */
+body{touch-action:manipulation}
+#touchNav{position:fixed;inset:0;z-index:200;pointer-events:none;display:none}
+#touchNav button{position:absolute;top:50%;transform:translateY(-50%);width:60px;height:60px;border-radius:50%;border:0;background:rgba(255,255,255,.88);color:#4C63D2;font-size:34px;font-weight:900;box-shadow:0 8px 22px rgba(0,0,0,.32);pointer-events:auto;font-family:inherit;-webkit-tap-highlight-color:transparent;cursor:pointer}
+#touchNav #tPrev{left:12px}
+#touchNav #tNext{right:12px}
+@media (pointer:coarse){#touchNav{display:block}}
+
+/* ============ 畅想互动·三问卡 ============ */
+.ask-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:40px}
+.ask-card{background:#fff;border-radius:28px;padding:34px 22px 28px;text-align:center;box-shadow:0 14px 34px rgba(124,58,237,.16);border-top:12px solid #8B5CF6;display:flex;flex-direction:column;align-items:center;gap:12px}
+.ask-emoji{font-size:76px;line-height:1;animation:floaty 4s ease-in-out infinite}
+.ask-q{font-size:29px;font-weight:900;color:#26305B;line-height:1.4}
+.ask-q b{color:#E1507A}
+.ask-sub{font-size:21px;color:#7B8AC0;font-weight:700}
+
+/* ============ 总结·秘密卡 ============ */
+.secret-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:46px;width:100%;max-width:1150px}
+.secret-card{background:rgba(255,255,255,.97);border-radius:26px;padding:30px 20px 24px;text-align:center;box-shadow:0 16px 36px rgba(10,40,80,.28);position:relative;display:flex;flex-direction:column;align-items:center;gap:10px}
+.secret-num{position:absolute;top:-21px;left:50%;transform:translateX(-50%);width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#FFD166,#F59E0B);color:#fff;font-size:25px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 14px rgba(245,158,11,.45)}
+.secret-emoji{font-size:42px;margin-top:12px;letter-spacing:4px}
+.secret-title{font-size:28px;font-weight:900;color:#0F766E}
+.secret-sub{font-size:21px;font-weight:800;color:#5B6B99;line-height:1.5}
+
 #noteBox{position:absolute;left:22px;right:22px;bottom:70px;z-index:60;background:rgba(24,30,58,.94);color:#E8ECFF;border-radius:18px;padding:18px 26px;font-size:21px;line-height:1.55;display:none;box-shadow:0 16px 40px rgba(0,0,0,.4)}
 #noteBox b{color:#FFD166}
 </style>
@@ -584,7 +608,7 @@ h1.title{font-size:60px;line-height:1.2;font-weight:900;color:#26305B;margin:8px
 </section>
 
 <!-- 20 AI里程碑时间线 -->
-<section class="slide s-p3" data-note="讲AI的成长相册：1956年科学家给它取名“人工智能”；1997年“深蓝”赢了国际象棋世界冠军；2016年AlphaGo以4:1赢了围棋世界冠军李世石——围棋超级难，大家本来以为AI还要100年才能赢！2022年ChatGPT让每个人都会和AI聊天；2025年中国的DeepSeek惊艳世界，机器人还上了春晚！（约3分钟）">
+<section class="slide s-p3" data-note="讲AI的成长相册：1956年科学家给它取名“人工智能”；1997年“深蓝”赢了国际象棋世界冠军；2016年AlphaGo以4:1赢了围棋世界冠军李世石——围棋超级难，大家本来以为AI还要100年才能赢！2022年ChatGPT让每个人都会和AI聊天；2025年宇树机器人上春晚扭秧歌，中国的DeepSeek也惊艳世界！（约3分钟）">
   <span class="kicker">AI的成长相册</span>
   <h1 class="title" style="font-size:52px">AI的五个大日子 📅</h1>
   <div class="tl">
@@ -613,7 +637,7 @@ h1.title{font-size:60px;line-height:1.2;font-weight:900;color:#26305B;margin:8px
       <div class="tl-item pop" style="animation-delay:.4s">
         <div class="tl-dot" style="border:5px solid #34D399">🇨🇳</div>
         <div class="tl-year">2025</div>
-        <div class="tl-card"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAQDAwMDAgQDAwMEBAQFBgoGBgUFBgwICQcKDgwPDg4MDQ0PERYTDxAVEQ0NExoTFRcYGRkZDxIbHRsYHRYYGRj/2wBDAQQEBAYFBgsGBgsYEA0QGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBj/wAARCAFoAeADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD7+ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiori6trSAz3VxFBEvV5XCKPxNNJt2QEtFcvcfEjwFaymObxfowYdQt0jY/ImtDSPFnhnX5DFouvadfyAZMdvcK7D/gIOa6J4PEQjzyptLvZ2IVSDdk0bFFFFcxYUUVk+JtfsvC/hO/1/UD+4tIjIVBwXPRVHuSQB9aunTlUmoQV29F6sTairs1qK8X+D/xl1Hx34ov9E1y1s7ebyzcWjW6soKggMhyTk4IIPsa9orrzHLq+XV3h8QrSWv3mdGtGtHnhsFFFFcJqFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUVma94h0bwzosuq65fxWdrH1eQ8sfRR1Y+w5r5w8cftHaxqMktj4Mg/sy15X7ZMoadx6gcqn6n3FezlOQYzNJWw8fd6yeiX9eRzYjF06C9969j6U1PWdJ0W0+06vqdpYQ/wDPS5lWMfqa4LVPjz8NdNcxrrMt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3r+gTGLWtGvrFgcf6RCyA/QkYP4V+glMkijljMcsauh4KsMg/hX22B8QMZRSjiYKa7/C/wBV+B5tXKactYO34n51kEHBFJX3lf8Aw88Dakxe88J6RI56uLVUY/ioBrGk+Cnwxlbc3hWEH/ZuJl/k9e/T8RMG1+8pSXpZ/qjkeUVOkkfE1GD6V9tRfBX4YxEFfCsBI/vzzN/N61LT4a+AbJg1v4Q0fcOjSWyyH82zRPxDwa+ClJ+tl+rBZRU6yR8NWmn3+oXP2ewsri6mPSOGMux/AV6L4a+A3xA1+RHudOXSLY4zLftsbHsgy2fqBX2FaWNlYwiGytILaMdEhjCD8gKsV42M8Q8TNOOGpKPm3d/ovzOmnlEFrOVzyvwT8B/CHhR473UEOt6imCJbpQIkPqsfT8Wz7Yr1QAAYAoor4fG5hiMbU9riZuT8/wBFsvkenTpQpLlgrBRRRXGaBRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFAH//Z" alt="DeepSeek"><p>中国DeepSeek<br>惊艳世界<br>机器人上春晚</p></div>
+        <div class="tl-card"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI2LjMuMSwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IuWbvuWxgl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIKCSB2aWV3Qm94PSIwIDAgODcwLjkzIDE5Ni4xOCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgODcwLjkzIDE5Ni4xODsiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPgoJLnN0MHtmaWxsOiMwNDAwMDA7fQoJLnN0MXtmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDtmaWxsOiMwNDAwMDA7fQo8L3N0eWxlPgo8Zz4KCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0zMzYuMjgsMTUuODVsLTI4LjIyLDExMy42NGMtMS41LDYuMDUtMi42OCw4LjI1LTQuNDMsMTAuNDhjLTEuNzIsMi4yLTMuODksMy45My02LjQsNS4xMwoJCWMtMi41MSwxLjE4LTQuODYsMS44MS0xMC45MiwxLjgxaC0xOS4ybDMyLjU1LTEzMS4wNkMyOTkuNjYsMTUuODUsMzM2LjI4LDE1Ljg1LDMzNi4yOCwxNS44NXoiLz4KCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0xNDQuOCw1MC41NWwtMTguOTQsNzYuMjljLTEuNzMsNi45OC0zLjA3LDkuNS01LjEsMTIuMDdjLTIuMDEsMi41Ni00LjQ4LDQuNTUtNy4zOSw1Ljk0CgkJYy0yLjksMS4zNS01LjYxLDIuMDgtMTIuNTgsMi4wOEgyOS4xNmMtNi45OCwwLTkuMzItMC43My0xMS41NS0yLjA4Yy0yLjIyLTEuMzktMy43MS0zLjM3LTQuNDQtNS45NAoJCWMtMC43NS0yLjU2LTAuODQtNS4wOSwwLjktMTIuMDdsMTguOTQtNzYuMjloMzYuNjJsLTE4LjExLDcyLjkxYy0wLjY5LDIuNzktMC42NSwzLjgtMC4zNSw0Ljg0YzAuMjksMS4wMiwwLjg4LDEuODEsMS43OCwyLjM3CgkJYzAuODcsMC41NCwxLjgyLDAuODMsNC42MSwwLjgzaDIyLjQ3YzIuNzksMCwzLjg5LTAuMjksNS4wMi0wLjgzYzEuMTgtMC41NiwyLjE3LTEuMzUsMi45Ni0yLjM3YzAuODItMS4wNCwxLjM2LTIuMDQsMi4wNS00Ljg0CgkJbDE4LjExLTcyLjkxQzEwOC4xNyw1MC41NSwxNDQuOCw1MC41NSwxNDQuOCw1MC41NXoiLz4KCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik01ODcuMDQsMTQ3LjE3aC00MC4xOWwtMjkuNy01Ny40NGgzMC4xMWMyLjc5LDAsMy44Ny0wLjI5LDUuMDItMC44M2MwLjQ4LTAuMjMsMC45My0wLjUsMS4zNC0wLjgxCgkJYzAuNjEtMC40NCwxLjE1LTAuOTYsMS42Mi0xLjU2YzAuNzktMS4wMiwxLjM0LTIuMDQsMi4wMy00Ljg0bDEuNzktNy4yMWMwLjY5LTIuNzksMC42NS0zLjgsMC4zNy00LjgyCgkJYy0wLjE4LTAuNi0wLjQ1LTEuMTQtMC44NS0xLjU2Yy0wLjI1LTAuMzMtMC41Ni0wLjYtMC45NC0wLjgxYy0wLjg5LTAuNTQtMS44Mi0wLjgzLTQuNjEtMC44M2gtMzAuMTFsLTE5Ljk4LDgwLjQ1aC0zNi42MgoJCWwyMy45My05Ni4zN2g5NC4yM2M2LjA3LDAsOC4xLDAuNjIsMTAuMDIsMS43OWMxLjkyLDEuMTksMy4yMiwyLjkzLDMuODUsNS4xNWMwLjExLDAuMzUsMC4xOSwwLjcxLDAuMjUsMS4wOAoJCWMwLjM5LDEuOTMsMC4yNCw0LjMtMS4wMiw5LjM5bC00Ljk5LDIwLjA4Yy0xLjI2LDUuMDktMi4zLDcuNDYtMy42NCw5LjM5Yy0wLjI1LDAuMzctMC41MSwwLjczLTAuNzksMS4wOAoJCWMtMS43MywyLjIyLTMuODksMy45NS02LjQsNS4xNWMtMi41MSwxLjE4LTQuODQsMS43OS0xMC45MSwxLjc5aC03Ljc5bDAsMEw1ODcuMDQsMTQ3LjE3eiIvPgoJPHBhdGggY2xhc3M9InN0MCIgZD0iTTY0Ny41OCw4Ny4xN2g3NS4xN2wtNC4zMSwxNy4zNWgtNjcuMTNjLTIuNzksMC0zLjg3LDAuMjktNS4wMiwwLjgzYy0xLjE2LDAuNTYtMi4xNywxLjM1LTIuOTYsMi4zNwoJCWMtMC44MSwxLjAyLTEuMzYsMi4wNC0yLjA1LDQuODRsLTQuMjMsMTcuMDJoNzUuMTdsLTQuMzEsMTcuMzVoLTkxLjY5Yy03LDAtOS4zNC0wLjczLTExLjU1LTIuMDhjLTIuMjItMS4zOS0zLjczLTMuMzctNC40Ni01Ljk0CgkJYy0wLjczLTIuNTYtMC44NC01LjA5LDAuOS0xMi4wN2wxNC42Mi01OC44OGMxLjUtNi4wNSwyLjY4LTguMjUsNC40My0xMC40N2MxLjczLTIuMjIsMy44OS0zLjk1LDYuNC01LjE1CgkJYzIuNTEtMS4xOCw0Ljg2LTEuNzksMTAuOTEtMS43OWg5NC4zNmwtNC4zMSwxNy4zNUg2NjAuNGMtMi43OSwwLTMuODcsMC4yOS01LjAyLDAuODNjLTEuMTYsMC41Ni0yLjE3LDEuMzUtMi45NiwyLjM3CgkJYy0wLjgxLDEuMDItMS4zNiwyLjA0LTIuMDUsNC44NEw2NDcuNTgsODcuMTd6Ii8+Cgk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNNzc3Ljc1LDg3LjE3aDc1LjE3bC00LjMxLDE3LjM1aC02Ny4xM2MtMi43OSwwLTMuODksMC4yOS01LjA0LDAuODNjLTEuMTYsMC41Ni0yLjE1LDEuMzUtMi45NiwyLjM3CgkJYy0wLjc5LDEuMDItMS4zNCwyLjA0LTIuMDMsNC44NGwtNC4yMywxNy4wMmg3NS4xN2wtNC4zMSwxNy4zNWgtOTEuNzFjLTcsMC05LjM0LTAuNzMtMTEuNTUtMi4wOGMtMi4yMi0xLjM5LTMuNzMtMy4zNy00LjQ0LTUuOTQKCQljLTAuNzUtMi41Ni0wLjg0LTUuMDksMC45LTEyLjA3bDE0LjYyLTU4Ljg4YzEuNS02LjA1LDIuNjctOC4yNSw0LjQxLTEwLjQ3YzEuNzMtMi4yMiwzLjg5LTMuOTUsNi40Mi01LjE1CgkJYzIuNDktMS4xOCw0Ljg0LTEuNzksMTAuODktMS43OUg4NjJsLTQuMzEsMTcuMzVoLTY3LjEzYy0yLjc5LDAtMy44OSwwLjI5LTUuMDQsMC44M2MtMS4xNiwwLjU2LTIuMTUsMS4zNS0yLjk2LDIuMzcKCQljLTAuNzksMS4wMi0xLjM0LDIuMDQtMi4wMyw0Ljg0TDc3Ny43NSw4Ny4xN3oiLz4KCTxnPgoJCTxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0yNzQuNDEsNTAuNTVsLTIzLjkzLDk2LjM3aC0yNS4zM2MtNi4wNywwLTguMDktMC42NC0xMC4wMi0xLjgxYy0wLjI1LTAuMTUtMC40OC0wLjMxLTAuNy0wLjUKCQkJYy0xLjMtMC45Ni0yLjI3LTIuMjUtMi44OC0zLjc4YzAuMDEtMC4wNCwwLTAuMDYtMC4wMi0wLjA4bC0yMC45Mi01NS40N2wtMTUuMzEsNjEuNjRoLTM2LjYybDIzLjkzLTk2LjM3aDI1LjMzCgkJCWM2LjA1LDAsOC4xLDAuNjIsMTAuMDIsMS43OWMwLjI1LDAuMTUsMC40OCwwLjMxLDAuNywwLjVjMS4zMiwwLjk4LDIuMjcsMi4yNSwyLjg3LDMuODJjMC4wMSwwLjAyLDAuMDEsMC4wMiwwLjAzLDAuMDQKCQkJbDIwLjkyLDU1LjQ3bDE1LjMtNjEuNjJIMjc0LjQxeiIvPgoJPC9nPgoJPGc+CgkJPHBvbHlnb24gY2xhc3M9InN0MCIgcG9pbnRzPSI0NzMuMDcsNTAuNTUgNDY4LjUyLDY4Ljg2IDQyMi4yNyw2OC44NiAzOTQuMjcsMTgxLjYxIDM1Ny42NSwxODEuNjEgMzg1LjY0LDY4Ljg2IDMzOS4zOSw2OC44NiAKCQkJMzQzLjkzLDUwLjU1IAkJIi8+Cgk8L2c+CjwvZz4KPC9zdmc+Cg==" alt="宇树科技" style="width:150px;height:64px;object-fit:contain"><p>宇树机器人<br>上春晚扭秧歌<br>DeepSeek惊艳世界</p></div>
       </div>
     </div>
   </div>
@@ -702,10 +726,22 @@ h1.title{font-size:60px;line-height:1.2;font-weight:900;color:#26305B;margin:8px
 <section class="slide s-p3" data-note="大讨论：如果你有一个机器人朋友，你最想让它做什么？为什么？有什么事情你不希望它替你做？请3-4个小朋友发言，引导他们发现：AI做不了的（爱、友谊、想象），恰恰最重要。（约3分钟）">
   <span class="tag">🙋 开动小脑筋</span>
   <h1 class="title" style="font-size:52px">如果你有一个机器人朋友……</h1>
-  <div class="think-list">
-    <div class="think-item pop" style="animation-delay:.1s"><span class="te">🤖</span><div>你最想让它<b style="color:#E1507A">做什么</b>？为什么？</div></div>
-    <div class="think-item pop" style="animation-delay:.25s"><span class="te">🙅</span><div>有什么事情，你<b style="color:#E1507A">不希望</b>它替你做？</div></div>
-    <div class="think-item pop" style="animation-delay:.4s"><span class="te">💝</span><div>想一想：AI做不了的那些事，是不是<b style="color:#E1507A">最重要的事</b>？</div></div>
+  <div class="ask-grid">
+    <div class="ask-card pop" style="animation-delay:.1s">
+      <div class="ask-emoji">🤖💭</div>
+      <div class="ask-q">你最想让它<b>做什么</b>？</div>
+      <div class="ask-sub">说一说为什么～</div>
+    </div>
+    <div class="ask-card pop" style="animation-delay:.25s">
+      <div class="ask-emoji">🙅✋</div>
+      <div class="ask-q">哪些事，<b>不希望</b>它替你做？</div>
+      <div class="ask-sub">哪些事必须自己来？</div>
+    </div>
+    <div class="ask-card pop" style="animation-delay:.4s">
+      <div class="ask-emoji">💝🌟</div>
+      <div class="ask-q">AI做不了的事，<br>是不是<b>最重要的事</b>？</div>
+      <div class="ask-sub">爱、友谊、想象力……</div>
+    </div>
   </div>
 </section>
 
@@ -715,10 +751,25 @@ h1.title{font-size:60px;line-height:1.2;font-weight:900;color:#26305B;margin:8px
   <span class="deco" style="right:10%;bottom:16%;font-size:58px;animation-delay:1.2s">🌟</span>
   <div class="section-wrap">
     <h1 class="title pop" style="text-align:center">今天带回家的三个小秘密 🌟</h1>
-    <div style="margin-top:26px;display:flex;flex-direction:column;gap:18px;width:900px">
-      <div class="think-item pop" style="animation-delay:.15s"><span class="te">1️⃣</span><div>AI就在我们身边：<b style="color:#0F766E">会看、会听、会玩、会猜</b></div></div>
-      <div class="think-item pop" style="animation-delay:.3s"><span class="te">2️⃣</span><div>AI不是万能的：<b style="color:#0F766E">会犯错、要检查、不能替你思考</b></div></div>
-      <div class="think-item pop" style="animation-delay:.45s"><span class="te">3️⃣</span><div>AI靠<b style="color:#0F766E">学习</b>变聪明——未来的AI，等你们来创造！</div></div>
+    <div class="secret-grid">
+      <div class="secret-card pop" style="animation-delay:.15s">
+        <div class="secret-num">1</div>
+        <div class="secret-emoji">👀 👂 🎮 ❤️</div>
+        <div class="secret-title">AI就在身边</div>
+        <div class="secret-sub">会看 · 会听 · 会玩 · 会猜</div>
+      </div>
+      <div class="secret-card pop" style="animation-delay:.3s">
+        <div class="secret-num">2</div>
+        <div class="secret-emoji">🙅 🔍 🧠</div>
+        <div class="secret-title">AI不是万能的</div>
+        <div class="secret-sub">会犯错 · 要检查 ·<br>不能替你思考</div>
+      </div>
+      <div class="secret-card pop" style="animation-delay:.45s">
+        <div class="secret-num">3</div>
+        <div class="secret-emoji">📚 🚀 🌟</div>
+        <div class="secret-title">AI靠学习变聪明</div>
+        <div class="secret-sub">未来的AI，<br>等你们来创造！</div>
+      </div>
     </div>
   </div>
 </section>
@@ -733,7 +784,6 @@ h1.title{font-size:60px;line-height:1.2;font-weight:900;color:#26305B;margin:8px
     <div class="cover-title pop" style="animation-delay:.15s;font-size:84px">谢谢大家！</div>
     <div class="cover-sub pop" style="animation-delay:.3s">分享人：郭仕万爸爸 · 提问时间到，开动你们的小脑筋吧～</div>
     <div class="cover-badge pop" style="animation-delay:.4s;font-size:22px;background:rgba(255,209,102,.25);border:2px solid #FFD166">✨ 小彩蛋：这份PPT课件，也是AI帮忙一起做的哦！</div>
-    <div class="cover-badge pop" style="animation-delay:.55s;font-size:17px;line-height:1.7">图片来源：Wikimedia Commons（CC授权）深蓝/李世石/人脸识别/儿童画/蒸汽机车/宇树G1/猫咪/神经元/电路板 · 元萝卜（商汤官方图）· 小米AI音箱（小米官网）· 汽车导航实拍 · 梗图@teenybiscuit · 蒲公英实拍<br>视频来源：总台春晚《秧BOT》 哔哩哔哩 BV1eHFxe9Eth</div>
   </div>
 </section>
 
@@ -747,6 +797,7 @@ h1.title{font-size:60px;line-height:1.2;font-weight:900;color:#26305B;margin:8px
 <div id="noteBox"></div>
 
 </div>
+<div id="touchNav"><button id="tPrev" title="上一页">‹</button><button id="tNext" title="下一页">›</button></div>
 <script>
 const slides=[...document.querySelectorAll('.slide')];
 const deck=document.getElementById('deck');
@@ -796,6 +847,18 @@ deck.addEventListener('click',e=>{
   const x=(e.clientX-r.left)/r.width;
   if(x>0.93){next()}else if(x<0.07){prev()}
 });
+/* 触屏滑动翻页（手机/平板：左右滑动） */
+let tsX=0,tsY=0;
+deck.addEventListener('touchstart',e=>{tsX=e.changedTouches[0].clientX;tsY=e.changedTouches[0].clientY},{passive:true});
+deck.addEventListener('touchend',e=>{
+  const dx=e.changedTouches[0].clientX-tsX,dy=e.changedTouches[0].clientY-tsY;
+  if(Math.abs(dx)>48&&Math.abs(dx)>Math.abs(dy)*1.4){dx<0?next():prev()}
+},{passive:true});
+document.getElementById('tPrev').onclick=e=>{e.stopPropagation();prev()};
+document.getElementById('tNext').onclick=e=>{e.stopPropagation();next()};
+if(window.matchMedia('(pointer:coarse)').matches){
+  document.getElementById('hint').textContent='👆 左右滑动翻页 · 也可以点屏幕两侧的大箭头';
+}
 /* 翻牌 */
 document.querySelectorAll('.flipcard').forEach(c=>{
   c.addEventListener('click',e=>{c.classList.toggle('flipped');e.stopPropagation()});
